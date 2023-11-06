@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
    MagnifyingGlassIcon,
@@ -6,8 +7,26 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import { DateRangePicker } from "react-date-range";
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 
 function Header() {
+   const [searchInput, setSearchInput] = useState("");
+   const [startDate, setStartDate] = useState(new Date());
+   const [endDate, setEndDate] = useState(new Date());
+
+   const selectionRange = {
+      startDate: startDate,
+      endDate: endDate,
+      key: "selection",
+   };
+
+   const handleDateSelect = (ranges) => {
+      setStartDate(ranges.selection.startDate);
+      setEndDate(ranges.selection.endDate);
+   };
+
    return (
       <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10">
          {/* Left */}
@@ -31,14 +50,16 @@ function Header() {
                text-gray-600 placeholder-gray-400"
                type="text"
                placeholder="Start your search"
+               value={searchInput}
+               onChange={(e) => setSearchInput(e.target.value)}
             />
             <MagnifyingGlassIcon className="hidden md:inline-flex h-8 bg-red-400 text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2" />
          </div>
 
          {/* Right */}
-         <div className="flex items-center space-x-4 justify-end text-gray-500">
+         <div className="flex items-center space-x-4 justify-end text-[##222222] text-sm">
             <p className="hidden md:inline cursor-pointer">
-               Become a host
+               Airbnb your home
             </p>
             <GlobeAltIcon className="h-6 cursor-pointer" />
 
@@ -47,6 +68,17 @@ function Header() {
                <UserCircleIcon className="h-6" />
             </div>
          </div>
+
+         {searchInput && (
+            <div className="flex flex-col col-span-3 mx-auto">
+               <DateRangePicker
+                  ranges={[selectionRange]}
+                  minDate={new Date()}
+                  rangeColors={["#FD5B61"]}
+                  onChange={handleDateSelect}
+               />
+            </div>
+         )}
       </header>
    );
 }

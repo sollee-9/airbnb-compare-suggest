@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 import Options from "@/components/Options";
 import Footer from "@/components/Footer";
-
+import Page2 from "@/pages/page2";
 export default function Home() {
    return (
       <main className="">
@@ -12,12 +12,8 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
 
-         <Header />
-         <Banner />
-
-         <Options />
-
-         <Footer />
+         {/* <Page1 /> */}
+         <Page2 />
       </main>
    );
 }
