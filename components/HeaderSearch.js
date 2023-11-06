@@ -17,9 +17,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import DatePopup from "./DatePopup";
 import LocationPopup from "./LocationPopup";
 
-function HeaderSearch() {
-   const [selected, setSelected] = useState("");
-
+function HeaderSearch({ selected, setSelected }) {
    const [startDate, setStartDate] = useState(new Date());
    const [endDate, setEndDate] = useState(new Date());
    console.log("here", startDate.toDateString());

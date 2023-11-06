@@ -22,6 +22,9 @@ function HeaderNew() {
    const [endDate, setEndDate] = useState(new Date());
 
    const [searchOpen, setSearchOpen] = useState(false);
+
+   const [selected, setSelected] = useState("");
+
    const selectionRange = {
       startDate: startDate,
       endDate: endDate,
@@ -33,8 +36,12 @@ function HeaderNew() {
       setEndDate(ranges.selection.endDate);
    };
 
+   // const handleClick = () => {
+   //    setSearchOpen(!searchOpen);
+   // };
+
    return searchOpen ? (
-      <HeaderSearch />
+      <HeaderSearch selected={selected} setSelected={setSelected} />
    ) : (
       <header className="sticky top-0 z-50 grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10">
          {/* Left */}
@@ -57,14 +64,24 @@ function HeaderNew() {
             <button
                className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
             text-ellipsis	whitespace-nowrap overflow-hidden"
-               onClick={() => setSearchOpen(true)}
+               onClick={() => {
+                  setSearchOpen(true);
+                  setSearchInput("where");
+               }}
             >
                Anywhere
             </button>
-            <button className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	whitespace-nowrap overflow-hidden">
+            <button
+               className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	
+            whitespace-nowrap overflow-hidden"
+               onClick={() => setSearchOpen(true)}
+            >
                Any Week
             </button>
-            <button className="text-[#7a7a7a] px-4 flex-grow text-sm text-ellipsis	whitespace-nowrap overflow-hidden">
+            <button
+               onClick={() => setSearchOpen(true)}
+               className="text-[#7a7a7a] px-4 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+            >
                Add guests
             </button>
             <MagnifyingGlassIcon className="hidden md:inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2 font-extrabold" />
