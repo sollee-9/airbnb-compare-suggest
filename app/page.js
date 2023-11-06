@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 import Options from "@/components/Options";
+import Footer from "@/components/Footer";
 
 export default function Home() {
    return (
@@ -15,6 +16,8 @@ export default function Home() {
          <Banner />
 
          <Options />
+
+         <Footer />
       </main>
    );
 }
