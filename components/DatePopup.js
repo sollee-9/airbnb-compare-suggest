@@ -3,7 +3,13 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 
-function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
+function DatePopup({
+   startDate,
+   endDate,
+   setStartDate,
+   setEndDate,
+   setSelected,
+}) {
    const selectionRange = {
       startDate: startDate,
       endDate: endDate,
@@ -15,8 +21,6 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
       setEndDate(ranges.selection.endDate);
    };
 
-   //    flex-col absolute h-[460px] min-w-[300px] sm:w-[300px] md:w-[450px] bg-white
-   //       top-[70px] rounded-[30px] shadow-lg justify-start p-10 border border-gray-200
    return (
       <div className="absolute top-[70px] left-[100px] rounded-[30px] bg-white shadow-lg">
          <div className="flex justify-center">

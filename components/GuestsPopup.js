@@ -1,8 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import GuestsPopupSection from "./GuestsPopupSection";
 
-function GuestsPopup() {
+function GuestsPopup({ setSelected }) {
    return (
       <div
          className="flex-col absolute h-[380px] min-w-[280px] sm:w-[280px] md:w-[400px] bg-white 

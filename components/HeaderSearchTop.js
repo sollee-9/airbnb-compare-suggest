@@ -4,7 +4,7 @@ import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
 
-function HeaderSearchTop() {
+function HeaderSearchTop({ setSelected }) {
    return (
       <>
          {/* Left */}
@@ -18,11 +18,15 @@ function HeaderSearchTop() {
                fill
                sizes="100vw"
                alt="airbnb logo"
+               onClick={() => setSelected("search")}
             />
          </div>
 
          {/* Middle */}
-         <div className="flex flex-grow">
+         <div
+            className="flex flex-grow"
+            onClick={() => setSelected("search")}
+         >
             <button className="p-5 font-light underline">
                Stays
             </button>
@@ -33,7 +37,10 @@ function HeaderSearchTop() {
          </div>
 
          {/* Right */}
-         <div className="hidden md:flex items-center space-x-4 justify-end text-[##222222] text-sm">
+         <div
+            className="hidden md:flex items-center space-x-4 justify-end text-[##222222] text-sm"
+            onClick={() => setSelected("search")}
+         >
             <p className="hidden lg:inline cursor-pointer">
                Airbnb your home
             </p>

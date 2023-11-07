@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
-function LocationPopup() {
+
+function LocationPopup({ setSelected }) {
    return (
       <div
          className="flex-col absolute h-[460px] min-w-[300px] sm:w-[300px] md:w-[450px] bg-white 
-      top-[70px] rounded-[30px] shadow-lg justify-start p-10 border border-gray-200"
+               top-[70px] rounded-[30px] shadow-lg justify-start p-10 border border-gray-200 z-50"
       >
          <p className="font-medium text-sm mb-8">Search by region</p>
 
