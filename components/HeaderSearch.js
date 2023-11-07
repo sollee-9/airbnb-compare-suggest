@@ -16,51 +16,16 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import DatePopup from "./DatePopup";
 import LocationPopup from "./LocationPopup";
+import HeaderSearchTop from "./HeaderSearchTop";
+import GuestsPopup from "./GuestsPopup";
 
 function HeaderSearch({ selected, setSelected }) {
    const [startDate, setStartDate] = useState(new Date());
    const [endDate, setEndDate] = useState(new Date());
-   console.log("here", startDate.toDateString());
+
    return (
       <header className="sticky top-0 z-50 grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10">
-         {/* Left */}
-         <div className="hidden md:flex relative items-center h-10 cursor-pointer my-auto">
-            <Image
-               src="https://links.papareact.com/qd3"
-               style={{
-                  objectFit: "contain",
-                  objectPosition: "left",
-               }}
-               fill
-               sizes="100vw"
-               alt="airbnb logo"
-            />
-         </div>
-
-         {/* Middle */}
-         <div>
-            <button className="p-5 font-light underline">
-               Stays
-            </button>
-            <button className="p-5 font-light">Experiences</button>
-            <button className="p-5 font-light">
-               Online Experiences
-            </button>
-         </div>
-
-         {/* Right */}
-         <div className="hidden md:flex items-center space-x-4 justify-end text-[##222222] text-sm">
-            <p className="hidden lg:inline cursor-pointer">
-               Airbnb your home
-            </p>
-            <GlobeAltIcon className="h-6 cursor-pointer" />
-
-            <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
-               <Bars3Icon className="h-6" />
-               <UserCircleIcon className="h-6" />
-            </div>
-         </div>
-
+         <HeaderSearchTop />
          {/* Main */}
          <div
             className="flex border-[1px] rounded-full box-border
@@ -79,6 +44,7 @@ function HeaderSearch({ selected, setSelected }) {
                   setEndDate={setEndDate}
                />
             ) : null}
+            {selected === "who" ? <GuestsPopup /> : null}
 
             <button
                className={`flex-col flex-grow items-start rounded-full p-2 
@@ -102,7 +68,7 @@ function HeaderSearch({ selected, setSelected }) {
                />
             </button>
             <button
-               className={`flex-col items-center rounded-full min-w-[130px] p-2   ${
+               className={`flex-col items-center rounded-full min-w-[130px] p-2 ${
                   selected == "check-in"
                      ? "bg-white"
                      : "bg-none hover:bg-[#dddddd] "

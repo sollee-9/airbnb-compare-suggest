@@ -15,6 +15,7 @@ function LocationPopup() {
                   width={200}
                   height={200}
                   className="border-gray-200 border rounded-xl hover:border-gray-500"
+                  alt="World map"
                />
                <h4 className="text-sm font-light mt-2">
                   I'm flexible
@@ -26,6 +27,7 @@ function LocationPopup() {
                   width={200}
                   height={200}
                   className="border-gray-200 border rounded-xl hover:border-gray-500"
+                  alt="Europe on map"
                />
                <h4 className="text-sm font-light mt-2">Europe</h4>
             </div>
@@ -35,6 +37,7 @@ function LocationPopup() {
                   width={200}
                   height={200}
                   className="border-gray-200 border rounded-xl hover:border-gray-500"
+                  alt="Japan on map"
                />
                <h4 className="text-sm font-light mt-2">Japan</h4>
             </div>
@@ -44,6 +47,7 @@ function LocationPopup() {
                   width={200}
                   height={200}
                   className="border-gray-200 border rounded-xl hover:border-gray-500"
+                  alt="Southeast Asia on map"
                />
                <h4 className="text-sm font-light mt-2">
                   Southeast Asia
@@ -55,6 +59,7 @@ function LocationPopup() {
                   width={200}
                   height={200}
                   className="border-gray-200 border rounded-xl hover:border-gray-500"
+                  alt="Italy on map"
                />
                <h4 className="text-sm font-light mt-2">Italy</h4>
             </div>
@@ -64,6 +69,7 @@ function LocationPopup() {
                   width={200}
                   height={200}
                   className="border-gray-200 border rounded-xl hover:border-gray-500"
+                  alt="United States on map"
                />
                <h4 className="text-sm font-light mt-2">
                   United States

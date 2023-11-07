@@ -17,32 +17,9 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import HeaderSearch from "./HeaderSearch";
 
 function HeaderNew() {
-   const [searchInput, setSearchInput] = useState("");
-   const [startDate, setStartDate] = useState(new Date());
-   const [endDate, setEndDate] = useState(new Date());
-
-   const [searchOpen, setSearchOpen] = useState(false);
-
    const [selected, setSelected] = useState("");
 
-   const selectionRange = {
-      startDate: startDate,
-      endDate: endDate,
-      key: "selection",
-   };
-
-   const handleDateSelect = (ranges) => {
-      setStartDate(ranges.selection.startDate);
-      setEndDate(ranges.selection.endDate);
-   };
-
-   // const handleClick = () => {
-   //    setSearchOpen(!searchOpen);
-   // };
-
-   return searchOpen ? (
-      <HeaderSearch selected={selected} setSelected={setSelected} />
-   ) : (
+   return selected === "" ? (
       <header className="sticky top-0 z-50 grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10">
          {/* Left */}
          <div className="hidden md:flex relative items-center h-10 cursor-pointer my-auto">
@@ -63,23 +40,20 @@ function HeaderNew() {
          <div className="hidden md:flex items-center border-[1px] shadow-md rounded-full py-2 border-[#dedede]">
             <button
                className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
-            text-ellipsis	whitespace-nowrap overflow-hidden"
-               onClick={() => {
-                  setSearchOpen(true);
-                  setSearchInput("where");
-               }}
+         text-ellipsis	whitespace-nowrap overflow-hidden"
+               onClick={() => setSelected("where")}
             >
                Anywhere
             </button>
             <button
                className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	
-            whitespace-nowrap overflow-hidden"
-               onClick={() => setSearchOpen(true)}
+         whitespace-nowrap overflow-hidden"
+               onClick={() => setSelected("check-in")}
             >
                Any Week
             </button>
             <button
-               onClick={() => setSearchOpen(true)}
+               onClick={() => setSelected("who")}
                className="text-[#7a7a7a] px-4 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden"
             >
                Add guests
@@ -113,6 +87,8 @@ function HeaderNew() {
             <AdjustmentsHorizontalIcon className="h-6 justify-center items-center" />
          </div>
       </header>
+   ) : (
+      <HeaderSearch selected={selected} setSelected={setSelected} />
    );
 }
 
