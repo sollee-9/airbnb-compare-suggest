@@ -5,6 +5,7 @@ function GuestsPopupSection({
    category,
    description,
    descriptionLink,
+   last,
 }) {
    const [guestNum, setGuestNum] = useState(0);
 
@@ -19,7 +20,9 @@ function GuestsPopupSection({
    };
 
    return (
-      <div className="flex space-y-12">
+      <div
+         className={`flex mt-4 ${last ? "" : "pb-4  border-b-[1px]"}`}
+      >
          <div className="flex-col flex-grow">
             <h4 className="font-medium text-[15px]">{category}</h4>
             <p
@@ -32,20 +35,20 @@ function GuestsPopupSection({
                {description}
             </p>
          </div>
-         <div className="flex mt-0">
+         <div className="flex items-center">
             <button
                onClick={() => decrement()}
-               className="rounded-full border-[1px] h-8 w-8 flex justify-center items-center disabled:cursor-not-allowed
+               className="rounded-full border-[1px] h-7 w-7 flex justify-center items-center disabled:cursor-not-allowed
                 disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-[#717171] border-[#b0b0b0]
                 hover:text-[#222222] hover:border-[#222222]"
                disabled={guestNum == 0}
             >
                <MinusIcon className="h-6" />
             </button>
-            <p>{guestNum}</p>
+            <p className="px-4 text-[#222222]">{guestNum}</p>
             <button
                onClick={() => increment()}
-               className="rounded-full border-[1px] h-8 w-8 flex justify-center items-center disabled:cursor-not-allowed
+               className="rounded-full border-[1px] h-7 w-7 flex justify-center items-center disabled:cursor-not-allowed
                disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-[#717171] border-[#b0b0b0]
                hover:text-[#222222] hover:border-[#222222]"
             >

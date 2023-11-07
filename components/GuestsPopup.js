@@ -23,6 +23,7 @@ function GuestsPopup({ setSelected }) {
             category={"Pets"}
             description={"Bringing a service animal?"}
             descriptionLink={true}
+            last={true}
          />
       </div>
    );
