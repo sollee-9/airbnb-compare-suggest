@@ -1,27 +1,14 @@
 import React from "react";
 import Image from "next/image";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
 function LocationPopup({ setSelected }) {
    return (
       <div
-         className="flex-col absolute h-[460px] w-[98%] md:min-w-[300px] md:w-[300px] lg:w-[450px] bg-white 
+         className="flex-col absolute h-[460px] md:min-w-[300px] md:w-[300px] lg:w-[450px] bg-white 
                top-[70px] rounded-[30px] shadow-lg justify-start p-10 border border-gray-200 z-50"
       >
          {/* Header Text */}
-         <p className="hidden md:inline font-medium text-sm mb-8">
-            Search by region
-         </p>
-         <h2 className="sm:inline md:hidden">Where to?</h2>
-
-         <div className="relative md:hidden border-[1px] border-[#b2b2b2] rounded-xl p-4 flex">
-            <MagnifyingGlassIcon className="h-5 absolute" />
-            <input
-               type="text"
-               placeholder="Search destinations"
-               className="w-[100%] pl-8 placeholder-[#7b7b7b] text-sm"
-            />
-         </div>
+         <p className="font-medium text-sm mb-8">Search by region</p>
 
          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-8">
             <div>

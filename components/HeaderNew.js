@@ -15,7 +15,7 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import HeaderSearch from "./HeaderSearch";
-import MobileSearchPopup from "./MobileSearchPopup";
+import MobileSearchPopup from "./mobile/MobileSearchPopup";
 
 function HeaderNew() {
    const [selected, setSelected] = useState("");
