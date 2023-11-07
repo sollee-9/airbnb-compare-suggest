@@ -1,19 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Image from "next/image";
-import {
-   MagnifyingGlassIcon,
-   UserCircleIcon,
-} from "@heroicons/react/24/solid";
-
-import {
-   Bars3Icon,
-   GlobeAltIcon,
-   AdjustmentsHorizontalIcon,
-} from "@heroicons/react/24/outline";
-import { DateRangePicker } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import DatePopup from "./DatePopup";
 import LocationPopup from "./LocationPopup";
 import HeaderSearchTop from "./HeaderSearchTop";
