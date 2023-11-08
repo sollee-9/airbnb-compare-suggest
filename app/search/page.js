@@ -153,7 +153,9 @@ async function Search() {
                </div>
             </section>
             {/* Map Area */}
-            {/* <section className="hidden md:flex"></section> */}
+            <section className="hidden md:flex w-[45%] max-w-[500px]">
+               MAP
+            </section>
          </main>
 
          <Footer />
