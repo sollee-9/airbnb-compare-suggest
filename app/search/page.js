@@ -2,6 +2,7 @@ import React from "react";
 import Footer from "@/components/Footer";
 import HeaderNew from "@/components/HeaderNew";
 import RoomInfoCard from "@/components/RoomInfoCard";
+import Map from "@/components/Map";
 
 async function Search() {
    const data = [
@@ -152,9 +153,10 @@ async function Search() {
                   )}
                </div>
             </section>
+
             {/* Map Area */}
-            <section className="hidden md:flex w-[45%] max-w-[500px]">
-               MAP
+            <section className="hidden md:flex w-[45%] max-w-[550px]">
+               <Map searchResults={data} />
             </section>
          </main>
 
