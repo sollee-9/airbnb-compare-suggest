@@ -3,9 +3,10 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import MobileLocation from "./MobileLocation";
 import MobileDates from "./MobileDates";
 import MobileGuests from "./MobileGuests";
+import MobileFooter from "./MobileFooter";
 
 function MobileSearchPopup({ setMobileSearch }) {
-   const [mobileSelect, setMobileSelect] = useState("where");
+   const [mobileSelect, setMobileSelect] = useState("Where");
    return (
       <div className="fixed top-0 left-0 bottom-0 right-0 bg-[#f7f7f7] h-[100%] w-[100%]">
          <div className="relative flex-col items-center justify-center">
@@ -43,6 +44,7 @@ function MobileSearchPopup({ setMobileSearch }) {
          </div>
 
          {/* Footer */}
+         <MobileFooter />
       </div>
    );
 }
