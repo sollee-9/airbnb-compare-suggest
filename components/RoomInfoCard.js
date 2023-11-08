@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-
 import { StarIcon, HeartIcon } from "@heroicons/react/24/solid";
 
 function RoomInfoCard({
@@ -17,7 +16,7 @@ function RoomInfoCard({
 }) {
    const [hearted, setHearted] = useState(false);
    return (
-      <div className="flex flex-col  w-[100%] min-h-[300px]">
+      <div className="flex flex-col w-[100%] min-h-[300px]">
          <div className="relative w-[100%] aspect-square">
             <Image
                src={img}

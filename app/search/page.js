@@ -44,7 +44,7 @@ async function Search() {
       },
       {
          img: "https://links.papareact.com/6as",
-         location: "Private room in center of London",
+         location: "Entire studio in central Oxford",
          title: "30 mins to Oxford Street, Excel London",
          description:
             "1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",

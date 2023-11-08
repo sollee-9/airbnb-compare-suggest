@@ -1,10 +1,13 @@
 "use client";
-import React, { useState } from "react";
-import Map, { Marker } from "react-map-gl";
+import React, { useState, useEffect } from "react";
+import Map, { Marker, Popup } from "react-map-gl";
 import { getCenter } from "geolib";
 import "mapbox-gl/dist/mapbox-gl.css";
+import MapMarker from "./MapMarker";
 
 function MapArea({ searchResults }) {
+   const [selectedLong, setSelectedLong] = useState(0);
+
    const coordinates = searchResults.map((results) => ({
       longitude: results.long,
       latitude: results.lat,
@@ -19,7 +22,11 @@ function MapArea({ searchResults }) {
       longitude: center.longitude,
       zoom: 11,
    });
-   console.log(searchResults[0]);
+
+   useEffect(() => {
+      setSelectedLong(selectedLong);
+   }, []);
+
    return (
       <Map
          mapStyle="mapbox://styles/sl9999/clopy8jwd005g01r69s410okr"
@@ -27,21 +34,7 @@ function MapArea({ searchResults }) {
          {...viewState}
          onMove={(evt) => setViewState(evt.viewState)}
       >
-         {searchResults.map((room) => (
-            <Marker
-               longitude={room.long}
-               latitude={room.lat}
-               offsetLeft={-20}
-               offsetTop={-10}
-            >
-               <button
-                  className="absolute bg-white rounded-full border-[1px] border-gray-300 w-12 h-7 shadow-md font-medium text-[14px]
-                  hover:scale-110 hover:z-50 -z-50 transition duration-200 ease-out"
-               >
-                  {room.total.slice(0, -5)}
-               </button>
-            </Marker>
-         ))}
+         <MapMarker searchResults={searchResults} />
       </Map>
    );
 }
