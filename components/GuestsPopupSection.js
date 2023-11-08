@@ -6,6 +6,8 @@ function GuestsPopupSection({
    description,
    descriptionLink,
    last,
+   totalGuests,
+   setTotalGuests,
 }) {
    const [guestNum, setGuestNum] = useState(0);
 
@@ -13,10 +15,12 @@ function GuestsPopupSection({
       if (guestNum > 0) {
          setGuestNum(guestNum - 1);
       }
+      setTotalGuests(totalGuests + guestNum);
    };
 
    const increment = () => {
       setGuestNum(guestNum + 1);
+      setTotalGuests(totalGuests + guestNum);
    };
 
    return (

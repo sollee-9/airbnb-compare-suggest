@@ -6,10 +6,20 @@ import LocationPopup from "./LocationPopup";
 import HeaderSearchTop from "./HeaderSearchTop";
 import GuestsPopup from "./GuestsPopup";
 import PopupBlocker from "./PopupBlocker";
+import { useRouter } from "next/navigation";
 
 function HeaderSearch({ selected, setSelected }) {
+   const [searchInput, setSearchInput] = useState("");
    const [startDate, setStartDate] = useState(new Date());
    const [endDate, setEndDate] = useState(new Date());
+   const [totalGuests, setTotalGuests] = useState(0);
+   const router = useRouter();
+
+   const searchLocation = () => {
+      router.push(
+         `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&guests=${totalGuests}`
+      );
+   };
 
    return (
       <>
@@ -38,7 +48,11 @@ function HeaderSearch({ selected, setSelected }) {
                   />
                ) : null}
                {selected === "who" ? (
-                  <GuestsPopup setSelected={setSelected} />
+                  <GuestsPopup
+                     setSelected={setSelected}
+                     totalGuests={totalGuests}
+                     setTotalGuests={setTotalGuests}
+                  />
                ) : null}
 
                <button
@@ -54,8 +68,11 @@ function HeaderSearch({ selected, setSelected }) {
                      Where
                   </h4>
                   <input
+                     value={searchInput}
+                     onChange={(e) => setSearchInput(e.target.value)}
+                     autoFocus={true}
                      placeholder="Search destinations"
-                     className={`bg-transparent border-none outline-none text-sm ml-4 text-[#808080] ${
+                     className={`bg-transparent border-none outline-none text-sm ml-4 text-[#808080] pointer-events-auto w-[100%]	 ${
                         selected == "where" || selected == "search"
                            ? "placeholder-[#808080]"
                            : "placeholder-[#222222] disabled"
@@ -110,20 +127,22 @@ function HeaderSearch({ selected, setSelected }) {
                   </p>
                </button>
 
-               <button
+               <div
                   className={`flex flex-grow justify-between rounded-full items-center px-2  ${
                      selected == "who"
                         ? "bg-white"
                         : "bg-none hover:bg-[#dddddd]"
                   }`}
-                  onClick={() => setSelected("who")}
                >
-                  <div className="pl-4">
+                  <button
+                     className="pl-4 flex-grow"
+                     onClick={() => setSelected("who")}
+                  >
                      <h4 className="text-left text-[14px] font-medium">
                         Who
                      </h4>
                      <p
-                        className={`text-sm ${
+                        className={`text-sm text-left ${
                            selected == "who" || selected == "search"
                               ? "text-[#808080]"
                               : "text-[#222222]"
@@ -131,14 +150,17 @@ function HeaderSearch({ selected, setSelected }) {
                      >
                         Add guests
                      </p>
-                  </div>
-                  <div className="flex bg-[#e41c5a] rounded-full h-[80%] items-center p-4">
+                  </button>
+                  <button
+                     className="flex bg-[#e41c5a] rounded-full h-[80%] items-center p-4"
+                     onClick={searchLocation}
+                  >
                      <MagnifyingGlassIcon className="hidden md:inline-flex h-5 text-white cursor-pointer mx-auto font-extrabold mr-2" />
                      <h4 className="hidden md:inline text-white">
                         Search
                      </h4>
-                  </div>
-               </button>
+                  </button>
+               </div>
             </div>
          </header>
       </>

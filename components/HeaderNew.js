@@ -16,15 +16,35 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import HeaderSearch from "./HeaderSearch";
 import MobileSearchPopup from "./mobile/MobileSearchPopup";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { format } from "date-fns";
 
 function HeaderNew() {
    const [selected, setSelected] = useState("");
    const [mobileSearch, setMobileSearch] = useState(false);
+   const router = useRouter();
+
+   const params = useSearchParams();
+
+   const location = params.get("location");
+   const startDate = params.get("startDate");
+   const endDate = params.get("endDate");
+   const guests = params.get("guests");
+
+   const formattedStartDate = format(new Date(startDate), "MMM. d");
+   const formattedEndDate = format(new Date(endDate), "MMM. d");
+   const goToHome = () => {
+      router.push("/");
+   };
 
    return selected === "" ? (
       <header className="sticky top-0 z-50 flex justify-between items-center bg-white shadow-md p-5 md:px-10">
          {/* Laptop View */}
-         <div className="hidden md:flex relative items-center h-10 cursor-pointer my-auto min-w-[150px]">
+         <button
+            onClick={goToHome}
+            className="hidden md:flex relative items-center h-10 cursor-pointer my-auto min-w-[150px]"
+         >
             <Image
                src="https://links.papareact.com/qd3"
                style={{
@@ -35,30 +55,44 @@ function HeaderNew() {
                sizes="100vw"
                alt="airbnb logo"
             />
-         </div>
+         </button>
 
-         <div className="hidden md:flex items-center border-[1px] shadow-md rounded-full py-2 border-[#dedede] md:w-[370px]">
+         <div className="hidden md:flex items-center border-[1px] shadow-md rounded-full py-2 border-[#dedede] md:w-[390px]">
             <button
                className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
          text-ellipsis	whitespace-nowrap overflow-hidden"
                onClick={() => setSelected("where")}
             >
-               Anywhere
+               {location ? location : "Anywhere"}
             </button>
             <button
                className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	
          whitespace-nowrap overflow-hidden"
                onClick={() => setSelected("check-in")}
             >
-               Any Week
+               {formattedStartDate
+                  ? `${formattedStartDate}-${formattedEndDate}`
+                  : "Any Week"}
             </button>
             <button
                onClick={() => setSelected("who")}
-               className="text-[#7a7a7a] px-4 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden"
+               className={`px-4 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden
+               ${
+                  guests
+                     ? `text-[#242424] font-medium`
+                     : `text-[#7a7a7a]`
+               }`}
             >
-               Add guests
+               {!guests
+                  ? "Add guests"
+                  : guests > 1
+                  ? `${guests} guests`
+                  : "1 guest"}
             </button>
-            <MagnifyingGlassIcon className="hidden md:inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2 font-extrabold" />
+            <MagnifyingGlassIcon
+               onClick={() => setSelected("search")}
+               className="hidden md:inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2 font-extrabold"
+            />
          </div>
 
          <div className="hidden md:flex items-center space-x-4 justify-end text-[##222222] text-sm">

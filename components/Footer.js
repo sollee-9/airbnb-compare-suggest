@@ -127,11 +127,11 @@ function Footer() {
                </p>
                <p className="mx-2">·</p>
                <p className="text-sm text-[#2b2b2b] font-light">
-                  Sitemap{" "}
+                  Sitemap
                </p>
                <p className="mx-2">·</p>
                <p className="text-sm text-[#2b2b2b] font-light">
-                  Privacy{" "}
+                  Privacy
                </p>
                <p className="mx-2">·</p>
                <p className="text-sm text-[#2b2b2b] font-light">
