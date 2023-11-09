@@ -24,10 +24,10 @@ function OptionsHeader() {
    return (
       <header
          className="h-[80px] z-40 w-[100%] flex justify-between items-baseline
-       bg-white shadow-sm md:px-10 relative"
+       bg-white shadow-sm relative px-4"
       >
          {/* Carousel */}
-         <div className="flex overflow-hidden h-[80%]">
+         <div className="flex overflow-x-scroll scrollbar-hide overscroll-contain">
             <OptionIcon
                icon={
                   <HolidayVillageOutlinedIcon className="text-[28px]" />
@@ -36,7 +36,7 @@ function OptionsHeader() {
                iconSelected={iconSelected}
                setIconSelected={setIconSelected}
             />
-            <div className="flex self-center h-[40px] border border-r-[0px] border-[#b0b0b0]"></div>
+            <div className="flex self-center h-[40px] border border-r-[0px] border-[#b0b0b0] ml-6 mr-4"></div>
             <OptionIcon
                icon={<BedOutlinedIcon className="text-[28px]" />}
                text="Rooms"
@@ -136,7 +136,7 @@ function OptionsHeader() {
          </div>
 
          {/* Filters */}
-         <button className="rounded-xl border-[1px] border-gray-300 flex p-3 items-center ">
+         <button className="rounded-xl border-[1px] border-gray-300 flex p-3 items-center ml-8">
             <AdjustmentsHorizontalIcon className="h-5 mr-2" />
             <p className="text-xs font-medium">Filters</p>
          </button>

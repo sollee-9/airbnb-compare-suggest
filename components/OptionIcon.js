@@ -18,7 +18,9 @@ function OptionIcon({ text, icon, iconSelected, setIconSelected }) {
                }`}
             >
                {icon}
-               <p className="text-[11px] mt-1">{text}</p>
+               <p className="text-[11px] mt-1 whitespace-nowrap">
+                  {text}
+               </p>
             </div>
          </button>
       </div>
