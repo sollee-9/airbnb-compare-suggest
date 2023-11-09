@@ -1,7 +1,7 @@
 import React from "react";
-import CityCard from "./CityCard";
-import MediumCard from "./MediumCard";
-import LargeCard from "./LargeCard";
+import CityCard from "./cards/CityCard";
+import MediumCard from "./cards/MediumCard";
+import LargeCard from "./cards/LargeCard";
 
 const getData = async () => {
    const exploreData = await fetch(

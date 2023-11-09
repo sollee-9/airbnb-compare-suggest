@@ -1,8 +1,8 @@
 import React from "react";
 import Footer from "@/components/Footer";
 import HeaderNew from "@/components/HeaderNew";
-import RoomInfoCard from "@/components/RoomInfoCard";
-import Map from "@/components/Map";
+import RoomInfoCard from "@/components/cards/RoomInfoCard";
+import Map from "@/components/map/Map";
 import MobileHeader from "@/components/mobile/MobileHeader";
 
 async function Search() {

@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import DatePopup from "./DatePopup";
-import LocationPopup from "./LocationPopup";
+import DatePopup from "./popups/DatePopup";
+import LocationPopup from "./popups/LocationPopup";
 import HeaderSearchTop from "./HeaderSearchTop";
-import GuestsPopup from "./GuestsPopup";
-import PopupBlocker from "./PopupBlocker";
+import GuestsPopup from "./popups/GuestsPopup";
+import PopupBlocker from "./popups/PopupBlocker";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";

@@ -1,6 +1,6 @@
 import React from "react";
 import MobileClosed from "./MobileClosed";
-import GuestsPopupSection from "../GuestsPopupSection";
+import GuestsPopupSection from "../popups/GuestsPopupSection";
 
 function MobileGuests({ mobileSelect, setMobileSelect }) {
    return mobileSelect === "Who" ? (
