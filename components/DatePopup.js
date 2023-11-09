@@ -27,7 +27,7 @@ function DatePopup({
    };
 
    return (
-      <div className="absolute top-[70px] left-[100px] rounded-[30px] bg-white shadow-lg">
+      <div className="absolute top-[70px] left-[5] rounded-[30px] bg-white shadow-lg">
          <div className="flex justify-center">
             <div className="mt-5 flex justify-between items-center space-x-1 rounded-full bg-[#ebebeb] w-[300px] h-[45px] px-1 ">
                <button className="bg-white h-[80%] flex-grow rounded-full text-sm border-[1px] border-gray-300">
