@@ -142,7 +142,11 @@ function HeaderNew({ fromSearch }) {
          ) : null}
       </header>
    ) : (
-      <HeaderSearch selected={selected} setSelected={setSelected} />
+      <HeaderSearch
+         selected={selected}
+         setSelected={setSelected}
+         fromSearch={fromSearch}
+      />
    );
 }
 
