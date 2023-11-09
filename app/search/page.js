@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import HeaderNew from "@/components/HeaderNew";
 import RoomInfoCard from "@/components/RoomInfoCard";
 import Map from "@/components/Map";
-import OptionsHeader from "@/components/OptionsHeader";
+import MobileHeader from "@/components/mobile/MobileHeader";
 
 async function Search() {
    const data = [
@@ -96,7 +96,7 @@ async function Search() {
    return (
       <div className="flex flex-col">
          <HeaderNew fromSearch={true} />
-
+         <MobileHeader />
          <main className="grid grid-cols-1 sm:flex">
             {/* Room Results */}
             <section
@@ -156,6 +156,7 @@ async function Search() {
 
 export default Search;
 
+// TODO: API FIX
 // const getServerData = async () => {
 //    const serverData = await fetch(
 //       "https://links.papareact.com/isz"

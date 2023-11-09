@@ -1,9 +1,10 @@
+"use client";
 import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import MobileSearchPopup from "./MobileSearchPopup";
 
-function MobileHeader() {
+function MobileHeader({ location, dates, guests, fromSearch }) {
    const [mobileSearch, setMobileSearch] = useState(false);
 
    return (
@@ -16,10 +17,15 @@ function MobileHeader() {
             <MagnifyingGlassIcon className="h-10 text-[#222222] p-2 cursor-pointer" />
             <button className="flex-col ml-2">
                <h3 className="text-start text-sm font-medium">
-                  Anywhere
+                  {location ? location : "Anywhere"}
                </h3>
                <p className="text-xs text-[#7b7b7b]">
-                  Any week · Add guests
+                  {fromSearch ? `${dates} ` : "Any week "}·
+                  {!guests
+                     ? " Add guests"
+                     : guests > 1
+                     ? ` ${guests} guests`
+                     : " 1 guest"}
                </p>
             </button>
          </div>
@@ -31,7 +37,13 @@ function MobileHeader() {
             <AdjustmentsHorizontalIcon className="h-6 w-6 justify-center items-center" />
          </div>
          {mobileSearch ? (
-            <MobileSearchPopup setMobileSearch={setMobileSearch} />
+            <MobileSearchPopup
+               setMobileSearch={setMobileSearch}
+               location={location}
+               dates={dates}
+               guests={guests}
+               fromSearch={fromSearch}
+            />
          ) : null}
       </div>
    );

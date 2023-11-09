@@ -39,9 +39,10 @@ function HeaderNew({ fromSearch }) {
 
    const displayDates = (start, end) => {
       let displayDate = "";
+
       // case 1: if end date not specified then let it be day after start date
       if (!end) {
-         end = format(new Date(startDate) + 1, "MMM. d");
+         // let end = format(new Date(startDate) + 1, "MMM. d");
       }
 
       const formattedStart = formatDates(start);
@@ -139,7 +140,12 @@ function HeaderNew({ fromSearch }) {
          </header>
          {fromSearch && <OptionsHeader />}
 
-         <MobileHeader />
+         <MobileHeader
+            location={location}
+            dates={displayDates(startDate, endDate)}
+            guests={guests}
+            fromSearch={fromSearch}
+         />
       </>
    ) : (
       <HeaderSearch

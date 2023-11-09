@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import MobileClosed from "./MobileClosed";
+import { useSearchParams } from "next/navigation";
 
 function MobileLocation({ mobileSelect, setMobileSelect }) {
+   const params = useSearchParams();
+   const location = params.get("location");
+   const [searchInput, setSearchInput] = useState(
+      location ? location : ""
+   );
+
    return mobileSelect === "Where" ? (
       <div className="flex-col h-[335px] w-[96%] bg-white rounded-[30px] shadow-lg justify-center py-6 border border-gray-200 z-50">
          <h2 className="mx-6 font-bold text-xl text-[#222222] mb-4">
@@ -13,6 +20,8 @@ function MobileLocation({ mobileSelect, setMobileSelect }) {
          <div className="relative border-[1px] border-[#b2b2b2] rounded-xl p-4 flex mx-6 my-4">
             <MagnifyingGlassIcon className="h-5 absolute" />
             <input
+               value={searchInput}
+               onChange={(e) => setSearchInput(e.target.value)}
                type="text"
                placeholder="Search destinations"
                className="w-[100%] pl-8 placeholder-[#7b7b7b] text-sm outline-none border-none"

@@ -7,8 +7,9 @@ import MobileFooter from "./MobileFooter";
 
 function MobileSearchPopup({ setMobileSearch }) {
    const [mobileSelect, setMobileSelect] = useState("Where");
+
    return (
-      <div className="fixed top-0 left-0 bottom-0 right-0 bg-[#f7f7f7] h-[100%] w-[100%]">
+      <div className="fixed z-50 sm:hidden top-0 left-0 bottom-0 right-0 bg-[#f7f7f7] h-[100%] w-[100%]">
          <div className="relative flex-col items-center justify-center">
             {/* Header */}
             <div className="grid grid-cols-3 p-4">
