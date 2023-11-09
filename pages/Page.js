@@ -4,12 +4,12 @@ import Banner from "@/components/Banner";
 import Options from "@/components/Options";
 import Footer from "@/components/Footer";
 
-function Page1() {
+function Page() {
    return (
       <>
-         <Header />
-         <Banner />
+         <Header fromSearch={false} />
 
+         <Banner />
          <Options />
 
          <Footer />
@@ -17,4 +17,4 @@ function Page1() {
    );
 }
 
-export default Page1;
+export default Page;

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Page2 from "@/pages/Page2";
+import Page from "@/pages/Page";
 
 export default function Home() {
    return (
@@ -9,8 +9,7 @@ export default function Home() {
             <link rel="icon" href="/favicon.ico" />
          </Head>
 
-         {/* <Page1 /> */}
-         <Page2 />
+         <Page />
       </main>
    );
 }

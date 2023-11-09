@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "@/components/Footer";
-import HeaderNew from "@/components/HeaderNew";
+import Header from "@/components/Header";
 import RoomInfoCard from "@/components/cards/RoomInfoCard";
 import Map from "@/components/map/Map";
 import MobileHeader from "@/components/mobile/MobileHeader";
@@ -95,7 +95,7 @@ async function Search() {
 
    return (
       <div className="flex flex-col">
-         <HeaderNew fromSearch={true} />
+         <Header fromSearch={true} />
          <MobileHeader />
          <main className="grid grid-cols-1 sm:flex">
             {/* Room Results */}
