@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 
-function HeaderNew() {
+function HeaderNew({ fromSearch }) {
    const [selected, setSelected] = useState("");
    const [mobileSearch, setMobileSearch] = useState(false);
    const router = useRouter();
@@ -27,7 +27,16 @@ function HeaderNew() {
    const location = params.get("location");
    const startDate = params.get("startDate");
    const endDate = params.get("endDate");
-   const guests = params.get("guests");
+   const numAdults = params.get("numAdults");
+   const numChildren = params.get("numChildren");
+   const numInfants = params.get("numInfants");
+   const numPets = params.get("numPets");
+
+   const guests =
+      parseInt(numAdults) +
+      parseInt(numChildren) +
+      parseInt(numInfants) +
+      parseInt(numPets);
 
    const formattedStartDate = format(new Date(startDate), "MMM. d");
    const formattedEndDate = format(new Date(endDate), "MMM. d");
@@ -68,7 +77,7 @@ function HeaderNew() {
          whitespace-nowrap overflow-hidden"
                onClick={() => setSelected("check-in")}
             >
-               {formattedStartDate
+               {fromSearch
                   ? `${formattedStartDate}-${formattedEndDate}`
                   : "Any Week"}
             </button>

@@ -1,14 +1,23 @@
 import React from "react";
 import Image from "next/image";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
-
 import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 function HeaderSearchTop({ setSelected }) {
+   const router = useRouter();
+
+   const goToHome = () => {
+      router.push("/");
+   };
+
    return (
       <>
          {/* Left */}
-         <div className="hidden md:flex relative items-center h-10 cursor-pointer my-auto">
+         <button
+            onClick={goToHome}
+            className="hidden md:flex relative items-center h-10 cursor-pointer my-auto"
+         >
             <Image
                src="https://links.papareact.com/qd3"
                style={{
@@ -20,7 +29,7 @@ function HeaderSearchTop({ setSelected }) {
                alt="airbnb logo"
                onClick={() => setSelected("search")}
             />
-         </div>
+         </button>
 
          {/* Middle */}
          <div

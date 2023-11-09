@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 function Page2() {
    return (
       <>
-         <HeaderNew />
+         <HeaderNew fromSearch={false} />
          <Banner />
 
          <Options />

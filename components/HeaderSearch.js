@@ -7,6 +7,8 @@ import HeaderSearchTop from "./HeaderSearchTop";
 import GuestsPopup from "./GuestsPopup";
 import PopupBlocker from "./PopupBlocker";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { format } from "date-fns";
 
 function HeaderSearch({ selected, setSelected }) {
    const [searchInput, setSearchInput] = useState("");
@@ -15,9 +17,32 @@ function HeaderSearch({ selected, setSelected }) {
    const [totalGuests, setTotalGuests] = useState(0);
    const router = useRouter();
 
+   const params = useSearchParams();
+
+   // const location = params.get("location");
+   const startDateSearched = params.get("startDate");
+   const endDateSearched = params.get("endDate");
+   // const numAdults = params.get("numAdults");
+   // const numChildren = params.get("numChildren");
+   // const numInfants = params.get("numInfants");
+   // const numPets = params.get("numPets");
+
+   const formattedStartDate = format(
+      new Date(startDateSearched),
+      "MMM. d"
+   );
+   const formattedEndDate = format(
+      new Date(endDateSearched),
+      "MMM. d"
+   );
+   // useEffect(() => {
+   //    console.log("totalGuest", totalGuests);
+   //    setTotalGuests(numAdults + numChildren + numInfants + numPets);
+   // });
+
    const searchLocation = () => {
       router.push(
-         `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&guests=${totalGuests}`
+         `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
       );
    };
 
@@ -72,11 +97,12 @@ function HeaderSearch({ selected, setSelected }) {
                      onChange={(e) => setSearchInput(e.target.value)}
                      autoFocus={true}
                      placeholder="Search destinations"
-                     className={`bg-transparent border-none outline-none text-sm ml-4 text-[#808080] pointer-events-auto w-[100%]	 ${
+                     className={`bg-transparent border-none outline-none text-sm ml-4  pointer-events-auto w-[100%]	 ${
                         selected == "where" || selected == "search"
                            ? "placeholder-[#808080]"
                            : "placeholder-[#222222] disabled"
                      }
+                     ${location ? "text-[#222222]" : "text-[#808080]"}
                      `}
                   />
                </button>
@@ -98,8 +124,9 @@ function HeaderSearch({ selected, setSelected }) {
                            : "text-[#222222]"
                      }`}
                   >
-                     {/* Add dates */}
-                     {startDate.toDateString().slice(4, 10)}
+                     {startDateSearched
+                        ? formattedStartDate
+                        : "Add dates"}
                   </p>
                </button>
                <button
@@ -122,8 +149,9 @@ function HeaderSearch({ selected, setSelected }) {
                            : "text-[#222222]"
                      }`}
                   >
-                     {/* Add dates */}
-                     {endDate.toDateString().slice(4, 10)}
+                     {endDateSearched
+                        ? formattedEndDate
+                        : "Add dates"}
                   </p>
                </button>
 
