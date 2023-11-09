@@ -15,10 +15,11 @@ function HeaderSearchTop({ setSelected }) {
       <>
          {/* Left */}
          <button
-            onClick={goToHome}
+            onClick={() => setSelected("search")}
             className="hidden md:flex relative items-center h-10 cursor-pointer my-auto"
          >
             <Image
+               onClick={goToHome}
                src="https://links.papareact.com/qd3"
                style={{
                   objectFit: "contain",
@@ -27,7 +28,6 @@ function HeaderSearchTop({ setSelected }) {
                fill
                sizes="100vw"
                alt="airbnb logo"
-               onClick={() => setSelected("search")}
             />
          </button>
 

@@ -116,10 +116,7 @@ async function Search() {
 
    return (
       <div className="flex flex-col">
-         <div className="sticky top-0 z-50">
-            <HeaderNew fromSearch={true} />
-            <OptionsHeader />
-         </div>
+         <HeaderNew fromSearch={true} />
 
          <main className="grid grid-cols-1 sm:flex">
             {/* Room Results */}

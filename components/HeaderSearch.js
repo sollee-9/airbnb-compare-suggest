@@ -7,13 +7,35 @@ import HeaderSearchTop from "./HeaderSearchTop";
 import GuestsPopup from "./GuestsPopup";
 import PopupBlocker from "./PopupBlocker";
 import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { format } from "date-fns";
 
-function HeaderSearch({ selected, setSelected }) {
-   const [searchInput, setSearchInput] = useState("");
+function HeaderSearch({ fromSearch, selected, setSelected }) {
+   // CHANGES
+   const params = useSearchParams();
+   const location = fromSearch ? params.get("location") : null;
+   const startDateSearched = fromSearch
+      ? params.get("startDate")
+      : null;
+   const endDateSearched = fromSearch ? params.get("endDate") : null;
+   const guests = fromSearch ? params.get("guests") : null;
+
+   const [searchInput, setSearchInput] = useState(
+      fromSearch ? location : ""
+   );
    const [startDate, setStartDate] = useState(new Date());
    const [endDate, setEndDate] = useState(new Date());
    const [totalGuests, setTotalGuests] = useState(0);
    const router = useRouter();
+
+   const formattedStartDate = format(
+      new Date(startDateSearched),
+      "MMM. d"
+   );
+   const formattedEndDate = format(
+      new Date(endDateSearched),
+      "MMM. d"
+   );
 
    const searchLocation = () => {
       router.push(
@@ -72,8 +94,11 @@ function HeaderSearch({ selected, setSelected }) {
                      onChange={(e) => setSearchInput(e.target.value)}
                      autoFocus={true}
                      placeholder="Search destinations"
-                     className={`bg-transparent border-none outline-none text-sm ml-4 text-[#808080] pointer-events-auto w-[100%]	 ${
-                        selected == "where" || selected == "search"
+                     className={`bg-transparent border-none outline-none text-sm ml-4 text-[#222222] pointer-events-auto w-[100%] ${
+                        fromSearch
+                           ? "font-medium"
+                           : selected == "where" ||
+                             selected == "search"
                            ? "placeholder-[#808080]"
                            : "placeholder-[#222222] disabled"
                      }
@@ -93,13 +118,17 @@ function HeaderSearch({ selected, setSelected }) {
                   </h4>
                   <p
                      className={`text-sm ${
-                        selected == "check-in" || selected == "search"
+                        fromSearch
+                           ? "font-medium text-[#222222]"
+                           : selected == "check-in" ||
+                             selected == "search"
                            ? "text-[#808080]"
                            : "text-[#222222]"
                      }`}
                   >
-                     {/* Add dates */}
-                     {startDate.toDateString().slice(4, 10)}
+                     {startDateSearched
+                        ? formattedStartDate
+                        : "Add dates"}
                   </p>
                </button>
                <button
@@ -116,14 +145,17 @@ function HeaderSearch({ selected, setSelected }) {
                   </h4>
                   <p
                      className={`text-sm ${
-                        selected == "check-out" ||
-                        selected == "search"
+                        fromSearch
+                           ? "font-medium text-[#222222]"
+                           : selected == "check-out" ||
+                             selected == "search"
                            ? "text-[#808080]"
                            : "text-[#222222]"
                      }`}
                   >
-                     {/* Add dates */}
-                     {endDate.toDateString().slice(4, 10)}
+                     {endDateSearched
+                        ? formattedEndDate
+                        : "Add dates"}
                   </p>
                </button>
 
@@ -143,15 +175,18 @@ function HeaderSearch({ selected, setSelected }) {
                      </h4>
                      <p
                         className={`text-sm text-left w-[80px] ${
-                           selected == "who" || selected == "search"
+                           fromSearch
+                              ? "font-medium text-[#222222]"
+                              : selected == "who" ||
+                                selected == "search"
                               ? "text-[#808080]"
                               : "text-[#222222]"
                         }`}
                      >
-                        {totalGuests === 0
+                        {guests === null
                            ? "Add guests"
-                           : totalGuests > 1
-                           ? `${totalGuests} guests`
+                           : guests > 1
+                           ? `${guests} guests`
                            : "1 guest"}
                      </p>
                   </button>
