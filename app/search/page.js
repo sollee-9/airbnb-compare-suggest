@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import RoomInfoCard from "@/components/cards/RoomInfoCard";
 import Map from "@/components/map/Map";
-import MobileHeader from "@/components/mobile/MobileHeader";
+import OptionsHeader from "@/components/OptionsHeader";
 
 async function Search() {
    const data = [
@@ -95,10 +95,12 @@ async function Search() {
 
    return (
       <div className="flex flex-col">
+         {/* Header */}
          <Header fromSearch={true} />
-         <MobileHeader />
+         <OptionsHeader />
+
+         {/* Room Results */}
          <main className="grid grid-cols-1 sm:flex">
-            {/* Room Results */}
             <section
                className="flex-grow w-[100%] z-20  bg-white 
                absolute top-[300px] order-2 rounded-t-[30px]

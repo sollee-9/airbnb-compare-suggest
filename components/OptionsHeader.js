@@ -23,8 +23,8 @@ function OptionsHeader() {
 
    return (
       <header
-         className="hidden sm:flex h-[80px] z-40 w-[100%]  justify-between items-baseline
-       bg-white shadow-sm relative px-4"
+         className="hidden sm:flex h-[80px] z-40 w-[100%] fixed justify-between items-baseline
+       bg-white shadow-sm top-[90px] px-4"
       >
          {/* Carousel */}
          <div className="flex overflow-x-scroll scrollbar-hide overscroll-contain">

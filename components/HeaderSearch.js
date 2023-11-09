@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
-import DatePopup from "./popups/DatePopup";
-import LocationPopup from "./popups/LocationPopup";
-import HeaderSearchTop from "./HeaderSearchTop";
-import GuestsPopup from "./popups/GuestsPopup";
-import PopupBlocker from "./popups/PopupBlocker";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
+import HeaderSearchTop from "./HeaderSearchTop";
+import PopupBlocker from "./popups/PopupBlocker";
+import LocationPopup from "./popups/LocationPopup";
+import DatePopup from "./popups/DatePopup";
+import GuestsPopup from "./popups/GuestsPopup";
 
 function HeaderSearch({ fromSearch, selected, setSelected }) {
    const router = useRouter();
