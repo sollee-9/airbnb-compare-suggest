@@ -11,37 +11,54 @@ import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 
 function HeaderSearch({ fromSearch, selected, setSelected }) {
-   // CHANGES
+   const router = useRouter();
    const params = useSearchParams();
+
+   // Params from URL
    const location = fromSearch ? params.get("location") : null;
-   const startDateSearched = fromSearch
-      ? params.get("startDate")
-      : null;
-   const endDateSearched = fromSearch ? params.get("endDate") : null;
-   const guests = fromSearch ? params.get("guests") : null;
+   const [startDate, setStartDate] = useState(
+      fromSearch ? new Date(params.get("startDate")) : null
+   );
+   const [endDate, setEndDate] = useState(
+      fromSearch ? new Date(params.get("endDate")) : null
+   );
+   const [numAdults, setNumAdults] = useState(
+      fromSearch ? parseInt(params.get("numAdults")) : 0
+   );
+   const [numChildren, setNumChildren] = useState(
+      fromSearch ? parseInt(params.get("numChildren")) : 0
+   );
+   const [numInfants, setNumInfants] = useState(
+      fromSearch ? parseInt(params.get("numInfants")) : 0
+   );
+   const [numPets, setNumPets] = useState(
+      fromSearch ? parseInt(params.get("numPets")) : 0
+   );
+   // End of Params
 
    const [searchInput, setSearchInput] = useState(
       fromSearch ? location : ""
    );
-   const [startDate, setStartDate] = useState(new Date());
-   const [endDate, setEndDate] = useState(new Date());
    const [totalGuests, setTotalGuests] = useState(0);
-   const router = useRouter();
 
-   const formattedStartDate = format(
-      new Date(startDateSearched),
-      "MMM. d"
-   );
-   const formattedEndDate = format(
-      new Date(endDateSearched),
-      "MMM. d"
-   );
+   const formattedStartDate = format(new Date(startDate), "MMM. d");
+   const formattedEndDate = format(new Date(endDate), "MMM. d");
 
    const searchLocation = () => {
       router.push(
-         `/search?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&guests=${totalGuests}`
+         `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
       );
+      setSelected("");
    };
+
+   useEffect(() => {
+      setTotalGuests(
+         parseInt(numAdults) +
+            parseInt(numChildren) +
+            parseInt(numInfants) +
+            parseInt(numPets)
+      );
+   }, [numAdults, numChildren, numInfants, numPets]);
 
    return (
       <>
@@ -51,7 +68,7 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
             {/* Main */}
             <div
                className={`flex border-[1px] rounded-full box-border
-               border-[#dedede] col-span-3 w-[70%] mt-3 m-auto h-16 relative ${
+               border-[#dedede] col-span-3 w-[60%] mt-3 m-auto h-16 relative ${
                   selected === "search" ? "bg-white" : "bg-[#ebebeb]"
                }`}
             >
@@ -71,9 +88,14 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                ) : null}
                {selected === "who" ? (
                   <GuestsPopup
-                     setSelected={setSelected}
-                     totalGuests={totalGuests}
-                     setTotalGuests={setTotalGuests}
+                     numAdults={numAdults}
+                     setNumAdults={setNumAdults}
+                     numChildren={numChildren}
+                     setNumChildren={setNumChildren}
+                     numInfants={numInfants}
+                     setNumInfants={setNumInfants}
+                     numPets={numPets}
+                     setNumPets={setNumPets}
                   />
                ) : null}
 
@@ -95,11 +117,11 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                      autoFocus={true}
                      placeholder="Search destinations"
                      className={`bg-transparent border-none outline-none text-sm ml-4 text-[#222222] pointer-events-auto w-[100%] ${
-                        fromSearch
+                        searchInput
                            ? "font-medium"
                            : selected == "where" ||
                              selected == "search"
-                           ? "placeholder-[#808080]"
+                           ? "placeholder-[#808080] font-normal"
                            : "placeholder-[#222222] disabled"
                      }
                      `}
@@ -126,9 +148,7 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                            : "text-[#222222]"
                      }`}
                   >
-                     {startDateSearched
-                        ? formattedStartDate
-                        : "Add dates"}
+                     {startDate ? formattedStartDate : "Add dates"}
                   </p>
                </button>
                <button
@@ -153,9 +173,7 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                            : "text-[#222222]"
                      }`}
                   >
-                     {endDateSearched
-                        ? formattedEndDate
-                        : "Add dates"}
+                     {endDate ? formattedEndDate : "Add dates"}
                   </p>
                </button>
 
@@ -175,18 +193,18 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                      </h4>
                      <p
                         className={`text-sm text-left w-[80px] ${
-                           fromSearch
+                           totalGuests > 0
                               ? "font-medium text-[#222222]"
                               : selected == "who" ||
                                 selected == "search"
-                              ? "text-[#808080]"
+                              ? "text-[#808080] font-normal"
                               : "text-[#222222]"
                         }`}
                      >
-                        {guests === null
+                        {totalGuests === null || totalGuests === 0
                            ? "Add guests"
-                           : guests > 1
-                           ? `${guests} guests`
+                           : totalGuests > 1
+                           ? `${totalGuests} guests`
                            : "1 guest"}
                      </p>
                   </button>

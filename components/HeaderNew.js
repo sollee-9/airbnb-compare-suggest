@@ -28,20 +28,45 @@ function HeaderNew({ fromSearch }) {
    const location = params.get("location");
    const startDate = params.get("startDate");
    const endDate = params.get("endDate");
-   const guests = params.get("guests");
-   // const numAdults = params.get("numAdults");
-   // const numChildren = params.get("numChildren");
-   // const numInfants = params.get("numInfants");
-   // const numPets = params.get("numPets");
+   const numAdults = params.get("numAdults");
+   const numChildren = params.get("numChildren");
+   const numInfants = params.get("numInfants");
+   const numPets = params.get("numPets");
 
-   // const guests =
-   //    parseInt(numAdults) +
-   //    parseInt(numChildren) +
-   //    parseInt(numInfants) +
-   //    parseInt(numPets);
+   const guests =
+      parseInt(numAdults) +
+      parseInt(numChildren) +
+      parseInt(numInfants) +
+      parseInt(numPets);
 
-   const formattedStartDate = format(new Date(startDate), "MMM. d");
-   const formattedEndDate = format(new Date(endDate), "MMM. d");
+   // const formattedStartDate = format(new Date(startDate), "MMM. d");
+   // const formattedEndDate = format(new Date(endDate), "MMM. d");
+
+   const formatDates = (date) => {
+      return format(new Date(date), "MMM. d");
+   };
+
+   const displayDates = (start, end) => {
+      let displayDate = "";
+      // case 1: if end date not specified then let it be day after start date
+      if (!end) {
+         end = format(new Date(startDate) + 1, "MMM. d");
+      }
+
+      const formattedStart = formatDates(start);
+      const formattedEnd = formatDates(end);
+
+      // case 2: if start & end dates in same month, display month once
+      if (formattedStart.slice(0, 3) === formattedEnd.slice(0, 3)) {
+         displayDate = `${formattedStart}-${format(
+            new Date(end),
+            "d"
+         )}`;
+      } else {
+         displayDate = `${formattedStart} – ${formattedEnd}`;
+      }
+      return displayDate;
+   };
 
    const goToHome = () => {
       router.push("/");
@@ -67,26 +92,29 @@ function HeaderNew({ fromSearch }) {
                />
             </button>
 
-            <div className="hidden sm:h-[50px] sm:flex items-center border-[1px] shadow-md rounded-full py-2 border-[#dedede] min-w-[350px] md:w-[390px] px-2 md:px-0">
+            <div
+               className="hidden sm:h-[50px] sm:flex items-center border-[1px] shadow-md rounded-full py-2
+               border-[#dedede] min-w-[370px] max-w-[450px] px-2 md:px-0"
+            >
                <button
                   className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
-         text-ellipsis	whitespace-nowrap overflow-hidden"
+                    text-ellipsis	whitespace-nowrap overflow-hidden"
                   onClick={() => setSelected("where")}
                >
                   {location ? location : "Anywhere"}
                </button>
                <button
                   className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	
-         whitespace-nowrap overflow-hidden"
+                     whitespace-nowrap overflow-hidden"
                   onClick={() => setSelected("check-in")}
                >
                   {fromSearch
-                     ? `${formattedStartDate}-${formattedEndDate}`
+                     ? `${displayDates(startDate, endDate)}`
                      : "Any Week"}
                </button>
                <button
                   onClick={() => setSelected("who")}
-                  className={`px-4 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden
+                  className={`pl-4 pr-1 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden
                ${
                   guests
                      ? `text-[#242424] font-medium`
@@ -101,7 +129,8 @@ function HeaderNew({ fromSearch }) {
                </button>
                <MagnifyingGlassIcon
                   onClick={() => setSelected("search")}
-                  className="inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2 font-extrabold"
+                  className="inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer 
+                     mx-auto md:mx-2 font-extrabold"
                />
             </div>
 
@@ -120,7 +149,7 @@ function HeaderNew({ fromSearch }) {
             {/* Mobile View */}
             <div
                className="flex sm:hidden items-center border-[1px] shadow-md rounded-full 
-            py-2 px-2 border-[#ebebeb] flex-grow h-14 cursor-pointer"
+                  py-2 px-2 border-[#ebebeb] flex-grow h-14 cursor-pointer"
                onClick={() => setMobileSearch(true)}
             >
                <MagnifyingGlassIcon className="h-10 text-[#222222] p-2 cursor-pointer" />

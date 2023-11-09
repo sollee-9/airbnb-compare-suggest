@@ -93,27 +93,6 @@ async function Search() {
       },
    ];
 
-   //    var date = "";
-   //    const locationText = () => {
-   //       if (!endDate) {
-   //          endDate = format(new Date(startDate) + 1, "MMM. d");
-   //       }
-   //       if (
-   //          formattedStartDate.slice(0, 3) ===
-   //          formattedEndDate.slice(0, 3)
-   //       ) {
-   //          date = `${formattedStartDate}-${format(
-   //             new Date(endDate),
-   //             "d"
-   //          )}`;
-   //       } else if (!endDate) {
-   //          date = `${formattedStartDate}-${format(
-   //             new Date(endDate),
-   //             "d"
-   //          )}`;
-   //       }
-   //    };
-
    return (
       <div className="flex flex-col">
          <HeaderNew fromSearch={true} />
@@ -121,7 +100,7 @@ async function Search() {
          <main className="grid grid-cols-1 sm:flex">
             {/* Room Results */}
             <section
-               className="flex-grow w-[100%] z-30  bg-white 
+               className="flex-grow w-[100%] z-20  bg-white 
                absolute top-[300px] order-2 rounded-t-[30px]
             sm:order-1 sm:relative sm:top-0 sm:rounded-none "
             >

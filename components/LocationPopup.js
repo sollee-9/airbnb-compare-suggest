@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-function LocationPopup({ setSelected }) {
+function LocationPopup() {
    return (
       <div
          className="flex-col absolute h-[460px] md:min-w-[300px] md:w-[300px] lg:w-[450px] bg-white 

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import GuestsPopupSection from "./GuestsPopupSection";
 
-function GuestsPopup({ setSelected, totalGuests, setTotalGuests }) {
-   const [numAdults, setNumAdults] = useState(0);
-   const [numChildren, setNumChildren] = useState(0);
-   const [numInfants, setNumInfants] = useState(0);
-   const [numPets, setNumPets] = useState(0);
-
-   useEffect(() => {
-      setTotalGuests(numAdults + numChildren + numInfants + numPets);
-   }, [numAdults, numChildren, numInfants, numPets]);
-
+function GuestsPopup({
+   numAdults,
+   setNumAdults,
+   numChildren,
+   setNumChildren,
+   numInfants,
+   setNumInfants,
+   numPets,
+   setNumPets,
+}) {
    return (
       <div
          className="flex-col absolute h-[380px] min-w-[280px] sm:w-[280px] md:w-[400px] bg-white 

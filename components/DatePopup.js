@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -16,8 +16,13 @@ function DatePopup({
       key: "selection",
    };
 
+   useEffect(() => {
+      setSelected("check-in");
+   }, [startDate]);
+
    const handleDateSelect = (ranges) => {
       setStartDate(ranges.selection.startDate);
+      setSelected("check-out");
       setEndDate(ranges.selection.endDate);
    };
 
@@ -46,7 +51,6 @@ function DatePopup({
             direction="horizontal"
             staticRanges={[]}
             inputRanges={[]}
-            // showPreview={false}
          />
       </div>
    );
