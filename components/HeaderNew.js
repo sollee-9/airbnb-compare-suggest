@@ -43,7 +43,7 @@ function HeaderNew() {
          {/* Laptop View */}
          <button
             onClick={goToHome}
-            className="hidden md:flex relative items-center h-10 cursor-pointer my-auto min-w-[150px]"
+            className="hidden sm:flex relative items-center h-10 cursor-pointer my-auto min-w-[150px]"
          >
             <Image
                src="https://links.papareact.com/qd3"
@@ -57,7 +57,7 @@ function HeaderNew() {
             />
          </button>
 
-         <div className="hidden md:flex items-center border-[1px] shadow-md rounded-full py-2 border-[#dedede] md:w-[390px]">
+         <div className="hidden sm:h-[50px] sm:flex items-center border-[1px] shadow-md rounded-full py-2 border-[#dedede] min-w-[350px] md:w-[390px] px-2 md:px-0">
             <button
                className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
          text-ellipsis	whitespace-nowrap overflow-hidden"
@@ -91,15 +91,15 @@ function HeaderNew() {
             </button>
             <MagnifyingGlassIcon
                onClick={() => setSelected("search")}
-               className="hidden md:inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2 font-extrabold"
+               className="inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer mx-auto md:mx-2 font-extrabold"
             />
          </div>
 
-         <div className="hidden md:flex items-center space-x-4 justify-end text-[##222222] text-sm">
+         <div className="hidden sm:flex items-center space-x-4 justify-end text-[##222222] text-sm">
             <p className="hidden lg:inline cursor-pointer">
                Airbnb your home
             </p>
-            <GlobeAltIcon className="h-6 cursor-pointer" />
+            <GlobeAltIcon className="hidden md:flex h-6 cursor-pointer" />
 
             <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
                <Bars3Icon className="h-6" />
@@ -109,7 +109,7 @@ function HeaderNew() {
 
          {/* Mobile View */}
          <div
-            className="sm:flex md:hidden items-center border-[1px] shadow-md rounded-full 
+            className="flex sm:hidden items-center border-[1px] shadow-md rounded-full 
             py-2 px-2 border-[#ebebeb] flex-grow h-14 cursor-pointer"
             onClick={() => setMobileSearch(true)}
          >
@@ -125,7 +125,7 @@ function HeaderNew() {
          </div>
 
          <div
-            className="sm:flex md:hidden relative border border-gray-400 rounded-full 
+            className="flex sm:hidden relative border border-gray-400 rounded-full 
             justify-center items-center h-9 w-9 text-center ml-2"
          >
             <AdjustmentsHorizontalIcon className="h-6 w-6 justify-center items-center" />

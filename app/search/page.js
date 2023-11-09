@@ -121,9 +121,13 @@ async function Search() {
             <OptionsHeader />
          </div>
 
-         <main className="flex">
+         <main className="grid grid-cols-1 sm:flex">
             {/* Room Results */}
-            <section className="flex-grow">
+            <section
+               className="flex-grow w-[100%] z-30  bg-white 
+               absolute top-[300px] order-2 rounded-t-[30px]
+            sm:order-1 sm:relative sm:top-0 sm:rounded-none "
+            >
                <p className="text-sm font-medium m-6">
                   Over 1,000 places within map area
                   {/* TODO within ___ x city */}
@@ -159,7 +163,12 @@ async function Search() {
             </section>
 
             {/* Map Area */}
-            <section className="hidden md:flex w-[45%] max-w-[550px]">
+            <section
+               className="flex flex-grow order-1 
+                  w-[100%] h-[320px]
+                  sm:hidden 
+                  md:order-2 md:flex md:w-[45%] md:max-w-[550px] md:h-[1400px]"
+            >
                <Map searchResults={data} />
             </section>
          </main>

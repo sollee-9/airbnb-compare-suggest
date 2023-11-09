@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import CityCard from "./CityCard";
 import MediumCard from "./MediumCard";
 import LargeCard from "./LargeCard";
