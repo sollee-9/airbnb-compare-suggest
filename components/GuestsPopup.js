@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GuestsPopupSection from "./GuestsPopupSection";
 
 function GuestsPopup({ setSelected, totalGuests, setTotalGuests }) {
+   const [numAdults, setNumAdults] = useState(0);
+   const [numChildren, setNumChildren] = useState(0);
+   const [numInfants, setNumInfants] = useState(0);
+   const [numPets, setNumPets] = useState(0);
+
+   useEffect(() => {
+      setTotalGuests(numAdults + numChildren + numInfants + numPets);
+   }, [numAdults, numChildren, numInfants, numPets]);
+
    return (
       <div
          className="flex-col absolute h-[380px] min-w-[280px] sm:w-[280px] md:w-[400px] bg-white 
@@ -10,27 +19,27 @@ function GuestsPopup({ setSelected, totalGuests, setTotalGuests }) {
          <GuestsPopupSection
             category={"Adults"}
             description={"Ages 13 or above"}
-            totalGuests={totalGuests}
-            setTotalGuests={setTotalGuests}
+            numPeople={numAdults}
+            setNumPeople={setNumAdults}
          />
          <GuestsPopupSection
             category={"Children"}
             description={"Ages 2-12"}
-            totalGuests={totalGuests}
-            setTotalGuests={setTotalGuests}
+            numPeople={numChildren}
+            setNumPeople={setNumChildren}
          />
          <GuestsPopupSection
             category={"Infants"}
             description={"Under 2"}
-            totalGuests={totalGuests}
-            setTotalGuests={setTotalGuests}
+            numPeople={numInfants}
+            setNumPeople={setNumInfants}
          />
          <GuestsPopupSection
             category={"Pets"}
             description={"Bringing a service animal?"}
             descriptionLink={true}
-            totalGuests={totalGuests}
-            setTotalGuests={setTotalGuests}
+            numPeople={numPets}
+            setNumPeople={setNumPets}
             last={true}
          />
       </div>

@@ -6,21 +6,17 @@ function GuestsPopupSection({
    description,
    descriptionLink,
    last,
-   totalGuests,
-   setTotalGuests,
+   numPeople,
+   setNumPeople,
 }) {
-   const [guestNum, setGuestNum] = useState(0);
-
    const decrement = () => {
-      if (guestNum > 0) {
-         setGuestNum(guestNum - 1);
+      if (numPeople > 0) {
+         setNumPeople(numPeople - 1);
       }
-      setTotalGuests(totalGuests + guestNum);
    };
 
    const increment = () => {
-      setGuestNum(guestNum + 1);
-      setTotalGuests(totalGuests + guestNum);
+      setNumPeople(numPeople + 1);
    };
 
    return (
@@ -45,11 +41,11 @@ function GuestsPopupSection({
                className="rounded-full border-[1px] h-7 w-7 flex justify-center items-center disabled:cursor-not-allowed
                 disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-[#717171] border-[#b0b0b0]
                 hover:text-[#222222] hover:border-[#222222]"
-               disabled={guestNum == 0}
+               disabled={numPeople == 0}
             >
                <MinusIcon className="h-6" />
             </button>
-            <p className="px-4 text-[#222222]">{guestNum}</p>
+            <p className="px-4 text-[#222222]">{numPeople}</p>
             <button
                onClick={() => increment()}
                className="rounded-full border-[1px] h-7 w-7 flex justify-center items-center disabled:cursor-not-allowed

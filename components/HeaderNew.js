@@ -11,9 +11,6 @@ import {
    GlobeAltIcon,
    AdjustmentsHorizontalIcon,
 } from "@heroicons/react/24/outline";
-import { DateRangePicker } from "react-date-range";
-import "react-date-range/dist/styles.css"; // main style file
-import "react-date-range/dist/theme/default.css"; // theme css file
 import HeaderSearch from "./HeaderSearch";
 import MobileSearchPopup from "./mobile/MobileSearchPopup";
 import { useRouter } from "next/navigation";
@@ -34,6 +31,7 @@ function HeaderNew() {
 
    const formattedStartDate = format(new Date(startDate), "MMM. d");
    const formattedEndDate = format(new Date(endDate), "MMM. d");
+
    const goToHome = () => {
       router.push("/");
    };

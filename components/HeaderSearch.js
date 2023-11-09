@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import DatePopup from "./DatePopup";
 import LocationPopup from "./LocationPopup";
@@ -142,13 +142,17 @@ function HeaderSearch({ selected, setSelected }) {
                         Who
                      </h4>
                      <p
-                        className={`text-sm text-left ${
+                        className={`text-sm text-left w-[80px] ${
                            selected == "who" || selected == "search"
                               ? "text-[#808080]"
                               : "text-[#222222]"
                         }`}
                      >
-                        Add guests
+                        {totalGuests === 0
+                           ? "Add guests"
+                           : totalGuests > 1
+                           ? `${totalGuests} guests`
+                           : "1 guest"}
                      </p>
                   </button>
                   <button
