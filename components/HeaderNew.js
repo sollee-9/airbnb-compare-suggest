@@ -27,16 +27,17 @@ function HeaderNew({ fromSearch }) {
    const location = params.get("location");
    const startDate = params.get("startDate");
    const endDate = params.get("endDate");
-   const numAdults = params.get("numAdults");
-   const numChildren = params.get("numChildren");
-   const numInfants = params.get("numInfants");
-   const numPets = params.get("numPets");
+   const guests = params.get("guests");
+   // const numAdults = params.get("numAdults");
+   // const numChildren = params.get("numChildren");
+   // const numInfants = params.get("numInfants");
+   // const numPets = params.get("numPets");
 
-   const guests =
-      parseInt(numAdults) +
-      parseInt(numChildren) +
-      parseInt(numInfants) +
-      parseInt(numPets);
+   // const guests =
+   //    parseInt(numAdults) +
+   //    parseInt(numChildren) +
+   //    parseInt(numInfants) +
+   //    parseInt(numPets);
 
    const formattedStartDate = format(new Date(startDate), "MMM. d");
    const formattedEndDate = format(new Date(endDate), "MMM. d");
