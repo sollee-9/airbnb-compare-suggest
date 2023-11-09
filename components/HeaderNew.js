@@ -39,7 +39,7 @@ function HeaderNew() {
    };
 
    return selected === "" ? (
-      <header className="sticky top-0 z-50 flex justify-between items-center bg-white shadow-md p-5 md:px-10">
+      <header className="sticky top-0 z-50 flex justify-between items-center bg-white shadow-sm p-5 md:px-10">
          {/* Laptop View */}
          <button
             onClick={goToHome}

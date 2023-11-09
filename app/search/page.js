@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import HeaderNew from "@/components/HeaderNew";
 import RoomInfoCard from "@/components/RoomInfoCard";
 import Map from "@/components/Map";
+import OptionsHeader from "@/components/OptionsHeader";
 
 async function Search() {
    const data = [
@@ -114,8 +115,11 @@ async function Search() {
    //    };
 
    return (
-      <div>
-         <HeaderNew />
+      <div className="flex flex-col">
+         <div className="sticky top-0 z-50">
+            <HeaderNew />
+            <OptionsHeader />
+         </div>
 
          <main className="flex">
             {/* Room Results */}

@@ -24,7 +24,7 @@ function HeaderSearch({ selected, setSelected }) {
    return (
       <>
          <PopupBlocker setSelected={setSelected} />
-         <header className="sticky top-0 z-50 grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10">
+         <header className="sticky top-0 z-50 grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
             <HeaderSearchTop setSelected={setSelected} />
             {/* Main */}
             <div
