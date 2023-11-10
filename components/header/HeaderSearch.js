@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import { format } from "date-fns";
 import HeaderSearchTop from "./HeaderSearchTop";
 import PopupBlocker from "../popups/PopupBlocker";
 import LocationPopup from "../popups/LocationPopup";
@@ -16,14 +15,13 @@ import {
    setSelection,
    getSelection,
 } from "../../app/GlobalRedux/Features/selection/selectionSlice";
+// Helpers
+import { formatDate } from "../../helpers/datesHelper";
 
 function HeaderSearch() {
-   //Redux
+   // Redux
    const selection = useSelector(getSelection);
-   // const startDate = useSelector(getStartDate);
-   // const endDate = useSelector(getEndDate);
    const dispatch = useDispatch();
-   //
 
    const router = useRouter();
    const params = useSearchParams();
@@ -60,8 +58,7 @@ function HeaderSearch() {
    const [searchInput, setSearchInput] = useState(
       location ? location : ""
    );
-   const formattedStartDate = format(new Date(startDate), "MMM. d");
-   const formattedEndDate = format(new Date(endDate), "MMM. d");
+
    const [totalGuests, setTotalGuests] = useState(0);
 
    useEffect(() => {
@@ -85,12 +82,12 @@ function HeaderSearch() {
    return (
       <>
          <PopupBlocker />
-         <div className="hidden sticky top-0 z-50 sm:grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
+         <div className="hidden sticky top-0 z-50 sm:flex sm:flex-col bg-white shadow-md p-5 md:px-10 ">
             <HeaderSearchTop />
             {/* Main */}
             <div
                className={`flex border-[1px] rounded-full box-border
-               border-[#dedede] col-span-3 w-[60%] mt-3 m-auto h-16 relative ${
+               border-[#dedede] col-span-3 sm:w-[95%] md:w-[85%] lg:w-[60%] mt-3 m-auto h-16 relative ${
                   selection === "search" ? "bg-white" : "bg-[#ebebeb]"
                }`}
             >
@@ -167,7 +164,7 @@ function HeaderSearch() {
                            : "text-[#222222]"
                      }`}
                   >
-                     {startDate ? formattedStartDate : "Add dates"}
+                     {startDate ? formatDate(startDate) : "Add dates"}
                   </p>
                </button>
                <button
@@ -192,19 +189,19 @@ function HeaderSearch() {
                            : "text-[#222222]"
                      }`}
                   >
-                     {endDate ? formattedEndDate : "Add dates"}
+                     {endDate ? formatDate(endDate) : "Add dates"}
                   </p>
                </button>
 
                <div
-                  className={`flex flex-grow justify-between rounded-full items-center px-2  ${
+                  className={`flex flex-grow justify-between rounded-full items-center px-2 ${
                      selection == "who"
                         ? "bg-white"
                         : "bg-none hover:bg-[#dddddd]"
                   }`}
                >
                   <button
-                     className="pl-4 flex-grow"
+                     className="pl-4"
                      onClick={() => dispatch(setSelection("who"))}
                   >
                      <h4 className="text-left text-[14px] font-medium">
@@ -228,11 +225,11 @@ function HeaderSearch() {
                      </p>
                   </button>
                   <button
-                     className="flex bg-[#e41c5a] rounded-full h-[80%] items-center p-4"
+                     className="flex bg-[#e41c5a] rounded-full h-[50px] w-[50px] items-center p-4 relative md:w-auto"
                      onClick={searchLocation}
                   >
-                     <MagnifyingGlassIcon className="hidden md:inline-flex h-5 text-white cursor-pointer mx-auto font-extrabold mr-2" />
-                     <h4 className="hidden md:inline text-white">
+                     <MagnifyingGlassIcon className="h-5 w-5 text-white cursor-pointer mx-auto font-extrabold" />
+                     <h4 className="hidden md:inline text-white ml-2">
                         Search
                      </h4>
                   </button>
@@ -240,6 +237,8 @@ function HeaderSearch() {
             </div>
          </div>
          <MobileSearchPopup
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
             startDate={startDate}
             endDate={endDate}
             setStartDate={setStartDate}

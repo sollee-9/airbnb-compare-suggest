@@ -1,11 +1,16 @@
+"use client";
 import React from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/header/Header";
 import RoomInfoCard from "../..//components/cards/RoomInfoCard";
 import Map from "../..//components/map/Map";
 import OptionsHeader from "../../components/header/OptionsHeader";
+import { useSearchParams } from "next/navigation";
 
 async function Search() {
+   const params = useSearchParams();
+   const location = params.get("location");
+
    const data = [
       {
          img: "https://links.papareact.com/xqj",
@@ -107,8 +112,7 @@ async function Search() {
             sm:order-1 sm:relative sm:top-0 sm:rounded-none "
             >
                <p className="text-sm font-medium m-6">
-                  Over 1,000 places within map area
-                  {/* TODO within ___ x city */}
+                  {`Over 1,000 places in ${location}`}
                </p>
                <div className="px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[100%] gap-8 gap-x-6">
                   {data.map(

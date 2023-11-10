@@ -1,7 +1,7 @@
 import React from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
-function MobileFooter() {
+function MobileFooter({ searchLocation }) {
    return (
       <div
          className="flex fixed bottom-0 w-[100%] h-[70px] border-t-[0.5px] bg-white
@@ -11,6 +11,7 @@ function MobileFooter() {
             Clear all
          </button>
          <button
+            onClick={searchLocation}
             className="bg-[#e61e4f] text-white flex justify-center items-center p-1 w-[120px]
             rounded-md"
          >

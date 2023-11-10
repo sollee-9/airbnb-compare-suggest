@@ -7,14 +7,11 @@ import { useSearchParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import { getSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
-function MobileLocation() {
+function MobileLocation({ searchInput, setSearchInput }) {
    const selection = useSelector(getSelection);
 
    const params = useSearchParams();
    const location = params.get("location");
-   const [searchInput, setSearchInput] = useState(
-      location ? location : ""
-   );
 
    return selection === "where" ? (
       <div className="flex-col h-[335px] w-[96%] bg-white rounded-[30px] shadow-lg justify-center py-6 border border-gray-200 z-50">

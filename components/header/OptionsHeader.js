@@ -36,7 +36,10 @@ function OptionsHeader() {
             <div className="flex overflow-x-scroll scrollbar-hide overscroll-contain">
                <OptionIcon
                   icon={
-                     <HolidayVillageOutlinedIcon className="text-[28px]" />
+                     <HolidayVillageOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text={"Your search"}
                   iconSelected={iconSelected}
@@ -44,34 +47,55 @@ function OptionsHeader() {
                />
                <div className="flex self-center h-[40px] border border-r-[0px] border-[#b0b0b0] ml-6 mr-4"></div>
                <OptionIcon
-                  icon={<BedOutlinedIcon className="text-[28px]" />}
+                  icon={
+                     <BedOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
+                  }
                   text="Rooms"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
                   icon={
-                     <BeachAccessOutlinedIcon className="text-[28px]" />
+                     <BeachAccessOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Beach"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
-                  icon={<WaterOutlinedIcon className="text-[28px]" />}
+                  icon={
+                     <WaterOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
+                  }
                   text="Amazing pools"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
-                  icon={<YardOutlinedIcon className="text-[28px]" />}
+                  icon={
+                     <YardOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
+                  }
                   text="Amazing views"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
                   icon={
-                     <ForestOutlinedIcon className="text-[28px]" />
+                     <ForestOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Lake"
                   iconSelected={iconSelected}
@@ -79,7 +103,10 @@ function OptionsHeader() {
                />
                <OptionIcon
                   icon={
-                     <LocalFireDepartmentOutlinedIcon className="text-[28px]" />
+                     <LocalFireDepartmentOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Trending"
                   iconSelected={iconSelected}
@@ -87,7 +114,10 @@ function OptionsHeader() {
                />
                <OptionIcon
                   icon={
-                     <DownhillSkiingOutlinedIcon className="text-[28px]" />
+                     <DownhillSkiingOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Skiing"
                   iconSelected={iconSelected}
@@ -95,21 +125,32 @@ function OptionsHeader() {
                />
                <OptionIcon
                   icon={
-                     <ColorLensOutlinedIcon className="text-[28px]" />
+                     <ColorLensOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Creative spaces"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
-                  icon={<CabinOutlinedIcon className="text-[28px]" />}
+                  icon={
+                     <CabinOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
+                  }
                   text="Cabins"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
                   icon={
-                     <SportsGolfOutlinedIcon className="text-[28px]" />
+                     <SportsGolfOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Golf"
                   iconSelected={iconSelected}
@@ -117,21 +158,32 @@ function OptionsHeader() {
                />
                <OptionIcon
                   icon={
-                     <CoffeeOutlinedIcon className="text-[28px]" />
+                     <CoffeeOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Bed & breakfasts"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
-                  icon={<VillaOutlinedIcon className="text-[28px]" />}
+                  icon={
+                     <VillaOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
+                  }
                   text="Tiny homes"
                   iconSelected={iconSelected}
                   setIconSelected={setIconSelected}
                />
                <OptionIcon
                   icon={
-                     <GridViewOutlinedIcon className="text-[28px]" />
+                     <GridViewOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="Off the grid"
                   iconSelected={iconSelected}
@@ -139,7 +191,10 @@ function OptionsHeader() {
                />
                <OptionIcon
                   icon={
-                     <AutoAwesomeOutlinedIcon className="text-[28px]" />
+                     <AutoAwesomeOutlinedIcon
+                        className="text-[28px]"
+                        sx={{ stroke: "#ffffff", strokeWidth: 0.35 }}
+                     />
                   }
                   text="New"
                   iconSelected={iconSelected}
