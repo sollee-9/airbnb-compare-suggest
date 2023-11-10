@@ -12,7 +12,7 @@ import { format } from "date-fns";
 import HeaderSearch from "./HeaderSearch";
 import MobileHeader from "../mobile/MobileHeader";
 
-function Header({ fromSearch }) {
+function Header() {
    const [selected, setSelected] = useState("");
    const router = useRouter();
 
@@ -39,9 +39,13 @@ function Header({ fromSearch }) {
    const displayDates = (start, end) => {
       let displayDate = "";
 
+      if ((start == null && end) || null) {
+         return "Any week";
+      }
+
       // case 1: if end date not specified then let it be day after start date
-      if (!end) {
-         // let end = format(new Date(startDate) + 1, "MMM. d");
+      if (end == null) {
+         let end = format(new Date(startDate) + 1, "MMM. d");
       }
 
       const formattedStart = formatDates(start);
@@ -100,9 +104,7 @@ function Header({ fromSearch }) {
                      whitespace-nowrap overflow-hidden"
                      onClick={() => setSelected("check-in")}
                   >
-                     {fromSearch
-                        ? `${displayDates(startDate, endDate)}`
-                        : "Any Week"}
+                     {`${displayDates(startDate, endDate)}`}
                   </button>
                   <button
                      onClick={() => setSelected("who")}
@@ -142,7 +144,6 @@ function Header({ fromSearch }) {
             <HeaderSearch
                selected={selected}
                setSelected={setSelected}
-               fromSearch={fromSearch}
             />
          )}
 
@@ -150,7 +151,6 @@ function Header({ fromSearch }) {
             location={location}
             dates={displayDates(startDate, endDate)}
             guests={guests}
-            fromSearch={fromSearch}
             setSelected={setSelected}
          />
       </>

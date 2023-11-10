@@ -232,7 +232,6 @@ function HeaderSearch({ selected, setSelected }) {
             location={location}
             // dates={displayDates(startDate, endDate)}
             // guests={total}
-            // fromSearch={fromSearch}
             setSelected={setSelected}
          />
       </>

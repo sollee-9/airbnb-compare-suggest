@@ -96,7 +96,7 @@ async function Search() {
    return (
       <div className="flex flex-col">
          {/* Header */}
-         <Header fromSearch={true} />
+         <Header />
          <OptionsHeader />
 
          {/* Room Results */}

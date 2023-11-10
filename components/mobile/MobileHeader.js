@@ -3,13 +3,7 @@ import React, { useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 
-function MobileHeader({
-   location,
-   dates,
-   guests,
-   fromSearch,
-   setSelected,
-}) {
+function MobileHeader({ location, dates, guests, setSelected }) {
    return (
       <div className="fixed top-0 z-50 flex sm:hidden p-5 items-center bg-white shadow-sm w-[100%]">
          <div
@@ -23,7 +17,7 @@ function MobileHeader({
                   {location ? location : "Anywhere"}
                </h3>
                <div className="flex items-baseline text-xs text-[#7b7b7b] font-light">
-                  <p>{fromSearch ? `${dates}` : "Any week"}</p>
+                  <p>{dates}</p>
                   <p className="font-bold text-sm mx-1">·</p>
                   <p>
                      {!guests
