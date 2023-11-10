@@ -4,7 +4,7 @@ import Image from "next/image";
 import { StarIcon, HeartIcon } from "@heroicons/react/24/solid";
 
 function MapMarker({ searchResults }) {
-   const [selected, setSelected] = useState(0);
+   const [roomSelected, setRoomSelected] = useState(0);
    const [hearted, setHearted] = useState(false);
 
    return (
@@ -18,7 +18,7 @@ function MapMarker({ searchResults }) {
                   offsetTop={-10}
                >
                   <button
-                     onClick={() => setSelected(room.long)}
+                     onClick={() => setRoomSelected(room.long)}
                      className="absolute bg-white rounded-full border-[1px] border-gray-300 w-12 h-7 shadow-md font-medium text-[14px]
               hover:scale-110 hover:z-50 -z-50 transition duration-200 ease-out"
                   >
@@ -26,10 +26,10 @@ function MapMarker({ searchResults }) {
                   </button>
                </Marker>
 
-               {room.long === selected ? (
+               {room.long === roomSelected ? (
                   <Popup
                      closeOnClick={false}
-                     onClose={() => setSelected("")}
+                     onClose={() => setRoomSelected("")}
                      latitude={room.lat}
                      longitude={room.long}
                   >

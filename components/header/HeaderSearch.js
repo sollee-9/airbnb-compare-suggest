@@ -60,11 +60,12 @@ function HeaderSearch({ selected, setSelected }) {
       );
    }, [numAdults, numChildren, numInfants, numPets]);
 
-   //
+   // Search: push query URL
    const searchLocation = () => {
       router.push(
          `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
       );
+      // close search
       setSelected("");
    };
 

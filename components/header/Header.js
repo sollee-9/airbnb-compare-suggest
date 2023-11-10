@@ -39,13 +39,14 @@ function Header() {
    const displayDates = (start, end) => {
       let displayDate = "";
 
-      if ((start == null && end) || null) {
+      if (start == null) {
          return "Any week";
       }
 
       // case 1: if end date not specified then let it be day after start date
       if (end == null) {
-         let end = format(new Date(startDate) + 1, "MMM. d");
+         // TODO
+         // end = format(new Date(startDate) + 1, "MMM. d");
       }
 
       const formattedStart = formatDates(start);
@@ -70,6 +71,7 @@ function Header() {
    return (
       <>
          {selected === "" ? (
+            // Non-Search Header
             <header className="hidden sm:flex sticky top-0 z-50 justify-between items-center bg-white shadow-sm p-5 md:px-10">
                {/* Laptop View */}
                <button
@@ -141,12 +143,14 @@ function Header() {
                </div>
             </header>
          ) : (
+            // Open Search on selected === "search" (Laptop or Mobile)
             <HeaderSearch
                selected={selected}
                setSelected={setSelected}
             />
          )}
 
+         {/* Display Mobile Header on mobile view */}
          <MobileHeader
             location={location}
             dates={displayDates(startDate, endDate)}
