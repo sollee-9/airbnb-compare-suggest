@@ -23,7 +23,7 @@ function OptionsHeader() {
 
    return (
       <header
-         className="hidden sm:flex h-[80px] z-40 w-[100%] fixed justify-between items-baseline
+         className="hidden sm:flex h-[80px] z-40 w-[100%] sticky justify-between items-baseline
        bg-white shadow-sm top-[90px] px-4"
       >
          {/* Carousel */}
