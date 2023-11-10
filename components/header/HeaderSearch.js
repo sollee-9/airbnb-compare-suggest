@@ -71,43 +71,18 @@ function HeaderSearch({ selected, setSelected }) {
 
    return (
       <>
+         {/* Laptop View */}
          <PopupBlocker setSelected={setSelected} />
          <div className="hidden sticky top-0 z-50 sm:grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
             <HeaderSearchTop setSelected={setSelected} />
-            {/* Main */}
+            {/* Main Search*/}
             <div
-               className={`flex border-[1px] rounded-full box-border
+               className={`hidden sm:flex border-[1px] rounded-full box-border
                border-[#dedede] col-span-3 w-[60%] mt-3 m-auto h-16 relative ${
                   selected === "search" ? "bg-white" : "bg-[#ebebeb]"
                }`}
             >
-               {/* Popups */}
-               {selected === "where" ? (
-                  <LocationPopup setSelected={setSelected} />
-               ) : null}
-               {selected === "check-in" ||
-               selected === "check-out" ? (
-                  <DatePopup
-                     startDate={startDate}
-                     endDate={endDate}
-                     setStartDate={setStartDate}
-                     setEndDate={setEndDate}
-                     setSelected={setSelected}
-                  />
-               ) : null}
-               {selected === "who" ? (
-                  <GuestsPopup
-                     numAdults={numAdults}
-                     setNumAdults={setNumAdults}
-                     numChildren={numChildren}
-                     setNumChildren={setNumChildren}
-                     numInfants={numInfants}
-                     setNumInfants={setNumInfants}
-                     numPets={numPets}
-                     setNumPets={setNumPets}
-                  />
-               ) : null}
-
+               {/* Location */}
                <button
                   className={`flex-col flex-grow items-start rounded-full p-2 
                     ${
@@ -136,6 +111,8 @@ function HeaderSearch({ selected, setSelected }) {
                      `}
                   />
                </button>
+
+               {/* Check In */}
                <button
                   className={`flex-col items-center rounded-full min-w-[130px] p-2 ${
                      selected == "check-in"
@@ -160,13 +137,15 @@ function HeaderSearch({ selected, setSelected }) {
                      {startDate ? formattedStartDate : "Add dates"}
                   </p>
                </button>
+
+               {/* Check Out */}
                <button
                   className={`flex-col items-center rounded-full min-w-[130px] p-2  
-          ${
-             selected == "check-out"
-                ? "bg-white"
-                : "bg-none hover:bg-[#dddddd]"
-          }`}
+                  ${
+                     selected == "check-out"
+                        ? "bg-white"
+                        : "bg-none hover:bg-[#dddddd]"
+                  }`}
                   onClick={() => setSelected("check-out")}
                >
                   <h4 className="text-left text-[14px] font-medium">
@@ -186,6 +165,7 @@ function HeaderSearch({ selected, setSelected }) {
                   </p>
                </button>
 
+               {/* "Who" */}
                <div
                   className={`flex flex-grow justify-between rounded-full items-center px-2  ${
                      selected == "who"
@@ -227,13 +207,52 @@ function HeaderSearch({ selected, setSelected }) {
                      </h4>
                   </button>
                </div>
+
+               {/* Popups */}
+               {selected === "where" ? (
+                  <LocationPopup setSelected={setSelected} />
+               ) : null}
+               {selected === "check-in" ||
+               selected === "check-out" ? (
+                  <DatePopup
+                     startDate={startDate}
+                     endDate={endDate}
+                     setStartDate={setStartDate}
+                     setEndDate={setEndDate}
+                     setSelected={setSelected}
+                  />
+               ) : null}
+               {selected === "who" ? (
+                  <GuestsPopup
+                     numAdults={numAdults}
+                     setNumAdults={setNumAdults}
+                     numChildren={numChildren}
+                     setNumChildren={setNumChildren}
+                     numInfants={numInfants}
+                     setNumInfants={setNumInfants}
+                     numPets={numPets}
+                     setNumPets={setNumPets}
+                  />
+               ) : null}
             </div>
          </div>
+
+         {/* Mobile View */}
          <MobileSearchPopup
             location={location}
             // dates={displayDates(startDate, endDate)}
             // guests={total}
+            selected={selected}
             setSelected={setSelected}
+            //
+            numAdults={numAdults}
+            setNumAdults={setNumAdults}
+            numChildren={numChildren}
+            setNumChildren={setNumChildren}
+            numInfants={numInfants}
+            setNumInfants={setNumInfants}
+            numPets={numPets}
+            setNumPets={setNumPets}
          />
       </>
    );

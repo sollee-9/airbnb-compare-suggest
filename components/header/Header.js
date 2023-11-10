@@ -36,6 +36,7 @@ function Header() {
       return format(new Date(date), "MMM. d");
    };
 
+   console.log(selected);
    const displayDates = (start, end) => {
       let displayDate = "";
 

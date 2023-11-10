@@ -1,7 +1,10 @@
 import React from "react";
 import GuestsPopupSection from "./GuestsPopupSection";
+import MobileClosed from "../mobile/MobileClosed";
 
 function GuestsPopup({
+   selected,
+   setSelected,
    numAdults,
    setNumAdults,
    numChildren,
@@ -11,11 +14,17 @@ function GuestsPopup({
    numPets,
    setNumPets,
 }) {
-   return (
+   console.log(selected);
+   return selected == "who" ? (
       <div
-         className="flex-col absolute h-[380px] min-w-[280px] sm:w-[280px] md:w-[400px] bg-white 
-      top-[70px] rounded-[30px] shadow-lg items-center p-8 border border-gray-200 right-0"
+         className="h-[360px] w-[96%] flex-col absolute bg-white rounded-[30px] shadow-lg items-center p-8 
+         border border-gray-200 
+         sm:w-[280px] sm:h-[380px] sm:min-w-[280px] sm:top-[70px] sm:right-0
+         md:w-[400px]"
       >
+         <h2 className="inline sm:hidden font-bold text-xl text-[#222222] mb-4">
+            Who's coming?
+         </h2>
          <GuestsPopupSection
             category={"Adults"}
             description={"Ages 13 or above"}
@@ -43,6 +52,15 @@ function GuestsPopup({
             last={true}
          />
       </div>
+   ) : (
+      <>
+         <MobileClosed
+            category={"Who"}
+            description={"Add guests"}
+            setSelected={setSelected}
+         />
+         <p>here</p>
+      </>
    );
 }
 

@@ -1,14 +1,14 @@
 import React from "react";
 import MobileClosed from "./MobileClosed";
 
-function MobileDates({ mobileSelect, setMobileSelect }) {
-   return mobileSelect === "When" ? (
+function MobileDates({ selected, setSelected }) {
+   return selected === "When" ? (
       <div>MobileDates</div>
    ) : (
       <MobileClosed
          category={"When"}
          description={"Add dates"}
-         setMobileSelect={setMobileSelect}
+         setSelected={setSelected}
       />
    );
 }

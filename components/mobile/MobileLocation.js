@@ -4,14 +4,14 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import MobileClosed from "./MobileClosed";
 import { useSearchParams } from "next/navigation";
 
-function MobileLocation({ mobileSelect, setMobileSelect }) {
+function MobileLocation({ selected, setSelected }) {
    const params = useSearchParams();
    const location = params.get("location");
    const [searchInput, setSearchInput] = useState(
       location ? location : ""
    );
 
-   return mobileSelect === "Where" ? (
+   return selected === "Where" ? (
       <div className="flex-col h-[335px] w-[96%] bg-white rounded-[30px] shadow-lg justify-center py-6 border border-gray-200 z-50">
          <h2 className="mx-6 font-bold text-xl text-[#222222] mb-4">
             Where to?
@@ -107,7 +107,7 @@ function MobileLocation({ mobileSelect, setMobileSelect }) {
       <MobileClosed
          category={"Where"}
          description={"I'm flexible"}
-         setMobileSelect={setMobileSelect}
+         setSelected={setSelected}
       />
    );
 }
