@@ -9,6 +9,8 @@ import {
    setSelection,
    getSelection,
 } from "../../app/GlobalRedux/Features/selection/selectionSlice";
+// Helper
+import { formatDateRange } from "../../helpers/datesHelper";
 
 function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
    const dispatch = useDispatch();
@@ -30,6 +32,8 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
       dispatch(setSelection("check-out"));
       setEndDate(ranges.selection.endDate);
    };
+
+   const dateRange = formatDateRange(startDate, endDate);
 
    return selection === "check-in" || selection === "check-out" ? (
       <div
@@ -98,7 +102,10 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
          </div>
       </div>
    ) : (
-      <MobileClosed category={"When"} description={"Add dates"} />
+      <MobileClosed
+         category={"When"}
+         description={dateRange == "" ? "Add dates" : dateRange}
+      />
    );
 }
 

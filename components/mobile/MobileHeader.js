@@ -21,7 +21,7 @@ function MobileHeader({ location, dates, guests }) {
                   {location ? location : "Anywhere"}
                </h3>
                <div className="flex items-baseline text-xs text-[#7b7b7b] font-light">
-                  <p>{dates}</p>
+                  <p>{dates === "" ? "Any week" : dates}</p>
                   <p className="font-bold text-sm mx-1">·</p>
                   <p>
                      {!guests

@@ -8,7 +8,6 @@ import {
 import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
-import { format } from "date-fns";
 import HeaderSearch from "./HeaderSearch";
 import MobileHeader from "../mobile/MobileHeader";
 // Redux
@@ -17,6 +16,8 @@ import {
    setSelection,
    getSelection,
 } from "../../app/GlobalRedux/Features/selection/selectionSlice";
+// Helpers
+import { formatDateRange } from "../../helpers/datesHelper";
 
 function Header() {
    //Redux
@@ -24,7 +25,6 @@ function Header() {
    const dispatch = useDispatch();
    //
    const router = useRouter();
-
    const params = useSearchParams();
 
    const location = params.get("location");
@@ -41,37 +41,7 @@ function Header() {
       parseInt(numInfants) +
       parseInt(numPets);
 
-   const formatDates = (date) => {
-      return format(new Date(date), "MMM. d");
-   };
-
-   const displayDates = (start, end) => {
-      let displayDate = "";
-
-      if (start == null) {
-         return "Any week";
-      }
-
-      // case 1: if end date not specified then let it be day after start date
-      if (end == null) {
-         // TODO
-         // end = format(new Date(startDate) + 1, "MMM. d");
-      }
-
-      const formattedStart = formatDates(start);
-      const formattedEnd = formatDates(end);
-
-      // case 2: if start & end dates in same month, display month once
-      if (formattedStart.slice(0, 3) === formattedEnd.slice(0, 3)) {
-         displayDate = `${formattedStart} - ${format(
-            new Date(end),
-            "d"
-         )}`;
-      } else {
-         displayDate = `${formattedStart} – ${formattedEnd}`;
-      }
-      return displayDate;
-   };
+   const dateRange = formatDateRange(startDate, endDate);
 
    const goToHome = () => {
       router.push("/");
@@ -117,7 +87,7 @@ function Header() {
                         dispatch(setSelection("check-in"))
                      }
                   >
-                     {`${displayDates(startDate, endDate)}`}
+                     {dateRange === "" ? "Any week" : dateRange}
                   </button>
                   <button
                      onClick={() => dispatch(setSelection("who"))}
@@ -161,7 +131,7 @@ function Header() {
          {/* Display Mobile Header on mobile view */}
          <MobileHeader
             location={location}
-            dates={displayDates(startDate, endDate)}
+            dates={dateRange}
             guests={guests}
          />
       </>
