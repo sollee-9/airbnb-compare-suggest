@@ -4,13 +4,10 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import MobileClosed from "./MobileClosed";
 import { useSearchParams } from "next/navigation";
 // Redux
-import { useSelector, useDispatch } from "react-redux";
-import {
-   setSelection,
-   getSelection,
-} from "../../app/GlobalRedux/Features/selection/selectionSlice";
+import { useSelector } from "react-redux";
+import { getSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
-function MobileLocation({ mobileSelect, setMobileSelect }) {
+function MobileLocation() {
    const selection = useSelector(getSelection);
 
    const params = useSearchParams();
@@ -18,8 +15,6 @@ function MobileLocation({ mobileSelect, setMobileSelect }) {
    const [searchInput, setSearchInput] = useState(
       location ? location : ""
    );
-
-   console.log(selection);
 
    return selection === "where" ? (
       <div className="flex-col h-[335px] w-[96%] bg-white rounded-[30px] shadow-lg justify-center py-6 border border-gray-200 z-50">
@@ -116,7 +111,16 @@ function MobileLocation({ mobileSelect, setMobileSelect }) {
          </div>
       </div>
    ) : (
-      <MobileClosed category={"Where"} description={"I'm flexible"} />
+      <MobileClosed
+         category={"Where"}
+         description={
+            searchInput !== ""
+               ? searchInput
+               : location
+               ? location
+               : "I'm flexible"
+         }
+      />
    );
 }
 

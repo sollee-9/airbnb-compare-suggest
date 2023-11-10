@@ -4,7 +4,7 @@ import MobileLocation from "./MobileLocation";
 import MobileFooter from "./MobileFooter";
 import { useDispatch, useSelector } from "react-redux";
 import {
-   setSelectio,
+   setSelection,
    getSelection,
 } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 import GuestsPopup from "../popups/GuestsPopup";
@@ -28,7 +28,7 @@ function MobileSearchPopup({
    const dispatch = useDispatch();
 
    return (
-      <div className="fixed z-[99] sm:hidden top-0 left-0 bottom-0 right-0 bg-[#f7f7f7] h-[100%] w-[100%]">
+      <div className="flex flex-col fixed z-[99] sm:hidden top-0 left-0 bottom-0 right-0 bg-[#f7f7f7] h-screen w-screen overflow-scroll">
          <div className="relative flex-col items-center justify-center">
             {/* Header */}
             <div className="grid grid-cols-3 p-4">
@@ -37,7 +37,6 @@ function MobileSearchPopup({
                      shadow-sm rounded-full h-8 w-8 bg-white hover:scale-105 transition duration-150 ease-out"
                   onClick={() => {
                      dispatch(setSelection(""));
-                     console.log("x");
                   }}
                >
                   <XMarkIcon className="h-5" />
@@ -51,7 +50,7 @@ function MobileSearchPopup({
          </div>
 
          {/* Cards */}
-         <div className="flex-col justify-center items-center space-y-2">
+         <div className="flex flex-col items-center space-y-2 flex-grow pb-2">
             <MobileLocation />
             <DatePopup
                startDate={startDate}
@@ -72,7 +71,15 @@ function MobileSearchPopup({
          </div>
 
          {/* Footer */}
-         <MobileFooter selection={selection} />
+         <div
+            className={`${
+               selection === "check-in" || selection === "check-out"
+                  ? "hidden"
+                  : ""
+            }`}
+         >
+            <MobileFooter />
+         </div>
       </div>
    );
 }

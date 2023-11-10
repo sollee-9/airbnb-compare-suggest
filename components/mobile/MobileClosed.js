@@ -17,10 +17,11 @@ function MobileClosed({ category, description }) {
                )
             )
          }
-         className="flex sm:hidden h-[60px] w-[96%] bg-white rounded-[20px] shadow-lg justify-between py-6 border border-gray-200 z-50"
+         className="flex sm:hidden h-[60px] w-[96%] bg-white rounded-[18px] shadow-md 
+         justify-between px-6 items-center text-sm font-medium"
       >
-         <p>{category}</p>
-         <p>{description}</p>
+         <p className="text-[#717171]">{category}</p>
+         <p className="text-[#222222]">{description}</p>
       </button>
    );
 }

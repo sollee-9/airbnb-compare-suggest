@@ -33,10 +33,11 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
 
    return selection === "check-in" || selection === "check-out" ? (
       <div
-         className="flex-col h-[540px] border items-center border-gray-200 rounded-t-[30px] bg-white shadow-lg p-1 w-[96%]
-          sm:absolute sm:top-[70px] sm:left-[5] sm:w-fit sm:h-fit sm:rounded-[30px]"
+         className="flex flex-col border items-center border-gray-200 rounded-t-[30px]
+          bg-white shadow-lg w-[96%] flex-grow relative
+          sm:absolute sm:top-[70px] sm:left-[5] sm:w-fit sm:h-fit sm:rounded-[30px] sm:p-1"
       >
-         <h2 className="flex sm:hidden font-bold text-xl text-[#222222] mb-4">
+         <h2 className="flex w-full sm:hidden font-bold text-xl text-[#222222] pt-8 px-8 pb-2">
             When's your trip?
          </h2>
          {/* Buttons */}
@@ -67,7 +68,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
                inputRanges={[]}
             />
          </div>
-         <div className="flex mt-4 justify-center sm:hidden overflow-y-scroll h-[350px]">
+         <div className="flex mt-4 justify-center sm:hidden overflow-y-scroll w-full h-[310px]">
             <DateRangePicker
                ranges={[selectionRange]}
                minDate={new Date()}
@@ -83,13 +84,13 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
 
          {/* Footer for Mobile View*/}
          <div
-            className="flex sm:hidden justify-between bg-white border-t-[1px] 
-            border-[#eeeeee] px-6 items-center"
+            className="flex sm:hidden justify-between border-t-[1px] 
+            border-[#eeeeee]  w-full absolute bottom-0 px-6 items-center h-[70px]"
          >
             <button className="font-lg underline">Reset</button>
             <button
                className="bg-[#222222] text-white flex justify-center items-center 
-                  p-3 w-[85px] rounded-md mt-1"
+                  p-3 w-[85px] rounded-lg h-[45px]"
                onClick={() => dispatch(setSelection("who"))}
             >
                Next

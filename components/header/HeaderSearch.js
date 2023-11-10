@@ -20,6 +20,8 @@ import {
 function HeaderSearch() {
    //Redux
    const selection = useSelector(getSelection);
+   // const startDate = useSelector(getStartDate);
+   // const endDate = useSelector(getEndDate);
    const dispatch = useDispatch();
    //
 
