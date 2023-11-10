@@ -11,9 +11,18 @@ import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 import HeaderSearch from "./HeaderSearch";
 import MobileHeader from "../mobile/MobileHeader";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import {
+   setSelection,
+   getSelection,
+} from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
 function Header() {
-   const [selected, setSelected] = useState("");
+   //Redux
+   const selection = useSelector(getSelection);
+   const dispatch = useDispatch();
+   //
    const router = useRouter();
 
    const params = useSearchParams();
@@ -70,7 +79,7 @@ function Header() {
 
    return (
       <>
-         {selected === "" ? (
+         {selection == "" ? (
             // Non-Search Header
             <header className="hidden sm:flex sticky top-0 z-50 justify-between items-center bg-white shadow-sm p-5 md:px-10">
                {/* Laptop View */}
@@ -97,19 +106,21 @@ function Header() {
                   <button
                      className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
                     text-ellipsis	whitespace-nowrap overflow-hidden"
-                     onClick={() => setSelected("where")}
+                     onClick={() => dispatch(setSelection("where"))}
                   >
                      {location ? location : "Anywhere"}
                   </button>
                   <button
                      className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	
                      whitespace-nowrap overflow-hidden"
-                     onClick={() => setSelected("check-in")}
+                     onClick={() =>
+                        dispatch(setSelection("check-in"))
+                     }
                   >
                      {`${displayDates(startDate, endDate)}`}
                   </button>
                   <button
-                     onClick={() => setSelected("who")}
+                     onClick={() => dispatch(setSelection("who"))}
                      className={`pl-4 pr-1 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden
                ${
                   guests
@@ -124,7 +135,7 @@ function Header() {
                         : "1 guest"}
                   </button>
                   <MagnifyingGlassIcon
-                     onClick={() => setSelected("search")}
+                     onClick={() => dispatch(setSelection("search"))}
                      className="inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer 
                      mx-auto md:mx-2 font-extrabold"
                   />
@@ -143,11 +154,8 @@ function Header() {
                </div>
             </header>
          ) : (
-            // Open Search on selected === "search" (Laptop or Mobile)
-            <HeaderSearch
-               selected={selected}
-               setSelected={setSelected}
-            />
+            // Open Search on selection == "search" (Laptop or Mobile)
+            <HeaderSearch />
          )}
 
          {/* Display Mobile Header on mobile view */}
@@ -155,7 +163,6 @@ function Header() {
             location={location}
             dates={displayDates(startDate, endDate)}
             guests={guests}
-            setSelected={setSelected}
          />
       </>
    );

@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { useDispatch } from "react-redux";
+import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
-function DatePopup({
-   startDate,
-   endDate,
-   setStartDate,
-   setEndDate,
-   setSelected,
-}) {
+function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
+   const dispatch = useDispatch();
+
    const selectionRange = {
       startDate: startDate,
       endDate: endDate,
@@ -17,12 +15,12 @@ function DatePopup({
    };
 
    useEffect(() => {
-      setSelected("check-in");
+      dispatch(setSelection("check-in"));
    }, [startDate]);
 
    const handleDateSelect = (ranges) => {
       setStartDate(ranges.selection.startDate);
-      setSelected("check-out");
+      dispatch(setSelection("check-out"));
       setEndDate(ranges.selection.endDate);
    };
 

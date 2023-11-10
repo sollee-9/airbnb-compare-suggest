@@ -4,8 +4,11 @@ import MobileLocation from "./MobileLocation";
 import MobileDates from "./MobileDates";
 import MobileGuests from "./MobileGuests";
 import MobileFooter from "./MobileFooter";
+import { useDispatch } from "react-redux";
+import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
-function MobileSearchPopup({ selected, setSelected }) {
+function MobileSearchPopup() {
+   const dispatch = useDispatch();
    const [mobileSelect, setMobileSelect] = useState("Where");
 
    return (
@@ -16,7 +19,10 @@ function MobileSearchPopup({ selected, setSelected }) {
                <button
                   className="flex items-center justify-center border-[1px] border-[#b0b0b0] hover:border-[#e9e9e9] 
                      shadow-sm rounded-full h-8 w-8 bg-white hover:scale-105 transition duration-150 ease-out"
-                  onClick={() => setSelected("")}
+                  onClick={() => {
+                     dispatch(setSelection(""));
+                     console.log("x");
+                  }}
                >
                   <XMarkIcon className="h-5" />
                </button>

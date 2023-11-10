@@ -10,8 +10,19 @@ import LocationPopup from "../popups/LocationPopup";
 import DatePopup from "../popups/DatePopup";
 import GuestsPopup from "../popups/GuestsPopup";
 import MobileSearchPopup from "../mobile/MobileSearchPopup";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import {
+   setSelection,
+   getSelection,
+} from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
-function HeaderSearch({ selected, setSelected }) {
+function HeaderSearch() {
+   //Redux
+   const selection = useSelector(getSelection);
+   const dispatch = useDispatch();
+   //
+
    const router = useRouter();
    const params = useSearchParams();
 
@@ -66,36 +77,33 @@ function HeaderSearch({ selected, setSelected }) {
          `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
       );
       // close search
-      setSelected("");
+      dispatch(setSelection(""));
    };
 
    return (
       <>
-         <PopupBlocker setSelected={setSelected} />
+         <PopupBlocker />
          <div className="hidden sticky top-0 z-50 sm:grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
-            <HeaderSearchTop setSelected={setSelected} />
+            <HeaderSearchTop />
             {/* Main */}
             <div
                className={`flex border-[1px] rounded-full box-border
                border-[#dedede] col-span-3 w-[60%] mt-3 m-auto h-16 relative ${
-                  selected === "search" ? "bg-white" : "bg-[#ebebeb]"
+                  selection === "search" ? "bg-white" : "bg-[#ebebeb]"
                }`}
             >
                {/* Popups */}
-               {selected === "where" ? (
-                  <LocationPopup setSelected={setSelected} />
-               ) : null}
-               {selected === "check-in" ||
-               selected === "check-out" ? (
+               {selection === "where" ? <LocationPopup /> : null}
+               {selection === "check-in" ||
+               selection === "check-out" ? (
                   <DatePopup
                      startDate={startDate}
                      endDate={endDate}
                      setStartDate={setStartDate}
                      setEndDate={setEndDate}
-                     setSelected={setSelected}
                   />
                ) : null}
-               {selected === "who" ? (
+               {selection === "who" ? (
                   <GuestsPopup
                      numAdults={numAdults}
                      setNumAdults={setNumAdults}
@@ -111,11 +119,11 @@ function HeaderSearch({ selected, setSelected }) {
                <button
                   className={`flex-col flex-grow items-start rounded-full p-2 
                     ${
-                       selected == "where"
+                       selection == "where"
                           ? "bg-white shadow-xl "
                           : "bg-none hover:bg-[#dddddd]"
                     }`}
-                  onClick={() => setSelected("where")}
+                  onClick={() => dispatch(setSelection("where"))}
                >
                   <h4 className="text-left text-[14px] font-medium ml-4">
                      Where
@@ -128,8 +136,8 @@ function HeaderSearch({ selected, setSelected }) {
                      className={`bg-transparent border-none outline-none text-sm ml-4 text-[#222222] pointer-events-auto w-[100%] ${
                         searchInput
                            ? "font-medium"
-                           : selected == "where" ||
-                             selected == "search"
+                           : selection == "where" ||
+                             selection == "search"
                            ? "placeholder-[#808080] font-normal"
                            : "placeholder-[#222222] disabled"
                      }
@@ -138,11 +146,11 @@ function HeaderSearch({ selected, setSelected }) {
                </button>
                <button
                   className={`flex-col items-center rounded-full min-w-[130px] p-2 ${
-                     selected == "check-in"
+                     selection == "check-in"
                         ? "bg-white"
                         : "bg-none hover:bg-[#dddddd] "
                   }`}
-                  onClick={() => setSelected("check-in")}
+                  onClick={() => dispatch(setSelection("check-in"))}
                >
                   <h4 className="text-left text-[14px] font-medium">
                      Check in
@@ -151,8 +159,8 @@ function HeaderSearch({ selected, setSelected }) {
                      className={`text-sm ${
                         startDate
                            ? "font-medium text-[#222222]"
-                           : selected == "check-in" ||
-                             selected == "search"
+                           : selection == "check-in" ||
+                             selection == "search"
                            ? "text-[#808080]"
                            : "text-[#222222]"
                      }`}
@@ -163,11 +171,11 @@ function HeaderSearch({ selected, setSelected }) {
                <button
                   className={`flex-col items-center rounded-full min-w-[130px] p-2  
           ${
-             selected == "check-out"
+             selection == "check-out"
                 ? "bg-white"
                 : "bg-none hover:bg-[#dddddd]"
           }`}
-                  onClick={() => setSelected("check-out")}
+                  onClick={() => dispatch(setSelection("check-out"))}
                >
                   <h4 className="text-left text-[14px] font-medium">
                      Check out
@@ -176,8 +184,8 @@ function HeaderSearch({ selected, setSelected }) {
                      className={`text-sm ${
                         endDate
                            ? "font-medium text-[#222222]"
-                           : selected == "check-out" ||
-                             selected == "search"
+                           : selection == "check-out" ||
+                             selection == "search"
                            ? "text-[#808080]"
                            : "text-[#222222]"
                      }`}
@@ -188,14 +196,14 @@ function HeaderSearch({ selected, setSelected }) {
 
                <div
                   className={`flex flex-grow justify-between rounded-full items-center px-2  ${
-                     selected == "who"
+                     selection == "who"
                         ? "bg-white"
                         : "bg-none hover:bg-[#dddddd]"
                   }`}
                >
                   <button
                      className="pl-4 flex-grow"
-                     onClick={() => setSelected("who")}
+                     onClick={() => dispatch(setSelection("who"))}
                   >
                      <h4 className="text-left text-[14px] font-medium">
                         Who
@@ -204,8 +212,8 @@ function HeaderSearch({ selected, setSelected }) {
                         className={`text-sm text-left w-[80px] ${
                            totalGuests > 0
                               ? "font-medium text-[#222222]"
-                              : selected == "who" ||
-                                selected == "search"
+                              : selection == "who" ||
+                                selection == "search"
                               ? "text-[#808080] font-normal"
                               : "text-[#222222]"
                         }`}
@@ -233,7 +241,6 @@ function HeaderSearch({ selected, setSelected }) {
             location={location}
             // dates={displayDates(startDate, endDate)}
             // guests={total}
-            setSelected={setSelected}
          />
       </>
    );

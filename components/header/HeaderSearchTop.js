@@ -3,8 +3,12 @@ import Image from "next/image";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
-function HeaderSearchTop({ setSelected }) {
+function HeaderSearchTop() {
+   const dispatch = useDispatch();
+
    const router = useRouter();
 
    const goToHome = () => {
@@ -15,7 +19,7 @@ function HeaderSearchTop({ setSelected }) {
       <>
          {/* Left */}
          <button
-            onClick={() => setSelected("search")}
+            onClick={() => dispatch(setSelection("search"))}
             className="hidden md:flex relative items-center h-10 cursor-pointer my-auto"
          >
             <Image
@@ -34,7 +38,7 @@ function HeaderSearchTop({ setSelected }) {
          {/* Middle */}
          <div
             className="flex flex-grow"
-            onClick={() => setSelected("search")}
+            onClick={() => dispatch(setSelection("search"))}
          >
             <button className="p-5 font-light underline">
                Stays
@@ -48,7 +52,7 @@ function HeaderSearchTop({ setSelected }) {
          {/* Right */}
          <div
             className="hidden md:flex items-center space-x-4 justify-end text-[##222222] text-sm"
-            onClick={() => setSelected("search")}
+            onClick={() => dispatch(setSelection("search"))}
          >
             <p className="hidden lg:inline cursor-pointer">
                Airbnb your home
