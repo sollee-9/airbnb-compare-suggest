@@ -3,15 +3,25 @@ import Image from "next/image";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import MobileClosed from "./MobileClosed";
 import { useSearchParams } from "next/navigation";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import {
+   setSelection,
+   getSelection,
+} from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
 function MobileLocation({ mobileSelect, setMobileSelect }) {
+   const selection = useSelector(getSelection);
+
    const params = useSearchParams();
    const location = params.get("location");
    const [searchInput, setSearchInput] = useState(
       location ? location : ""
    );
 
-   return mobileSelect === "Where" ? (
+   console.log(selection);
+
+   return selection === "where" ? (
       <div className="flex-col h-[335px] w-[96%] bg-white rounded-[30px] shadow-lg justify-center py-6 border border-gray-200 z-50">
          <h2 className="mx-6 font-bold text-xl text-[#222222] mb-4">
             Where to?
@@ -24,7 +34,9 @@ function MobileLocation({ mobileSelect, setMobileSelect }) {
                onChange={(e) => setSearchInput(e.target.value)}
                type="text"
                placeholder="Search destinations"
-               className="w-[100%] pl-8 placeholder-[#7b7b7b] text-sm outline-none border-none"
+               className={`w-[100%] pl-8 placeholder-[#7b7b7b] placeholder:font-normal text-sm outline-none border-none ${
+                  location ? "font-medium" : ""
+               }`}
             />
          </div>
 
@@ -104,11 +116,7 @@ function MobileLocation({ mobileSelect, setMobileSelect }) {
          </div>
       </div>
    ) : (
-      <MobileClosed
-         category={"Where"}
-         description={"I'm flexible"}
-         setMobileSelect={setMobileSelect}
-      />
+      <MobileClosed category={"Where"} description={"I'm flexible"} />
    );
 }
 

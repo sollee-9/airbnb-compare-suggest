@@ -1,5 +1,12 @@
 import React from "react";
 import GuestsPopupSection from "./GuestsPopupSection";
+import MobileClosed from "../mobile/MobileClosed";
+// Redux
+import { useSelector, useDispatch } from "react-redux";
+import {
+   setSelection,
+   getSelection,
+} from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
 function GuestsPopup({
    numAdults,
@@ -11,11 +18,17 @@ function GuestsPopup({
    numPets,
    setNumPets,
 }) {
-   return (
+   const selection = useSelector(getSelection);
+
+   return selection === "who" ? (
       <div
-         className="flex-col absolute h-[380px] min-w-[280px] sm:w-[280px] md:w-[400px] bg-white 
-      top-[70px] rounded-[30px] shadow-lg items-center p-8 border border-gray-200 right-0"
+         className="border border-gray-200 flex-col bg-white rounded-[30px] shadow-lg items-center p-8 
+            w-[96%] sm:absolute sm:w-[280px] sm:min-w-[280px] sm:top-[70px] sm:right-0 sm:p-6
+            md:w-[400px]"
       >
+         <h2 className="flex sm:hidden font-bold text-xl text-[#222222] mb-4">
+            Who's coming?
+         </h2>
          <GuestsPopupSection
             category={"Adults"}
             description={"Ages 13 or above"}
@@ -43,6 +56,8 @@ function GuestsPopup({
             last={true}
          />
       </div>
+   ) : (
+      <MobileClosed category={"Who"} description={"Add guests"} />
    );
 }
 

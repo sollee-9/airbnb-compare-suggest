@@ -237,7 +237,20 @@ function HeaderSearch() {
                </div>
             </div>
          </div>
-         <MobileSearchPopup />
+         <MobileSearchPopup
+            startDate={startDate}
+            endDate={endDate}
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            numAdults={numAdults}
+            setNumAdults={setNumAdults}
+            numChildren={numChildren}
+            setNumChildren={setNumChildren}
+            numInfants={numInfants}
+            setNumInfants={setNumInfants}
+            numPets={numPets}
+            setNumPets={setNumPets}
+         />
       </>
    );
 }

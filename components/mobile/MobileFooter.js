@@ -1,11 +1,15 @@
 import React from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 
-function MobileFooter() {
+function MobileFooter({ selection }) {
    return (
       <div
-         className="fixed bottom-0 w-[100%] h-[70px] border-t-[0.5px] bg-white
-        border-[#eeeeee] flex justify-between px-6 py-3"
+         className={`${
+            selection === "check-in" || selection === "check-out"
+               ? "hidden"
+               : "flex"
+         } fixed bottom-0 w-[100%] h-[70px] border-t-[0.5px] bg-white
+        border-[#eeeeee] justify-between px-6 py-3`}
       >
          <button className="underline text-md font-medium">
             Clear all

@@ -13,7 +13,7 @@ function MobileHeader({ location, dates, guests }) {
          <div
             className="flex items-center rounded-full 
                  py-2 px-2 bg-[#f7f7f7] flex-grow h-14 cursor-pointer"
-            onClick={() => dispatch(setSelection("search"))}
+            onClick={() => dispatch(setSelection("where"))}
          >
             <MagnifyingGlassIcon className="h-10 text-[#222222] p-2 cursor-pointer" />
             <button className="flex-col ml-2">

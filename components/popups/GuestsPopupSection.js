@@ -21,7 +21,7 @@ function GuestsPopupSection({
 
    return (
       <div
-         className={`flex mt-4 ${last ? "" : "pb-4  border-b-[1px]"}`}
+         className={`flex mt-4 pb-4 ${last ? "" : "border-b-[1px]"}`}
       >
          <div className="flex-col flex-grow">
             <h4 className="font-medium text-[15px]">{category}</h4>

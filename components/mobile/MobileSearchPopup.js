@@ -1,15 +1,31 @@
 import React, { useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import MobileLocation from "./MobileLocation";
-import MobileDates from "./MobileDates";
-import MobileGuests from "./MobileGuests";
 import MobileFooter from "./MobileFooter";
-import { useDispatch } from "react-redux";
-import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+   setSelectio,
+   getSelection,
+} from "../../app/GlobalRedux/Features/selection/selectionSlice";
+import GuestsPopup from "../popups/GuestsPopup";
+import DatePopup from "../popups/DatePopup";
 
-function MobileSearchPopup() {
+function MobileSearchPopup({
+   startDate,
+   endDate,
+   setStartDate,
+   setEndDate,
+   numAdults,
+   setNumAdults,
+   numChildren,
+   setNumChildren,
+   numInfants,
+   setNumInfants,
+   numPets,
+   setNumPets,
+}) {
+   const selection = useSelector(getSelection);
    const dispatch = useDispatch();
-   const [mobileSelect, setMobileSelect] = useState("Where");
 
    return (
       <div className="fixed z-[99] sm:hidden top-0 left-0 bottom-0 right-0 bg-[#f7f7f7] h-[100%] w-[100%]">
@@ -35,23 +51,28 @@ function MobileSearchPopup() {
          </div>
 
          {/* Cards */}
-         <div className="flex-col justify-center items-center">
-            <MobileLocation
-               mobileSelect={mobileSelect}
-               setMobileSelect={setMobileSelect}
+         <div className="flex-col justify-center items-center space-y-2">
+            <MobileLocation />
+            <DatePopup
+               startDate={startDate}
+               endDate={endDate}
+               setStartDate={setStartDate}
+               setEndDate={setEndDate}
             />
-            <MobileDates
-               mobileSelect={mobileSelect}
-               setMobileSelect={setMobileSelect}
-            />
-            <MobileGuests
-               mobileSelect={mobileSelect}
-               setMobileSelect={setMobileSelect}
+            <GuestsPopup
+               numAdults={numAdults}
+               setNumAdults={setNumAdults}
+               numChildren={numChildren}
+               setNumChildren={setNumChildren}
+               numInfants={numInfants}
+               setNumInfants={setNumInfants}
+               numPets={numPets}
+               setNumPets={setNumPets}
             />
          </div>
 
          {/* Footer */}
-         <MobileFooter />
+         <MobileFooter selection={selection} />
       </div>
    );
 }
