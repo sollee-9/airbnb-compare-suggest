@@ -1,9 +1,9 @@
 import React from "react";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Header from "@/components/header/Header";
 import RoomInfoCard from "@/components/cards/RoomInfoCard";
 import Map from "@/components/map/Map";
-import OptionsHeader from "@/components/OptionsHeader";
+import OptionsHeader from "@/components/header/OptionsHeader";
 
 async function Search() {
    const data = [

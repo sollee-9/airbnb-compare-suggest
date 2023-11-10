@@ -10,8 +10,8 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 import HeaderSearch from "./HeaderSearch";
-import MobileHeader from "./mobile/MobileHeader";
-import MobileSearchPopup from "./mobile/MobileSearchPopup";
+import MobileHeader from "../mobile/MobileHeader";
+import MobileSearchPopup from "../mobile/MobileSearchPopup";
 
 function Header({ fromSearch }) {
    const [selected, setSelected] = useState("");

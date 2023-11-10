@@ -16,7 +16,7 @@ import VillaOutlinedIcon from "@mui/icons-material/VillaOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
-import OptionIcon from "./OptionIcon";
+import OptionIcon from "../cards/OptionIcon";
 
 function OptionsHeader() {
    const [iconSelected, setIconSelected] = useState("Your search");
