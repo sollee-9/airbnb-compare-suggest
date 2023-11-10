@@ -13,8 +13,8 @@ function MobileHeader({
    return (
       <div className="fixed top-0 z-50 flex sm:hidden p-5 items-center bg-white shadow-sm w-[100%]">
          <div
-            className="flex items-center border-[1px] shadow-md rounded-full 
-                 py-2 px-2 border-[#ebebeb] flex-grow h-14 cursor-pointer"
+            className="flex items-center rounded-full 
+                 py-2 px-2 bg-[#f7f7f7] flex-grow h-14 cursor-pointer"
             onClick={() => setSelected("search")}
          >
             <MagnifyingGlassIcon className="h-10 text-[#222222] p-2 cursor-pointer" />
@@ -22,14 +22,17 @@ function MobileHeader({
                <h3 className="text-start text-sm font-medium">
                   {location ? location : "Anywhere"}
                </h3>
-               <p className="text-xs text-[#7b7b7b]">
-                  {fromSearch ? `${dates} ` : "Any week "}·
-                  {!guests
-                     ? " Add guests"
-                     : guests > 1
-                     ? ` ${guests} guests`
-                     : " 1 guest"}
-               </p>
+               <div className="flex items-baseline text-xs text-[#7b7b7b] font-light">
+                  <p>{fromSearch ? `${dates}` : "Any week"}</p>
+                  <p className="font-bold text-sm mx-1">·</p>
+                  <p>
+                     {!guests
+                        ? "Add guests"
+                        : guests > 1
+                        ? `${guests} guests`
+                        : "1 guest"}
+                  </p>
+               </div>
             </button>
          </div>
 

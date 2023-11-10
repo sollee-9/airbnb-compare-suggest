@@ -9,6 +9,7 @@ import PopupBlocker from "../popups/PopupBlocker";
 import LocationPopup from "../popups/LocationPopup";
 import DatePopup from "../popups/DatePopup";
 import GuestsPopup from "../popups/GuestsPopup";
+import MobileSearchPopup from "../mobile/MobileSearchPopup";
 
 function HeaderSearch({ selected, setSelected }) {
    const router = useRouter();
@@ -70,7 +71,7 @@ function HeaderSearch({ selected, setSelected }) {
    return (
       <>
          <PopupBlocker setSelected={setSelected} />
-         <header className="hidden sticky top-0 z-50 sm:grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
+         <div className="hidden sticky top-0 z-50 sm:grid sm:grid-cols-2 md:grid-cols-3 bg-white shadow-md p-5 md:px-10 ">
             <HeaderSearchTop setSelected={setSelected} />
             {/* Main */}
             <div
@@ -226,7 +227,14 @@ function HeaderSearch({ selected, setSelected }) {
                   </button>
                </div>
             </div>
-         </header>
+         </div>
+         <MobileSearchPopup
+            location={location}
+            // dates={displayDates(startDate, endDate)}
+            // guests={total}
+            // fromSearch={fromSearch}
+            setSelected={setSelected}
+         />
       </>
    );
 }

@@ -11,7 +11,6 @@ import { useSearchParams } from "next/navigation";
 import { format } from "date-fns";
 import HeaderSearch from "./HeaderSearch";
 import MobileHeader from "../mobile/MobileHeader";
-import MobileSearchPopup from "../mobile/MobileSearchPopup";
 
 function Header({ fromSearch }) {
    const [selected, setSelected] = useState("");
@@ -140,20 +139,11 @@ function Header({ fromSearch }) {
                </div>
             </header>
          ) : (
-            <>
-               <HeaderSearch
-                  selected={selected}
-                  setSelected={setSelected}
-                  fromSearch={fromSearch}
-               />
-               <MobileSearchPopup
-                  location={location}
-                  dates={displayDates(startDate, endDate)}
-                  guests={guests}
-                  fromSearch={fromSearch}
-                  setSelected={setSelected}
-               />
-            </>
+            <HeaderSearch
+               selected={selected}
+               setSelected={setSelected}
+               fromSearch={fromSearch}
+            />
          )}
 
          <MobileHeader
