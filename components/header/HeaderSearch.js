@@ -237,11 +237,7 @@ function HeaderSearch() {
                </div>
             </div>
          </div>
-         <MobileSearchPopup
-            location={location}
-            // dates={displayDates(startDate, endDate)}
-            // guests={total}
-         />
+         <MobileSearchPopup />
       </>
    );
 }

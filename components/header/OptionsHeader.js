@@ -17,130 +17,143 @@ import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import OptionIcon from "../cards/OptionIcon";
+// Redux
+import { useSelector } from "react-redux";
+import { getSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
 function OptionsHeader() {
+   const selection = useSelector(getSelection);
+
    const [iconSelected, setIconSelected] = useState("Your search");
 
    return (
-      <header
-         className="hidden sm:flex h-[80px] z-40 w-[100%] sticky justify-between items-baseline
-       bg-white shadow-sm top-[90px] px-4"
-      >
-         {/* Carousel */}
-         <div className="flex overflow-x-scroll scrollbar-hide overscroll-contain">
-            <OptionIcon
-               icon={
-                  <HolidayVillageOutlinedIcon className="text-[28px]" />
-               }
-               text={"Your search"}
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <div className="flex self-center h-[40px] border border-r-[0px] border-[#b0b0b0] ml-6 mr-4"></div>
-            <OptionIcon
-               icon={<BedOutlinedIcon className="text-[28px]" />}
-               text="Rooms"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={
-                  <BeachAccessOutlinedIcon className="text-[28px]" />
-               }
-               text="Beach"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<WaterOutlinedIcon className="text-[28px]" />}
-               text="Amazing pools"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<YardOutlinedIcon className="text-[28px]" />}
-               text="Amazing views"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<ForestOutlinedIcon className="text-[28px]" />}
-               text="Lake"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={
-                  <LocalFireDepartmentOutlinedIcon className="text-[28px]" />
-               }
-               text="Trending"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={
-                  <DownhillSkiingOutlinedIcon className="text-[28px]" />
-               }
-               text="Skiing"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={
-                  <ColorLensOutlinedIcon className="text-[28px]" />
-               }
-               text="Creative spaces"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<CabinOutlinedIcon className="text-[28px]" />}
-               text="Cabins"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={
-                  <SportsGolfOutlinedIcon className="text-[28px]" />
-               }
-               text="Golf"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<CoffeeOutlinedIcon className="text-[28px]" />}
-               text="Bed & breakfasts"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<VillaOutlinedIcon className="text-[28px]" />}
-               text="Tiny homes"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={<GridViewOutlinedIcon className="text-[28px]" />}
-               text="Off the grid"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-            <OptionIcon
-               icon={
-                  <AutoAwesomeOutlinedIcon className="text-[28px]" />
-               }
-               text="New"
-               iconSelected={iconSelected}
-               setIconSelected={setIconSelected}
-            />
-         </div>
+      selection === "" && (
+         <header
+            className="hidden sm:flex h-[80px] z-40 w-[100%] sticky justify-between items-baseline
+            bg-white shadow-sm top-[90px] px-4"
+         >
+            {/* Carousel */}
+            <div className="flex overflow-x-scroll scrollbar-hide overscroll-contain">
+               <OptionIcon
+                  icon={
+                     <HolidayVillageOutlinedIcon className="text-[28px]" />
+                  }
+                  text={"Your search"}
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <div className="flex self-center h-[40px] border border-r-[0px] border-[#b0b0b0] ml-6 mr-4"></div>
+               <OptionIcon
+                  icon={<BedOutlinedIcon className="text-[28px]" />}
+                  text="Rooms"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <BeachAccessOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Beach"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={<WaterOutlinedIcon className="text-[28px]" />}
+                  text="Amazing pools"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={<YardOutlinedIcon className="text-[28px]" />}
+                  text="Amazing views"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <ForestOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Lake"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <LocalFireDepartmentOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Trending"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <DownhillSkiingOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Skiing"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <ColorLensOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Creative spaces"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={<CabinOutlinedIcon className="text-[28px]" />}
+                  text="Cabins"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <SportsGolfOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Golf"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <CoffeeOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Bed & breakfasts"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={<VillaOutlinedIcon className="text-[28px]" />}
+                  text="Tiny homes"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <GridViewOutlinedIcon className="text-[28px]" />
+                  }
+                  text="Off the grid"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+               <OptionIcon
+                  icon={
+                     <AutoAwesomeOutlinedIcon className="text-[28px]" />
+                  }
+                  text="New"
+                  iconSelected={iconSelected}
+                  setIconSelected={setIconSelected}
+               />
+            </div>
 
-         {/* Filters */}
-         <button className="rounded-xl border-[1px] border-gray-300 flex p-3 items-center ml-8">
-            <AdjustmentsHorizontalIcon className="h-5 mr-2" />
-            <p className="text-xs font-medium">Filters</p>
-         </button>
-      </header>
+            {/* Filters */}
+            <button className="rounded-xl border-[1px] border-gray-300 flex p-3 items-center ml-8">
+               <AdjustmentsHorizontalIcon className="h-5 mr-2" />
+               <p className="text-xs font-medium">Filters</p>
+            </button>
+         </header>
+      )
    );
 }
 
