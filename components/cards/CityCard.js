@@ -9,7 +9,12 @@ function CityCard({ img, location, distance }) {
         transfom duration-200 ease-out"
       >
          <div className="relative h-16 w-16">
-            <Image src={img} fill={true} className="rounded-lg" />
+            <Image
+               src={img}
+               fill={true}
+               className="rounded-lg"
+               alt={location}
+            />
          </div>
 
          <div>
