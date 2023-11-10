@@ -10,46 +10,45 @@ import LocationPopup from "../popups/LocationPopup";
 import DatePopup from "../popups/DatePopup";
 import GuestsPopup from "../popups/GuestsPopup";
 
-function HeaderSearch({ fromSearch, selected, setSelected }) {
+function HeaderSearch({ selected, setSelected }) {
    const router = useRouter();
    const params = useSearchParams();
 
    // Params from URL
-   const location = fromSearch ? params.get("location") : null;
+   const [location, setLocation] = useState(params.get("location"));
    const [startDate, setStartDate] = useState(
-      fromSearch ? new Date(params.get("startDate")) : null
+      params.get("startDate")
+         ? new Date(params.get("startDate"))
+         : null
    );
    const [endDate, setEndDate] = useState(
-      fromSearch ? new Date(params.get("endDate")) : null
+      params.get("endDate") ? new Date(params.get("endDate")) : null
    );
    const [numAdults, setNumAdults] = useState(
-      fromSearch ? parseInt(params.get("numAdults")) : 0
+      params.get("numAdults") ? parseInt(params.get("numAdults")) : 0
    );
    const [numChildren, setNumChildren] = useState(
-      fromSearch ? parseInt(params.get("numChildren")) : 0
+      params.get("numChildren")
+         ? parseInt(params.get("numChildren"))
+         : 0
    );
    const [numInfants, setNumInfants] = useState(
-      fromSearch ? parseInt(params.get("numInfants")) : 0
+      params.get("numInfants")
+         ? parseInt(params.get("numInfants"))
+         : 0
    );
    const [numPets, setNumPets] = useState(
-      fromSearch ? parseInt(params.get("numPets")) : 0
+      params.get("numPets") ? parseInt(params.get("numPets")) : 0
    );
    // End of Params
 
+   // Prepare & Format data for use
    const [searchInput, setSearchInput] = useState(
-      fromSearch ? location : ""
+      location ? location : ""
    );
-   const [totalGuests, setTotalGuests] = useState(0);
-
    const formattedStartDate = format(new Date(startDate), "MMM. d");
    const formattedEndDate = format(new Date(endDate), "MMM. d");
-
-   const searchLocation = () => {
-      router.push(
-         `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
-      );
-      setSelected("");
-   };
+   const [totalGuests, setTotalGuests] = useState(0);
 
    useEffect(() => {
       setTotalGuests(
@@ -59,6 +58,14 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
             parseInt(numPets)
       );
    }, [numAdults, numChildren, numInfants, numPets]);
+
+   //
+   const searchLocation = () => {
+      router.push(
+         `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
+      );
+      setSelected("");
+   };
 
    return (
       <>
@@ -140,7 +147,7 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                   </h4>
                   <p
                      className={`text-sm ${
-                        fromSearch
+                        startDate
                            ? "font-medium text-[#222222]"
                            : selected == "check-in" ||
                              selected == "search"
@@ -165,7 +172,7 @@ function HeaderSearch({ fromSearch, selected, setSelected }) {
                   </h4>
                   <p
                      className={`text-sm ${
-                        fromSearch
+                        endDate
                            ? "font-medium text-[#222222]"
                            : selected == "check-out" ||
                              selected == "search"
