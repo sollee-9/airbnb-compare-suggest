@@ -3,7 +3,7 @@ import React from "react";
 function OptionIcon({ text, icon, iconSelected, setIconSelected }) {
    const selected = text === iconSelected;
    return (
-      <div className="w-[95px] flex justify-center">
+      <div className="w-[95px] flex justify-center mx-3">
          <button
             className={`hover:border-b-2 ${
                selected
