@@ -8,4 +8,8 @@
       transition duration-200 ease-out cursor-pointer h-[78px]
       active:scale-95;
    }
+
+   .dateToggleButton {
+      @apply h-[80%] flex-grow rounded-full text-sm box-border;
+   }
 }

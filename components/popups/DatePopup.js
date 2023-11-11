@@ -35,7 +35,6 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
          dispatch(setSelection("check-in"));
       }
       setStartDate(ranges.selection.startDate);
-      // dispatch(setSelection("check-out"));
       if (start !== end) {
          dispatch(setSelection("check-out"));
       }
@@ -57,7 +56,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
          <div className="flex justify-center">
             <div className="mt-5 flex justify-between items-center space-x-1 rounded-full bg-[#ebebeb] w-[300px] h-[45px] px-1 ">
                <button
-                  className={`h-[80%] flex-grow rounded-full text-sm box-border ${
+                  className={`dateToggleButton ${
                      dateToggle === "Dates"
                         ? "bg-white outline outline-1 outline-gray-300"
                         : "hover:bg-[#dddddd]"
@@ -67,7 +66,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
                   Dates
                </button>
                <button
-                  className={`h-[80%] flex-grow rounded-full text-sm box-border ${
+                  className={`dateToggleButton ${
                      dateToggle === "Months"
                         ? "bg-white outline outline-1 outline-gray-300"
                         : "hover:bg-[#dddddd]"
@@ -77,7 +76,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
                   Months
                </button>
                <button
-                  className={`h-[80%] flex-grow rounded-full text-sm box-border ${
+                  className={`dateToggleButton ${
                      dateToggle === "Flexible"
                         ? "bg-white outline outline-1 outline-gray-300"
                         : "hover:bg-[#dddddd]"

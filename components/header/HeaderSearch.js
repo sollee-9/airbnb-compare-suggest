@@ -82,7 +82,7 @@ function HeaderSearch() {
    return (
       <>
          <PopupBlocker />
-         <div className="hidden sticky top-0 z-50 sm:flex sm:flex-col bg-white shadow-md p-5 md:px-10 ">
+         <div className="hidden sticky h-[170px] top-0 z-50 sm:flex sm:flex-col bg-white shadow-md p-5 md:px-10 ">
             <HeaderSearchTop />
             {/* Main */}
             <div
