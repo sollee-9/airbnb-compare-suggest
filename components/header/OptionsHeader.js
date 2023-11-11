@@ -23,7 +23,7 @@ import { getSelection } from "../../app/GlobalRedux/Features/selection/selection
 
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-
+import "../../styles/Carousel.css";
 const responsive = {
    desktop: {
       breakpoint: { max: 3000, min: 1024 },

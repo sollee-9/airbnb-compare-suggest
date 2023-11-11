@@ -1,0 +1,147 @@
+/* Calendar Styles */
+.rdrMonths {
+   /* Wrapper for the months */
+   padding-top: 10px;
+}
+.rdrDateDisplayWrapper,
+.rdrMonthAndYearPickers,
+.rdrMonthPicker,
+.rdrYearPicker {
+   /* Hide top option headers */
+   display: none;
+}
+
+.rdrDefinedRangesWrapper {
+   /* Hide left column for fixed date option buttons */
+   display: none;
+}
+
+.rdrCalendarWrapper {
+   /* Main calendar wrapper */
+   border-radius: 30px;
+   display: flex;
+   flex-grow: 1;
+   width: auto;
+}
+
+.rdrMonthAndYearWrapper {
+   /* Div for button group */
+   width: 100%;
+   position: absolute;
+}
+
+.rdrInRange ~ .rdrDayNumber span {
+   /* Font color for dates in range */
+   color: #222222 !important;
+}
+
+.rdrNextPrevButton.rdrPprevButton,
+.rdrNextPrevButton.rdrNextButton {
+   /* Styling for month navigation buttons */
+   background: none;
+   border-radius: 100%;
+   height: 40px;
+   width: 40px;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+}
+
+.rdrNextPrevButton.rdrPprevButton:hover,
+.rdrNextPrevButton.rdrNextButton:hover {
+   /* Styling for month navigation buttons on hover */
+   background: #f7f7f7;
+}
+
+.rdrNextButton i,
+.rdrPrevButton i {
+   /* Center button icons  */
+   margin: auto !important;
+}
+
+.rdrMonthName {
+   /* Month Year Heading */
+   text-align: center !important;
+   font-size: 14px;
+   font-weight: 500 !important;
+   color: #282828 !important;
+}
+
+.rdrWeekDay {
+   /* Styling for week days e.g. Mon Tue Wed */
+   color: #717171 !important;
+   font-weight: 500 !important;
+}
+
+.rdrEndEdge,
+.rdrStartEdge {
+   /* Selected dates  */
+   background-color: #222222 !important;
+   color: white !important;
+}
+
+.rdrSelected {
+   /* Font color for selected start end dates */
+   color: white !important;
+}
+
+.rdrCalendarWrapper.rdrDateRangeWrapper {
+   /* position: relative; */
+}
+
+.rdrDayDisabled {
+   /* Styling for disabled buttons */
+   background: none !important;
+}
+
+.rdrDayDisabled:hover {
+   border-style: none !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+   /* Removing underline on Today date */
+   background: none !important;
+}
+
+.rdrDayNumber {
+   font-weight: 500 !important;
+}
+
+.rdrStartEdge,
+.rdrDayStartOfWeek.rdrInRange {
+   border-top-left-radius: 0.5em !important;
+   border-bottom-left-radius: 0.5em !important;
+}
+
+.rdrEndEdge,
+.rdrDayEndOfWeek.rdrInRange {
+   border-top-right-radius: 0.5em !important;
+   border-bottom-right-radius: 0.5em !important;
+}
+
+.rdrDayEndOfMonth .rdrInRange,
+.rdrDayEndOfMonth .rdrStartEdge,
+.rdrDayEndOfWeek .rdrInRange,
+.rdrDayEndOfWeek .rdrStartEdge,
+.rdrDayEndOfWeek,
+.rdrEndEdge {
+   border-top-right-radius: 0.5em !important;
+   border-bottom-right-radius: 0.5em !important;
+}
+
+.rdrDays > button {
+   border-radius: 100%;
+}
+
+.rdrDays > button:hover {
+   border-radius: 100%;
+   border-color: #222222 !important;
+   border: solid;
+}
+.rdrDays > button {
+   border-radius: 100%;
+}
+
+.rdrDay.rdrDayActive {
+   border-color: black;
+}

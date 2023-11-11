@@ -3,6 +3,7 @@ import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import MobileClosed from "../mobile/MobileClosed";
+import "../../styles/Calendar.css";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -63,10 +64,10 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
             <DateRangePicker
                ranges={[selectionRange]}
                minDate={new Date()}
-               rangeColors={["#f7f7f7", "#222222"]}
+               rangeColors={["#f7f7f7"]}
                onChange={handleDateSelect}
                months={2}
-               color="#000000"
+               color="#FF0000"
                direction="horizontal"
                staticRanges={[]}
                inputRanges={[]}
@@ -76,7 +77,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
             <DateRangePicker
                ranges={[selectionRange]}
                minDate={new Date()}
-               rangeColors={["#f7f7f7", "#222222"]}
+               rangeColors={["#f7f7f7"]}
                onChange={handleDateSelect}
                months={5}
                color="#000000"
