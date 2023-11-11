@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -23,14 +23,19 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
       key: "selection",
    };
 
-   // TODO
-   // useEffect(() => {
-   //    dispatch(setSelection("check-in"));
-   // }, [startDate]);
-
    const handleDateSelect = (ranges) => {
+      const start = ranges.selection.startDate;
+      const end = ranges.selection.endDate;
+
+      // End not selected yet
+      if (start === end) {
+         dispatch(setSelection("check-in"));
+      }
       setStartDate(ranges.selection.startDate);
-      dispatch(setSelection("check-out"));
+      // dispatch(setSelection("check-out"));
+      if (start !== end) {
+         dispatch(setSelection("check-out"));
+      }
       setEndDate(ranges.selection.endDate);
    };
 
@@ -64,26 +69,24 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
             <DateRangePicker
                ranges={[selectionRange]}
                minDate={new Date()}
-               rangeColors={["#f7f7f7"]}
                onChange={handleDateSelect}
                months={2}
-               color="#FF0000"
                direction="horizontal"
                staticRanges={[]}
                inputRanges={[]}
+               rangeColors={["#ffffff"]}
             />
          </div>
          <div className="flex mt-4 justify-center sm:hidden overflow-y-scroll w-full h-[310px]">
             <DateRangePicker
                ranges={[selectionRange]}
                minDate={new Date()}
-               rangeColors={["#f7f7f7"]}
                onChange={handleDateSelect}
                months={5}
-               color="#000000"
                direction="vertical"
                staticRanges={[]}
                inputRanges={[]}
+               rangeColors={["#ffffff"]}
             />
          </div>
 
