@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
@@ -7,8 +7,9 @@ import { useDispatch } from "react-redux";
 import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
 function HeaderSearchTop() {
-   const dispatch = useDispatch();
+   const [toggleCategory, setToggleCategory] = useState("Stays");
 
+   const dispatch = useDispatch();
    const router = useRouter();
 
    const goToHome = () => {
@@ -40,18 +41,41 @@ function HeaderSearchTop() {
             className="hidden md:flex flex-grow justify-center items-center"
             onClick={() => dispatch(setSelection("search"))}
          >
-            <button className="p-5 font-light underline">
+            <button
+               className={`py-2 mx-4 font-light box-border ${
+                  toggleCategory === "Stays"
+                     ? "border-b-2 border-[#222222]"
+                     : ""
+               }`}
+               onClick={() => setToggleCategory("Stays")}
+            >
                Stays
             </button>
-            <button className="p-5 font-light">Experiences</button>
-            <button className="p-5 font-light inline">
+            <button
+               className={`py-2 mx-4 font-light box-border  ${
+                  toggleCategory === "Experiences"
+                     ? "border-b-2 border-[#222222]"
+                     : ""
+               }`}
+               onClick={() => setToggleCategory("Experiences")}
+            >
+               Experiences
+            </button>
+            <button
+               className={`py-2 mx-4 font-light box-border ${
+                  toggleCategory === "Online Experiences"
+                     ? "border-b-2 border-[#222222]"
+                     : ""
+               }`}
+               onClick={() => setToggleCategory("Online Experiences")}
+            >
                Online Experiences
             </button>
          </div>
 
          {/* Right */}
          <div
-            className="hidden sm:flex items-center space-x-4 text-[##222222] text-sm"
+            className="hidden sm:flex items-center space-x-4 text-[#222222] text-sm"
             onClick={() => dispatch(setSelection("search"))}
          >
             <p className="hidden lg:inline cursor-pointer">
