@@ -27,7 +27,7 @@ import "react-multi-carousel/lib/styles.css";
 const responsive = {
    desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 12,
+      items: 13,
       slidesToSlide: 8, // optional, default to 1.
    },
    tablet: {
@@ -82,7 +82,7 @@ function OptionsHeader() {
                   draggable={true}
                   responsive={responsive}
                   transitionDuration={400}
-                  removeArrowOnDeviceType={["mobile", "tablet"]}
+                  removeArrowOnDeviceType={["mobile"]}
                >
                   <OptionIcon
                      icon={
