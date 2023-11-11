@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -12,8 +12,11 @@ import {
 } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 // Helper
 import { formatDateRange } from "../../helpers/datesHelper";
+import { setDate } from "date-fns";
 
 function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
+   const [dateToggle, setDateToggle] = useState("Dates");
+
    const dispatch = useDispatch();
    const selection = useSelector(getSelection);
 
@@ -53,13 +56,34 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
          {/* Buttons */}
          <div className="flex justify-center">
             <div className="mt-5 flex justify-between items-center space-x-1 rounded-full bg-[#ebebeb] w-[300px] h-[45px] px-1 ">
-               <button className="bg-white h-[80%] flex-grow rounded-full text-sm border-[1px] border-gray-300">
+               <button
+                  className={`h-[80%] flex-grow rounded-full text-sm box-border ${
+                     dateToggle === "Dates"
+                        ? "bg-white outline outline-1 outline-gray-300"
+                        : "hover:bg-[#dddddd]"
+                  }`}
+                  onClick={() => setDateToggle("Dates")}
+               >
                   Dates
                </button>
-               <button className="hover:bg-[#dddddd] h-[80%] flex-grow rounded-full text-sm">
+               <button
+                  className={`h-[80%] flex-grow rounded-full text-sm box-border ${
+                     dateToggle === "Months"
+                        ? "bg-white outline outline-1 outline-gray-300"
+                        : "hover:bg-[#dddddd]"
+                  }`}
+                  onClick={() => setDateToggle("Months")}
+               >
                   Months
                </button>
-               <button className="hover:bg-[#dddddd] h-[80%] flex-grow rounded-full text-sm">
+               <button
+                  className={`h-[80%] flex-grow rounded-full text-sm box-border ${
+                     dateToggle === "Flexible"
+                        ? "bg-white outline outline-1 outline-gray-300"
+                        : "hover:bg-[#dddddd]"
+                  }`}
+                  onClick={() => setDateToggle("Flexible")}
+               >
                   Flexible
                </button>
             </div>
