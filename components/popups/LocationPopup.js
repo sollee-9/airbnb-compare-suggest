@@ -1,11 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
 
 function LocationPopup() {
-   const dispatch = useDispatch();
-
    return (
       <div
          className="flex-col absolute h-[460px] md:min-w-[300px] md:w-[300px] lg:w-[450px] bg-white 

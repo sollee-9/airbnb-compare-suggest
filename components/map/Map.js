@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Map, { Marker, Popup } from "react-map-gl";
+import Map from "react-map-gl";
 import { getCenter } from "geolib";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./MapMarker";

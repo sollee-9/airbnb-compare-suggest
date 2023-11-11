@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Map, { Marker, Popup } from "react-map-gl";
+import { Marker, Popup } from "react-map-gl";
 import Image from "next/image";
 import { StarIcon, HeartIcon } from "@heroicons/react/24/solid";
 
