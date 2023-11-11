@@ -4,13 +4,13 @@ import Image from "next/image";
 function LocationPopup() {
    return (
       <div
-         className="flex-col absolute h-[460px] md:min-w-[300px] md:w-[300px] lg:w-[450px] bg-white 
-               top-[70px] rounded-[30px] shadow-lg justify-start p-10 border border-gray-200 z-50"
+         className="flex-col absolute h-[460px] bg-white w-[500px]
+               top-[70px] rounded-[30px] shadow-lg justify-start p-8 border border-gray-200 z-50"
       >
          {/* Header Text */}
-         <p className="font-medium text-sm mb-8">Search by region</p>
+         <p className="font-medium text-sm mb-4">Search by region</p>
 
-         <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-8">
+         <div className="grid grid-cols-3 gap-x-3 gap-y-8">
             <div>
                <Image
                   src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg"
@@ -55,7 +55,7 @@ function LocationPopup() {
                   Southeast Asia
                </h4>
             </div>
-            <div className="md:hidden lg:inline">
+            <div>
                <Image
                   src="https://a0.muscache.com/im/pictures/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.jpg?im_w=320"
                   width={200}
@@ -65,7 +65,7 @@ function LocationPopup() {
                />
                <h4 className="text-sm font-light mt-2">Italy</h4>
             </div>
-            <div className="md:hidden lg:inline">
+            <div>
                <Image
                   src="https://a0.muscache.com/im/pictures/4e762891-75a3-4fe1-b73a-cd7e673ba915.jpg?im_w=320"
                   width={200}
