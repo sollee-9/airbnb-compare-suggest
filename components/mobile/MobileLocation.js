@@ -15,7 +15,7 @@ function MobileLocation({ searchInput, setSearchInput }) {
 
    return selection === "where" ? (
       <div className="flex-col h-[335px] w-[96%] bg-white rounded-[30px] shadow-lg justify-center py-6 border border-gray-200 z-50">
-         <h2 className="mx-6 font-bold text-xl text-[#222222] mb-4">
+         <h2 className="mx-6 font-bold text-xl text-theme-black mb-4">
             Where to?
          </h2>
 

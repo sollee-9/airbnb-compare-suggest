@@ -13,7 +13,7 @@ function OptionIcon({ text, icon, iconSelected, setIconSelected }) {
             onClick={() => setIconSelected(text)}
          >
             <div
-               className={`iconButton ${
+               className={`icon-button ${
                   selected ? "text-black" : "text-[#727272]"
                }`}
             >

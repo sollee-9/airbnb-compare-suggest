@@ -12,7 +12,7 @@ function MobileFooter({ searchLocation }) {
          </button>
          <button
             onClick={searchLocation}
-            className="bg-[#e61e4f] text-white flex justify-center items-center p-1 w-[120px]
+            className="bg-airbnb-pink hover:bg-airbnb-dark-pink text-white flex justify-center items-center p-1 w-[120px]
             rounded-md"
          >
             <MagnifyingGlassIcon className="h-5 mr-2" />

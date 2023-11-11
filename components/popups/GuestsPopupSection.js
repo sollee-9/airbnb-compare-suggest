@@ -39,18 +39,18 @@ function GuestsPopupSection({
             <button
                onClick={() => decrement()}
                className="rounded-full border-[1px] h-7 w-7 flex justify-center items-center disabled:cursor-not-allowed
-                disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-[#717171] border-[#b0b0b0]
-                hover:text-[#222222] hover:border-[#222222]"
+                disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-theme-gray border-[#b0b0b0]
+                hover:text-theme-black hover:border-[#222222]"
                disabled={numPeople == 0}
             >
                <MinusIcon className="h-6" />
             </button>
-            <p className="px-4 text-[#222222]">{numPeople}</p>
+            <p className="px-4 text-theme-black">{numPeople}</p>
             <button
                onClick={() => increment()}
                className="rounded-full border-[1px] h-7 w-7 flex justify-center items-center disabled:cursor-not-allowed
-               disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-[#717171] border-[#b0b0b0]
-               hover:text-[#222222] hover:border-[#222222]"
+               disabled:text-[#ebebeb] disabled:border-[#ebebeb] text-theme-gray border-[#b0b0b0]
+               hover:text-theme-black hover:border-[#222222]"
             >
                <PlusIcon className="h-8" />
             </button>

@@ -106,7 +106,7 @@ function Header() {
                   </button>
                   <MagnifyingGlassIcon
                      onClick={() => dispatch(setSelection("search"))}
-                     className="inline-flex h-8 bg-[#ff395c] text-white rounded-full p-2 cursor-pointer 
+                     className="inline-flex h-8 bg-airbnb-pink hover:bg-airbnb-dark-pink text-white rounded-full p-2 cursor-pointer 
                      mx-auto md:mx-2 font-extrabold"
                   />
                </div>

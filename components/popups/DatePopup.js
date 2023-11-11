@@ -49,14 +49,14 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
           bg-white shadow-lg w-[96%] flex-grow relative
           sm:absolute sm:top-[70px] sm:left-[5] sm:w-fit sm:h-fit sm:rounded-[30px] sm:p-1"
       >
-         <h2 className="flex w-full sm:hidden font-bold text-xl text-[#222222] pt-8 px-8 pb-2">
+         <h2 className="flex w-full sm:hidden font-bold text-xl text-theme-black pt-8 px-8 pb-2">
             When's your trip?
          </h2>
          {/* Buttons */}
          <div className="flex justify-center">
             <div className="mt-5 flex justify-between items-center space-x-1 rounded-full bg-[#ebebeb] w-[300px] h-[45px] px-1 ">
                <button
-                  className={`dateToggleButton ${
+                  className={`date-toggle-button ${
                      dateToggle === "Dates"
                         ? "bg-white outline outline-1 outline-gray-300"
                         : "hover:bg-[#dddddd]"
@@ -66,7 +66,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
                   Dates
                </button>
                <button
-                  className={`dateToggleButton ${
+                  className={`date-toggle-button ${
                      dateToggle === "Months"
                         ? "bg-white outline outline-1 outline-gray-300"
                         : "hover:bg-[#dddddd]"
@@ -76,7 +76,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
                   Months
                </button>
                <button
-                  className={`dateToggleButton ${
+                  className={`date-toggle-button ${
                      dateToggle === "Flexible"
                         ? "bg-white outline outline-1 outline-gray-300"
                         : "hover:bg-[#dddddd]"

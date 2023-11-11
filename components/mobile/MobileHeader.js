@@ -15,7 +15,7 @@ function MobileHeader({ location, dates, guests }) {
                  py-2 px-2 bg-[#f7f7f7] flex-grow h-14 cursor-pointer"
             onClick={() => dispatch(setSelection("where"))}
          >
-            <MagnifyingGlassIcon className="h-10 text-[#222222] p-2 cursor-pointer" />
+            <MagnifyingGlassIcon className="h-10 text-theme-black p-2 cursor-pointer" />
             <button className="flex-col ml-2">
                <h3 className="text-start text-sm font-medium">
                   {location ? location : "Anywhere"}

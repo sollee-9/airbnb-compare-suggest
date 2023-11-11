@@ -75,7 +75,7 @@ function HeaderSearchTop() {
 
          {/* Right */}
          <div
-            className="hidden sm:flex items-center space-x-4 text-[#222222] text-sm"
+            className="hidden sm:flex items-center space-x-4 text-theme-black text-sm"
             onClick={() => dispatch(setSelection("search"))}
          >
             <p className="hidden lg:inline cursor-pointer">

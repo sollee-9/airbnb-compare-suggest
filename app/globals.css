@@ -3,13 +3,33 @@
 @tailwind utilities;
 
 @layer components {
-   .iconButton {
+   .icon-button {
       @apply flex flex-col items-center justify-center text-[#717171] hover:text-[#222222] box-border	
       transition duration-200 ease-out cursor-pointer h-[78px]
       active:scale-95;
    }
 
-   .dateToggleButton {
+   .date-toggle-button {
       @apply h-[80%] flex-grow rounded-full text-sm box-border;
+   }
+
+   .text-theme-black {
+      @apply text-[#222222];
+   }
+
+   .text-theme-gray {
+      @apply text-[#717171];
+   }
+
+   .footer-option {
+      @apply text-sm text-[#2b2b2b] font-light;
+   }
+
+   .bg-airbnb-pink {
+      @apply bg-[#ff395c];
+   }
+
+   .bg-airbnb-dark-pink {
+      @apply bg-[#e51e53];
    }
 }

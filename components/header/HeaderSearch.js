@@ -132,7 +132,7 @@ function HeaderSearch() {
                      onChange={(e) => setSearchInput(e.target.value)}
                      autoFocus={true}
                      placeholder="Search destinations"
-                     className={`bg-transparent border-none outline-none text-sm ml-4 text-[#222222] pointer-events-auto w-[100%] ${
+                     className={`bg-transparent border-none outline-none text-sm ml-4 text-theme-black pointer-events-auto w-[100%] ${
                         searchInput
                            ? "font-medium"
                            : selection == "where" ||
@@ -157,11 +157,11 @@ function HeaderSearch() {
                   <p
                      className={`text-sm ${
                         startDate
-                           ? "font-medium text-[#222222]"
+                           ? "font-medium text-theme-black"
                            : selection == "check-in" ||
                              selection == "search"
                            ? "text-[#808080]"
-                           : "text-[#222222]"
+                           : "text-theme-black"
                      }`}
                   >
                      {startDate ? formatDate(startDate) : "Add dates"}
@@ -182,11 +182,11 @@ function HeaderSearch() {
                   <p
                      className={`text-sm ${
                         endDate
-                           ? "font-medium text-[#222222]"
+                           ? "font-medium text-theme-black"
                            : selection == "check-out" ||
                              selection == "search"
                            ? "text-[#808080]"
-                           : "text-[#222222]"
+                           : "text-theme-black"
                      }`}
                   >
                      {endDate ? formatDate(endDate) : "Add dates"}
@@ -210,11 +210,11 @@ function HeaderSearch() {
                      <p
                         className={`text-sm text-left w-[80px] ${
                            totalGuests > 0
-                              ? "font-medium text-[#222222]"
+                              ? "font-medium text-theme-black"
                               : selection == "who" ||
                                 selection == "search"
                               ? "text-[#808080] font-normal"
-                              : "text-[#222222]"
+                              : "text-theme-black"
                         }`}
                      >
                         {totalGuests === null || totalGuests === 0
@@ -225,7 +225,7 @@ function HeaderSearch() {
                      </p>
                   </button>
                   <button
-                     className="flex bg-[#e41c5a] rounded-full h-[50px] w-[50px] items-center p-4 relative md:w-auto"
+                     className="flex bg-airbnb-pink hover:bg-airbnb-dark-pink rounded-full h-[50px] w-[50px] items-center p-4 relative md:w-auto"
                      onClick={searchLocation}
                   >
                      <MagnifyingGlassIcon className="h-5 w-5 text-white cursor-pointer mx-auto font-extrabold" />

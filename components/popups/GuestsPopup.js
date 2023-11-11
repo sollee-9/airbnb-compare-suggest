@@ -27,7 +27,7 @@ function GuestsPopup({
          className="border border-gray-200 flex-col bg-white rounded-[30px] shadow-lg items-center p-8 
             w-[96%] h-[380px] sm:h-auto sm:absolute sm:top-[70px] sm:right-0 sm:p-6 sm:w-[400px]"
       >
-         <h2 className="flex sm:hidden font-bold text-xl text-[#222222] mb-4">
+         <h2 className="flex sm:hidden font-bold text-xl text-theme-black mb-4">
             Who's coming?
          </h2>
          <GuestsPopupSection

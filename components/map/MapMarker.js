@@ -53,12 +53,12 @@ function MapMarker({ searchResults }) {
                         </div>
                         <div className="flex-col p-4">
                            <div className="flex justify-between items-start">
-                              <h2 className="text-[#222222] text-[15px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">
+                              <h2 className="text-theme-black text-[15px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">
                                  {room.location}
                               </h2>
                               <div className="flex items-center">
                                  <StarIcon className="h-3 ml-3 mr-1" />
-                                 <p className="text-[#222222] text-[15px] font-light">
+                                 <p className="text-theme-black text-[15px] font-light">
                                     {room.star}
                                  </p>
                               </div>
@@ -67,11 +67,11 @@ function MapMarker({ searchResults }) {
                               {room.title}
                            </p>
                            <div className="flex">
-                              <p className="text-[#222222] font-medium text-[15px]">{`${
+                              <p className="text-theme-black font-medium text-[15px]">{`${
                                  room.price.split(" ")[0]
                               }`}</p>
                               &nbsp;
-                              <p className="text-[#222222] text-[15px] font-light">
+                              <p className="text-theme-black text-[15px] font-light">
                                  {" "}
                                  night
                               </p>

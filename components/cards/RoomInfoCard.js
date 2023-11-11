@@ -35,12 +35,12 @@ function RoomInfoCard({
             />
          </div>
          <div className="flex justify-between items-start mt-2">
-            <h2 className="text-[#222222] text-[15px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">
+            <h2 className="text-theme-black text-[15px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">
                {location}
             </h2>
             <div className="flex items-center">
                <StarIcon className="h-3 ml-3 mr-1" />
-               <p className="text-[#222222] text-[15px] font-light">
+               <p className="text-theme-black text-[15px] font-light">
                   {star}
                </p>
             </div>
@@ -49,11 +49,11 @@ function RoomInfoCard({
             {title}
          </p>
          <div className="flex">
-            <p className="text-[#222222] font-medium text-[15px]">{`${
+            <p className="text-theme-black font-medium text-[15px]">{`${
                price.split(" ")[0]
             }`}</p>
             &nbsp;
-            <p className="text-[#222222] text-[15px] font-light">
+            <p className="text-theme-black text-[15px] font-light">
                {" "}
                night ·
             </p>
