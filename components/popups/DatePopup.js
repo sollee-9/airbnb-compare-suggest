@@ -87,6 +87,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
                staticRanges={[]}
                inputRanges={[]}
                rangeColors={["#ffffff"]}
+               showMonthArrow={false}
             />
          </div>
 
