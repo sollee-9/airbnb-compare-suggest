@@ -9,7 +9,7 @@ export const wishtlistParisLocations = [
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-16729935/original/52d7887e-6766-42a6-b914-eae6e8d6d850.jpeg?im_w=960",
-      title: "Apartment in Passy",
+      title: "Apartment in Place Vendôme",
       description: "Bel appartement haussmannien",
       beds: 4,
       star: 4.91,
@@ -50,8 +50,8 @@ export const wishtlistParisLocations = [
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-43787426/original/506275db-579c-4b3c-95b1-24d3cc6d8327.jpeg?im_w=960",
-      title: "Entire rental unit in Paris, France",
-      description: "Apartment Seine/Notre Dame - Balcony Unique View",
+      title: "Loft in Folie-Méricourt",
+      description: "Apartment with unique balcony & terrace view",
       beds: 1,
       star: 4.92,
       reviews: 293,

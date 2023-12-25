@@ -1,11 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import LocationInfoCard from "../cards/LocationInfoCard";
+import LocationInfoCard from "../compare/LocationInfoCard";
 import { useSearchParams } from "next/navigation";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import { HomeIcon } from "@heroicons/react/24/outline";
-import WishListRooms from "../cards/WishlistRooms";
+import WishListRooms from "../compare/WishlistRooms";
 // Data
 import { wishlistDestinationsData } from "../../data/wishlistDestinationsData";
 import { wishtlistParisLocations } from "../../data/wishlistParisLocations";
