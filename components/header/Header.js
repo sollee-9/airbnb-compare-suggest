@@ -1,15 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import {
-   MagnifyingGlassIcon,
-   UserCircleIcon,
-} from "@heroicons/react/24/solid";
-import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 import HeaderSearch from "./HeaderSearch";
 import MobileHeader from "../mobile/MobileHeader";
+import HeaderAccount from "./HeaderAccount";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -111,17 +108,7 @@ function Header() {
                   />
                </div>
 
-               <div className="flex items-center space-x-4 justify-end text-[##222222] text-sm">
-                  <p className="hidden lg:inline cursor-pointer">
-                     Airbnb your home
-                  </p>
-                  <GlobeAltIcon className="hidden md:flex h-6 cursor-pointer" />
-
-                  <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
-                     <Bars3Icon className="h-6" />
-                     <UserCircleIcon className="h-6" />
-                  </div>
-               </div>
+               <HeaderAccount />
             </header>
          ) : (
             // Open Search on selection == "search" (Laptop or Mobile)

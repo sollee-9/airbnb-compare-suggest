@@ -5,6 +5,7 @@ import { Bars3Icon, GlobeAltIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { setSelection } from "../../app/GlobalRedux/Features/selection/selectionSlice";
+import HeaderAccount from "./HeaderAccount";
 
 function HeaderSearchTop() {
    const [toggleCategory, setToggleCategory] = useState("Stays");
@@ -74,20 +75,7 @@ function HeaderSearchTop() {
          </div>
 
          {/* Right */}
-         <div
-            className="hidden sm:flex items-center space-x-4 text-theme-black text-sm"
-            onClick={() => dispatch(setSelection("search"))}
-         >
-            <p className="hidden lg:inline cursor-pointer">
-               Airbnb your home
-            </p>
-            <GlobeAltIcon className="h-5 cursor-pointer" />
-
-            <div className="flex items-center space-x-2 border-2 p-2 rounded-full">
-               <Bars3Icon className="h-6" />
-               <UserCircleIcon className="h-6" />
-            </div>
-         </div>
+         <HeaderAccount />
       </div>
    );
 }
