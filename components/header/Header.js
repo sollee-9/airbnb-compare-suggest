@@ -7,6 +7,7 @@ import { useSearchParams } from "next/navigation";
 import HeaderSearch from "./HeaderSearch";
 import MobileHeader from "../mobile/MobileHeader";
 import HeaderAccount from "./HeaderAccount";
+import HeaderSearchFields from "./HeaderSearchFields";
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -16,7 +17,7 @@ import {
 // Helpers
 import { formatDateRange } from "../../helpers/datesHelper";
 
-function Header() {
+function Header({ searchFields = true }) {
    //Redux
    const selection = useSelector(getSelection);
    const dispatch = useDispatch();
@@ -66,47 +67,7 @@ function Header() {
                   />
                </button>
 
-               <div
-                  className="sm:h-[50px] sm:flex items-center border-[1px] shadow-md rounded-full py-2
-               border-[#dedede] min-w-[370px] max-w-[450px] px-2 md:px-0"
-               >
-                  <button
-                     className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm 
-                    text-ellipsis	whitespace-nowrap overflow-hidden"
-                     onClick={() => dispatch(setSelection("where"))}
-                  >
-                     {location ? location : "Anywhere"}
-                  </button>
-                  <button
-                     className="text-[#242424] font-medium border-r-[1px] px-4 flex-grow text-sm text-ellipsis	
-                     whitespace-nowrap overflow-hidden"
-                     onClick={() =>
-                        dispatch(setSelection("check-in"))
-                     }
-                  >
-                     {dateRange === "" ? "Any week" : dateRange}
-                  </button>
-                  <button
-                     onClick={() => dispatch(setSelection("who"))}
-                     className={`pl-4 pr-1 flex-grow text-sm text-ellipsis whitespace-nowrap overflow-hidden
-               ${
-                  guests
-                     ? `text-[#242424] font-medium`
-                     : `text-[#7a7a7a]`
-               }`}
-                  >
-                     {!guests
-                        ? "Add guests"
-                        : guests > 1
-                        ? `${guests} guests`
-                        : "1 guest"}
-                  </button>
-                  <MagnifyingGlassIcon
-                     onClick={() => dispatch(setSelection("search"))}
-                     className="inline-flex h-8 bg-airbnb-pink hover:bg-airbnb-dark-pink text-white rounded-full p-2 cursor-pointer 
-                     mx-auto md:mx-2 font-extrabold"
-                  />
-               </div>
+               {searchFields && <HeaderSearchFields />}
 
                <HeaderAccount />
             </header>
@@ -116,11 +77,13 @@ function Header() {
          )}
 
          {/* Display Mobile Header on mobile view */}
-         <MobileHeader
-            location={location}
-            dates={dateRange}
-            guests={guests}
-         />
+         {searchFields && (
+            <MobileHeader
+               location={location}
+               dates={dateRange}
+               guests={guests}
+            />
+         )}
       </>
    );
 }

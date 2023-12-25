@@ -34,7 +34,6 @@ function MobileSearchPopup({
 
    // Search: push query URL
    const searchLocation = () => {
-      console.log("search!");
       router.push(
          `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
       );

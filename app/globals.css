@@ -32,4 +32,8 @@
    .bg-airbnb-dark-pink {
       @apply bg-[#e51e53];
    }
+
+   .dropdow-buttons {
+      @apply flex px-4 py-3 hover:bg-gray-100;
+   }
 }
