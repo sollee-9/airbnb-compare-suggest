@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
@@ -43,7 +43,16 @@ function Header({ searchFields = true }) {
 
    const goToHome = () => {
       router.push("/");
+      dispatch(setSelection(""));
    };
+
+   useEffect(() => {
+      if (selection == "") {
+         document.body.style.overflow = "scroll";
+      } else {
+         document.body.style.overflow = "hidden";
+      }
+   });
 
    return (
       <>

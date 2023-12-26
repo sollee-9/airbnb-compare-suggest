@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import {
    SparklesIcon,
@@ -29,6 +29,14 @@ function Compare() {
    const goToWisthlistLocation = () => {
       router.push("/wishlist?location=Paris");
    };
+
+   useEffect(() => {
+      if (dropdown) {
+         document.body.style.overflow = "hidden";
+      } else {
+         document.body.style.overflow = "scroll";
+      }
+   }, [dropdown]);
 
    return (
       <div className="w-[100%] relative">
