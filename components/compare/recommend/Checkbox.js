@@ -17,7 +17,7 @@ function CheckboxCustom({ label }) {
                transform: "scale(1.2)",
             }}
          />
-         <p className="font-light">{label}</p>
+         <p className="font-light text-[15px]">{label}</p>
       </div>
    );
 }

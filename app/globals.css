@@ -40,4 +40,8 @@
    .comparison-p {
       @apply text-sm break-words w-[350px] my-2;
    }
+
+   .icon-spacing {
+      @apply mr-2;
+   }
 }

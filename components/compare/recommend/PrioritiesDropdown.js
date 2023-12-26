@@ -4,7 +4,7 @@ import {
    features,
    safety,
    accessibility,
-} from "../../data/prioritiesList";
+} from "../../../data/prioritiesList";
 import CheckboxPane from "./CheckboxPane";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
@@ -22,7 +22,7 @@ function PrioritiesDropdown({ setDropdown }) {
 
    return (
       <div
-         className="absolute border bg-white rounded-2xl h-[500px] w-[75%] shadow-xl z-50
+         className="absolute border bg-white rounded-2xl h-[500px] w-[75%] max-w-[800px] shadow-xl z-50
         top-4 flex-col flex left-0 right-0 mr-auto ml-auto"
       >
          <div className="flex w-[100%] p-5 border-b-[1px]">

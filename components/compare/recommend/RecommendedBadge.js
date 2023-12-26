@@ -4,16 +4,16 @@ import MilitaryTechRoundedIcon from "@mui/icons-material/MilitaryTechRounded";
 
 function RecommendedBadge() {
    return (
-      <div className="flex justify-center items-center mb-2">
+      <div className="flex justify-center items-center">
          <MilitaryTechRoundedIcon
             fontSize="large"
-            sx={{ color: "#fd5a5d" }}
+            sx={{ color: "#e51e53" }}
          />
-         <p className="text-md text-[#fd5a5d]">Recommended</p>
+         <p className="text-md text-[#e51e53]">Recommended</p>
          <button className="cursor-pointer group relative">
             <InformationCircleIcon className="h-4 ml-1 text-gray-400" />
 
-            <div className="absolute top-4 left-0 shadow-xl bg-white rounded-sm p-2 w-[180px] hidden group-hover:block">
+            <div className="absolute top-4 left-0 shadow-xl bg-white rounded-md p-3 w-[180px] hidden group-hover:block">
                <p className="text-xs text-left">
                   This property was recommended based on the priority
                   settings you selected

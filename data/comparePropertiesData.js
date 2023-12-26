@@ -12,6 +12,12 @@ export const comparePropertiesData = [
       complaint:
          "Guests complained about lack of accessibility of bathroom & shower",
       walkToStation: 4,
+      walkToAttraction: 6,
+      nearestAttraction: "Eiffel Tower",
+      driveToAirport: 25,
+      ac: false,
+      wifi: true,
+      washer: true,
    },
    {
       title: "Loft in Folie-Méricourt",
@@ -23,5 +29,11 @@ export const comparePropertiesData = [
       praise: "Guests praised the clean rooms, which have mini bars ",
       complaint: "Some guests complained about the furniture",
       walkToStation: 4,
+      walkToAttraction: 13,
+      nearestAttraction: "Eiffel Tower",
+      driveToAirport: 18,
+      ac: true,
+      wifi: true,
+      washer: false,
    },
 ];

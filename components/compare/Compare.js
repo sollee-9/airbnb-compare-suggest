@@ -5,22 +5,23 @@ import {
    SparklesIcon,
    ArrowUpTrayIcon,
    EllipsisHorizontalIcon,
-   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/solid";
-import TrainIcon from "@mui/icons-material/Train";
 import { useRouter } from "next/navigation";
 import { comparePropertiesData } from "../../data/comparePropertiesData";
-import ComparedPropertyCard from "./ComparedPropertyCard";
-import PrioritiesDropdown from "./PrioritiesDropdown";
+import ComparedPropertyCard from "./comparedComponents/ComparedPropertyCard";
+import PrioritiesDropdown from "./recommend/PrioritiesDropdown";
 import { useSearchParams } from "next/navigation";
-import RecommendedBadge from "./RecommendedBadge";
+import RecommendedBadge from "./recommend/RecommendedBadge";
+import Summary from "./comparedSections/Summary";
+import Transportations from "./comparedSections/Transportations";
+import Amenities from "./comparedSections/Amenities";
 
 function Compare() {
    const router = useRouter();
    const params = useSearchParams();
 
    const [dropdown, setDropdown] = useState(false);
+
    const recommended = params.get("recommended");
 
    const property1 = comparePropertiesData[0];
@@ -61,10 +62,11 @@ function Compare() {
             </div>
             <div className="flex items-baseline">
                <button
-                  className="flex relative justify-center items-center border rounded-full h-10 px-2"
+                  className="flex relative justify-center items-center border rounded-full h-10 px-2
+                  border-[#dddddd] hover:border-[#222222] hover:bg-[#f2f2f2] ease-in-out duration-200"
                   onClick={() => setDropdown(!dropdown)}
                >
-                  <SparklesIcon className="h-4 mr-1" />
+                  <SparklesIcon className="h-4 icon-spacing" />
                   <p className="text-sm">Set Priorities</p>
                </button>
                <button className="mx-4">
@@ -104,113 +106,24 @@ function Compare() {
                   </div>
                )}
 
-               {/* Summary */}
                <div>
-                  <h1 className="text-lg font-medium mt-2">
-                     Summary
-                  </h1>
-                  <hr className="my-2" />
-                  <div className="flex flex-col">
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {property1.description}
-                        </p>
+                  {/* Summary */}
+                  <Summary
+                     property1={property1}
+                     property2={property2}
+                  />
 
-                        <p className="comparison-p">
-                           {property2.description}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {`$${property1.price} USD/night`}
-                        </p>
+                  {/* Transportation */}
+                  <Transportations
+                     property1={property1}
+                     property2={property2}
+                  />
 
-                        <p className="comparison-p">
-                           {`$${property2.price} USD/night`}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p flex">
-                           <StarIcon className="h-5" />
-                           {property1.stars}
-                        </p>
-
-                        <p className="comparison-p flex">
-                           <StarIcon className="h-5" />
-                           {property2.stars}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {property1.praise}
-                        </p>
-
-                        <p className="comparison-p">
-                           {property2.praise}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {property1.complaint}
-                        </p>
-
-                        <p className="comparison-p">
-                           {property2.complaint}
-                        </p>
-                     </div>
-                  </div>
-                  <h1 className="text-lg font-medium mt-2">
-                     Transportation
-                  </h1>
-                  <hr className="my-2" />
-                  <div className="flex flex-col">
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p flex">
-                           <TrainIcon />
-                           {`${property1.walkToStation}  min walk to nearest station`}
-                        </p>
-
-                        <p className="comparison-p flex">
-                           {`${property2.walkToStation}  min walk to nearest station`}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {`$${property1.price} USD/night`}
-                        </p>
-
-                        <p className="comparison-p">
-                           {`$${property2.price} USD/night`}{" "}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p flex">
-                           <StarIcon className="h-5" /> 4.91
-                        </p>
-
-                        <p className="comparison-p flex">
-                           <StarIcon className="h-5" /> 4.8
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {property1.praise}
-                        </p>
-
-                        <p className="comparison-p">
-                           {property2.praise}
-                        </p>
-                     </div>
-                     <div className="flex gap-x-11">
-                        <p className="comparison-p">
-                           {property1.complaint}
-                        </p>
-
-                        <p className="comparison-p">
-                           {property2.complaint}
-                        </p>
-                     </div>
-                  </div>
+                  {/* Amenities */}
+                  <Amenities
+                     property1={property1}
+                     property2={property2}
+                  />
                </div>
             </div>
          </section>

@@ -11,25 +11,29 @@ function WishlistRooms({
    reviews,
    selected,
    selectLocation,
+   compare,
 }) {
    const thisSelected = selected.includes(img);
 
    return (
       <div className="flex flex-col w-[100%] min-h-[300px] mb-4">
-         <div
+         <button
             className="relative w-[100%] aspect-square border-white border-4 shadow-md rounded-[17px] cursor-pointer"
             onClick={() => selectLocation(img, thisSelected)}
+            disabled={!compare}
          >
             <Image
                src={img}
                alt={title}
                fill
                objectFit="cover"
-               className={`rounded-xl  hover:opacity-100 ${
-                  thisSelected ? "opacity-100" : "opacity-30"
+               className={`rounded-xl ${
+                  !compare || thisSelected
+                     ? "opacity-100"
+                     : "opacity-30"
                }`}
             />
-         </div>
+         </button>
          <div className="flex justify-between items-start mt-2">
             <h2 className="flex flex-grow justify-between text-theme-black text-[14px] font-medium text-ellipsis overflow-hidden whitespace-nowrap">
                {title}
