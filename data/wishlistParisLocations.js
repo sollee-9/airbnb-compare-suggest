@@ -53,7 +53,7 @@ export const wishtlistParisLocations = [
       title: "Loft in Folie-Méricourt",
       description: "Apartment with unique balcony & terrace view",
       beds: 1,
-      star: 4.92,
+      star: 4.8,
       reviews: 293,
    },
    {
