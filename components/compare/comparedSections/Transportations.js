@@ -9,7 +9,7 @@ function Transportations({ property1, property2 }) {
    return (
       <>
          <ComparisonHeader heading={"Transportation"} />
-         <div className="flex flex-col box-border px-5">
+         <div className="comparison-row-wrapper">
             <ComparisonRow
                property1={`${property1.walkToStation}  min walk to nearest station`}
                property2={`${property2.walkToStation}  min walk to nearest station`}

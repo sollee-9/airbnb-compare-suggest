@@ -14,7 +14,10 @@ import { useSearchParams } from "next/navigation";
 import RecommendedBadge from "./recommend/RecommendedBadge";
 import Summary from "./comparedSections/Summary";
 import Transportations from "./comparedSections/Transportations";
+import Features from "./comparedSections/Features";
 import Amenities from "./comparedSections/Amenities";
+import Security from "./comparedSections/Security";
+import Accessibility from "./comparedSections/Accessibility";
 
 function Compare() {
    const router = useRouter();
@@ -40,7 +43,7 @@ function Compare() {
    }, [dropdown]);
 
    return (
-      <div className="w-[100%] relative">
+      <div className="w-[100%] relative mb-8">
          {dropdown && (
             <>
                <div
@@ -66,7 +69,7 @@ function Compare() {
                   border-[#dddddd] hover:border-[#222222] hover:bg-[#f2f2f2] ease-in-out duration-200"
                   onClick={() => setDropdown(!dropdown)}
                >
-                  <SparklesIcon className="h-4 icon-spacing" />
+                  <SparklesIcon className="h-4 mr-2" />
                   <p className="text-sm">Set Priorities</p>
                </button>
                <button className="mx-4">
@@ -107,20 +110,27 @@ function Compare() {
                )}
 
                <div>
-                  {/* Summary */}
                   <Summary
                      property1={property1}
                      property2={property2}
                   />
-
-                  {/* Transportation */}
                   <Transportations
                      property1={property1}
                      property2={property2}
                   />
-
-                  {/* Amenities */}
                   <Amenities
+                     property1={property1}
+                     property2={property2}
+                  />
+                  <Features
+                     property1={property1}
+                     property2={property2}
+                  />
+                  <Security
+                     property1={property1}
+                     property2={property2}
+                  />
+                  <Accessibility
                      property1={property1}
                      property2={property2}
                   />

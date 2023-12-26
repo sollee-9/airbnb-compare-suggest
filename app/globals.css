@@ -42,6 +42,10 @@
    }
 
    .icon-spacing {
-      @apply mr-2;
+      @apply mr-6;
+   }
+
+   .comparison-row-wrapper {
+      @apply flex flex-col box-border;
    }
 }

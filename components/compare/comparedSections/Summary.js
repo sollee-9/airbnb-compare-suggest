@@ -7,7 +7,7 @@ function Summary({ property1, property2 }) {
    return (
       <>
          <ComparisonHeader heading={"Summary"} />
-         <div className="flex flex-col box-border px-5">
+         <div className="comparison-row-wrapper">
             <ComparisonRow
                property1={property1.description}
                property2={property2.description}
