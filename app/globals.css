@@ -48,4 +48,8 @@
    .comparison-row-wrapper {
       @apply flex flex-col box-border;
    }
+
+   .amenities-button {
+      @apply w-[185px] h-[100px] rounded-lg shadow-md border flex flex-col items-start justify-between p-4 pt-6 hover:scale-105 ease-in-out duration-200 text-lg text-left;
+   }
 }

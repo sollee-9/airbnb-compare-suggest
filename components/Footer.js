@@ -52,7 +52,7 @@ function Footer() {
                </div>
 
                <p className="md:hidden lg:flex mr-6 text-sm text-[#2b2b2b] font-medium">
-                  ₩ KRW
+                  $ USD
                </p>
                <SocialIcon
                   network="facebook"
