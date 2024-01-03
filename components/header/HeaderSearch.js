@@ -72,6 +72,9 @@ function HeaderSearch() {
 
    // Search: push query URL
    const searchLocation = () => {
+      if (startDate == null || endDate == null) {
+         return;
+      }
       router.push(
          `/search?location=${searchInput}&startDate=${startDate}&endDate=${endDate}&numAdults=${numAdults}&numChildren=${numChildren}&numInfants=${numInfants}&numPets=${numPets}`
       );
