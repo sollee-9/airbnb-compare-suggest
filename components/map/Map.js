@@ -6,8 +6,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import MapMarker from "./MapMarker";
 
 function MapArea({ searchResults }) {
-   const [selectedLong, setSelectedLong] = useState(0);
-
    const coordinates = searchResults.map((results) => ({
       longitude: results.long,
       latitude: results.lat,
@@ -22,10 +20,6 @@ function MapArea({ searchResults }) {
       longitude: center.longitude,
       zoom: 11,
    });
-
-   useEffect(() => {
-      setSelectedLong(selectedLong);
-   }, []);
 
    return (
       <Map

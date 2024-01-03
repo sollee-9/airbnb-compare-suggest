@@ -50,7 +50,7 @@ function DatePopup({ startDate, endDate, setStartDate, setEndDate }) {
           sm:absolute sm:top-[70px] sm:left-[5] sm:w-fit sm:h-fit sm:rounded-[30px] sm:p-1"
       >
          <h2 className="flex w-full sm:hidden font-bold text-xl text-theme-black pt-8 px-8 pb-2">
-            When's your trip?
+            When&apos;s your trip?
          </h2>
          {/* Buttons */}
          <div className="flex justify-center">

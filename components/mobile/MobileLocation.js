@@ -43,7 +43,7 @@ function MobileLocation({ searchInput, setSearchInput }) {
                   />
                </div>
                <h4 className="text-sm font-light mt-2">
-                  I'm flexible
+                  I&apos;m flexible
                </h4>
             </div>
             <div>
@@ -115,7 +115,7 @@ function MobileLocation({ searchInput, setSearchInput }) {
                ? searchInput
                : location
                ? location
-               : "I'm flexible"
+               : "I&apos;m flexible"
          }
       />
    );

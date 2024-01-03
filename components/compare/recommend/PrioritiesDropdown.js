@@ -32,7 +32,7 @@ function PrioritiesDropdown({ setDropdown }) {
 
             <div className="flex flex-grow justify-center">
                <h1 className="font-medium">
-                  Tell us what's important to you
+                  Tell us what&apos;s important to you
                </h1>
             </div>
          </div>

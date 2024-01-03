@@ -19,8 +19,8 @@ function MapMarker({ searchResults }) {
                >
                   <button
                      onClick={() => setRoomSelected(room.long)}
-                     className={`absolute  rounded-full border-[1px] border-gray-300 shadow-md font-medium text-[16px]
-                        hover:scale-110 hover:z-50 -z-50 transition duration-200 ease-out px-3 py-2 whitespace-nowrap ${
+                     className={`absolute  rounded-full border-[1px] border-gray-300 shadow-md font-medium text-[14px]
+                        hover:scale-110 hover:z-50 -z-50 transition duration-200 ease-out px-2 py-1 whitespace-nowrap ${
                            room.long === roomSelected
                               ? "bg-black text-white"
                               : "bg-white text-black"
