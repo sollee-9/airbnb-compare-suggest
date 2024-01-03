@@ -17,8 +17,9 @@ const getCardsData = async () => {
    return exploreData;
 };
 
-async function Options() {
-   const cardsData = await getCardsData();
+const cardsData = await getCardsData();
+
+function Options() {
    return (
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
          <section className="pt-6">

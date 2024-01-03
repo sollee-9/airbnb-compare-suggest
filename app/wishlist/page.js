@@ -2,19 +2,22 @@ import React from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/header/Header";
 import WishlistContent from "../../components/wishlist/WishlistContent";
+import { Providers } from "../GlobalRedux/providers";
 
 async function Wishlist() {
    return (
-      <div className="flex flex-col">
-         {/* Header */}
-         <Header searchFields={false} />
+      <Providers>
+         <div className="flex flex-col">
+            {/* Header */}
+            <Header searchFields={false} />
 
-         {/* Wishlist */}
-         <WishlistContent />
+            {/* Wishlist */}
+            <WishlistContent />
 
-         {/* Footer */}
-         <Footer />
-      </div>
+            {/* Footer */}
+            <Footer />
+         </div>
+      </Providers>
    );
 }
 
