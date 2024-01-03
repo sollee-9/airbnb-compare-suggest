@@ -3,7 +3,7 @@ import React from "react";
 import RoomInfoCard from "../components/cards/RoomInfoCard";
 import Map from "../components/map/Map";
 import { useSearchParams } from "next/navigation";
-import { roomsData } from "../data/roomsData";
+import { parisLocations } from "../data/parisLocations";
 
 function RoomResults() {
    const params = useSearchParams();
@@ -21,7 +21,7 @@ function RoomResults() {
                   {`Over 1,000 places in ${location}`}
                </p>
                <div className="px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-[100%] gap-8 gap-x-6">
-                  {roomsData.map(
+                  {parisLocations.map(
                      ({
                         img,
                         location,
@@ -57,7 +57,7 @@ function RoomResults() {
              sm:hidden 
              md:order-2 md:flex md:w-[45%] md:max-w-[550px] md:h-[1400px]"
             >
-               <Map searchResults={roomsData} />
+               <Map searchResults={parisLocations} />
             </section>
          </main>
       </div>

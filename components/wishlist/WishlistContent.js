@@ -12,7 +12,7 @@ import BalanceOutlinedIcon from "@mui/icons-material/BalanceOutlined";
 import WishListRooms from "./WishlistRooms";
 // Data
 import { wishlistDestinationsData } from "../../data/wishlistDestinationsData";
-import { wishtlistParisLocations } from "../../data/wishlistParisLocations";
+import { parisLocations } from "../../data/parisLocations";
 
 function WishlistContent() {
    const params = useSearchParams();
@@ -129,7 +129,7 @@ function Location({ location }) {
             )}
          </section>
          <section className="grid grid-cols-4 gap-x-6">
-            {wishtlistParisLocations?.map(
+            {parisLocations?.map(
                ({ img, title, description, beds, star, reviews }) => (
                   <WishListRooms
                      key={img}

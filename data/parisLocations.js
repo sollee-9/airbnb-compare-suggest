@@ -1,4 +1,4 @@
-export const wishtlistParisLocations = [
+export const parisLocations = [
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-990389216553095299/original/3bc180af-2e54-4031-a10b-7c998cfe928a.jpeg?im_w=960",
       title: "Hotel room in Palais-Bourbon",
@@ -6,6 +6,10 @@ export const wishtlistParisLocations = [
       beds: 4,
       star: 4.9,
       reviews: 121,
+      price: "$743 / night",
+      total: "$2,230 total",
+      lat: 48.86392,
+      long: 2.36103,
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-16729935/original/52d7887e-6766-42a6-b914-eae6e8d6d850.jpeg?im_w=960",
@@ -14,6 +18,10 @@ export const wishtlistParisLocations = [
       beds: 4,
       star: 4.91,
       reviews: 306,
+      price: "$513 / night",
+      total: "$1,539 total",
+      lat: 48.85756,
+      long: 2.33054,
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-918253956473969364/original/dee88bd2-1f9b-4805-8753-9a9a690ce5bf.jpeg?im_w=960",
@@ -22,6 +30,10 @@ export const wishtlistParisLocations = [
       beds: 3,
       star: 4.91,
       reviews: 137,
+      price: "$483 / night",
+      total: "$1,450 total",
+      lat: 48.858,
+      long: 2.31087,
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-49482216/original/15dcfdd4-ac30-40f1-80a8-66d5175670cc.jpeg?im_w=960",
@@ -30,6 +42,10 @@ export const wishtlistParisLocations = [
       beds: 2,
       star: 5.0,
       reviews: 97,
+      price: "$604 / night",
+      total: "$1,813 total",
+      lat: 48.86053,
+      long: 2.34344,
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-588302148367299476/original/1307a591-499e-410a-ad9e-a841cb59cff1.jpeg?im_w=1200",
@@ -38,6 +54,10 @@ export const wishtlistParisLocations = [
       beds: 3,
       star: 5.0,
       reviews: 13,
+      price: "$322 / night",
+      total: "$965 total",
+      lat: 48.85809,
+      long: 2.32361,
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-631154213461762756/original/61565b09-fc0b-43a7-a489-4a8ec30219ce.jpeg?im_w=960",
@@ -47,6 +67,10 @@ export const wishtlistParisLocations = [
       beds: 2,
       star: 4.91,
       reviews: 74,
+      price: "$443 / night",
+      total: "$1,328 total",
+      lat: 48.87114,
+      long: 2.31812,
    },
    {
       img: "https://a0.muscache.com/im/pictures/miso/Hosting-43787426/original/506275db-579c-4b3c-95b1-24d3cc6d8327.jpeg?im_w=960",
@@ -55,6 +79,10 @@ export const wishtlistParisLocations = [
       beds: 1,
       star: 4.8,
       reviews: 293,
+      price: "$549 / night",
+      total: "$1,647 total",
+      lat: 48.85257,
+      long: 2.31264,
    },
    {
       img: "https://a0.muscache.com/im/pictures/2fd852bd-3705-45db-b9b5-4ff0828f710d.jpg?im_w=960",
@@ -63,5 +91,9 @@ export const wishtlistParisLocations = [
       beds: 1,
       star: 4.9,
       reviews: 21,
+      price: "$372 / night",
+      total: "$1,115 total",
+      lat: 48.84292,
+      long: 2.34521,
    },
 ];
