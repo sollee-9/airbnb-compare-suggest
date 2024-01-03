@@ -19,10 +19,15 @@ function MapMarker({ searchResults }) {
                >
                   <button
                      onClick={() => setRoomSelected(room.long)}
-                     className="absolute bg-white rounded-full border-[1px] border-gray-300 w-12 h-7 shadow-md font-medium text-[14px]
-              hover:scale-110 hover:z-50 -z-50 transition duration-200 ease-out"
+                     className={`absolute  rounded-full border-[1px] border-gray-300 shadow-md font-medium text-[16px]
+                        hover:scale-110 hover:z-50 -z-50 transition duration-200 ease-out px-3 py-2 whitespace-nowrap ${
+                           room.long === roomSelected
+                              ? "bg-black text-white"
+                              : "bg-white text-black"
+                        }`}
                   >
                      {room.total.slice(0, -5)}
+                     {"  "}USD
                   </button>
                </Marker>
 
@@ -34,7 +39,7 @@ function MapMarker({ searchResults }) {
                      longitude={room.long}
                   >
                      <div className="flex flex-col w-[100%] min-h-[300px]">
-                        <div className="relative w-[100%] aspect-[6/4]">
+                        <div className="relative w-[100%] h-[250px]">
                            <Image
                               src={room.img}
                               alt={room.title}
@@ -44,7 +49,7 @@ function MapMarker({ searchResults }) {
                            />
                            <HeartIcon
                               onClick={() => setHearted(!hearted)}
-                              className={`cursor-pointer absolute h-6 right-4 top-4 ${
+                              className={`cursor-pointer absolute h-9 right-5 top-4 ${
                                  hearted
                                     ? "text-[#ff395c]"
                                     : "text-[rgba(0,0,0,0.5)]"
@@ -53,26 +58,26 @@ function MapMarker({ searchResults }) {
                         </div>
                         <div className="flex-col p-4">
                            <div className="flex justify-between items-start">
-                              <h2 className="text-theme-black text-[15px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">
+                              <h2 className="text-theme-black text-[18px] font-medium text-ellipsis whitespace-nowrap overflow-hidden">
                                  {room.title}
                               </h2>
                               <div className="flex items-center">
                                  <StarIcon className="h-3 ml-3 mr-1" />
-                                 <p className="text-theme-black text-[15px] font-light">
+                                 <p className="text-theme-black text-[18px] font-light whitespace-nowrap">
                                     {room.star}
+                                    {"  "} {`(${room.reviews})`}
                                  </p>
                               </div>
                            </div>
-                           <p className="text-[#727272] text-[15px] font-light leading-5 my-1">
+                           <p className="text-[#727272] text-[18px] font-light text-ellipsis whitespace-nowrap overflow-hidden my-2">
                               {room.description}
                            </p>
-                           <div className="flex">
-                              <p className="text-theme-black font-medium text-[15px]">{`${
+                           <div className="flex items-baseline text-[18px] mb-1">
+                              <p className="text-theme-black font-medium">{`${
                                  room.price.split(" ")[0]
-                              }`}</p>
+                              }   USD`}</p>
                               &nbsp;
-                              <p className="text-theme-black text-[15px] font-light">
-                                 {"/ "}
+                              <p className="text-theme-black font-light">
                                  night
                               </p>
                            </div>

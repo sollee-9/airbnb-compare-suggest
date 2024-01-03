@@ -53,3 +53,23 @@
       @apply w-[185px] h-[100px] rounded-lg shadow-md border flex flex-col items-start justify-between p-4 pt-6 hover:scale-105 ease-in-out duration-200 text-lg text-left;
    }
 }
+
+.mapboxgl-popup-content {
+   padding: 0 !important;
+   border-radius: 12px !important;
+   width: 400px !important;
+}
+
+.mapboxgl-popup-close-button {
+   top: 18px !important;
+   left: 20px !important;
+   color: white !important;
+   width: 33px !important;
+   height: 33px !important;
+   background-color: rgba(0, 0, 0, 0.4) !important;
+   border-radius: 100% !important;
+   font-size: 22px !important;
+   display: flex !important;
+   justify-content: center !important;
+   padding-top: 4px !important;
+}
