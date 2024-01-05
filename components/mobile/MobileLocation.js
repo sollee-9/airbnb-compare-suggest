@@ -115,7 +115,7 @@ function MobileLocation({ searchInput, setSearchInput }) {
                ? searchInput
                : location
                ? location
-               : "I&apos;m flexible"
+               : "I'm flexible"
          }
       />
    );
