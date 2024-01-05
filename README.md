@@ -1,11 +1,13 @@
 # Airbnb Compare & Suggest
 
 ### Project Details
-- [Live Build](https://airbnb-compare-suggest.vercel.app/)
-- [Slide Deck](https://docs.google.com/presentation/d/1a5u2axo72tE5sZVMumQnno3DuJodIQFavJFw7d_DulM/edit?usp=sharing)
-- [Figma High-Fidelity Prototype](https://www.figma.com/proto/8ZCEB0jFDlNvPdyBinYMUR/Airbnb-Compare-Interactive-Prototype?type=design&node-id=1-12&t=xL8wN7l9I018PXnS-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A12&show-proto-sidebar=1)
-  
+
+-  [Live Build](https://airbnb-compare-suggest.vercel.app/)
+-  [Slide Deck](https://docs.google.com/presentation/d/1a5u2axo72tE5sZVMumQnno3DuJodIQFavJFw7d_DulM/edit?usp=sharing)
+-  [Figma High-Fidelity Prototype](https://www.figma.com/proto/8ZCEB0jFDlNvPdyBinYMUR/Airbnb-Compare-Interactive-Prototype?type=design&node-id=1-12&t=xL8wN7l9I018PXnS-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A12&show-proto-sidebar=1)
+
 ### Background
+
 While searching for rooms to book on Airbnb for my upcoming Europe trip, I found myself struggling to decide on the final property to book from my wishlist properties
 Airbnb currently offers the option to filter for properties on initial search; however, once properties have been shortlisted using the Wishlist feature, there is no way to easily compare and narrow down the properties
 
@@ -13,5 +15,12 @@ I found myself opening each of the 30+ wishlisted properties on a separate tab a
 
 This inspired me to prototype the “Compare & Suggest” feature in an attempt to address this user problem
 
+Airbnb Compare & Suggest addresses limitations of the current Wishlist feature users face when deciding on the final property to book from their Wishlist
+
+Using Compare & Suggest, users can effortlessly compare wishlist properties, receive personalized recommendations, and benefit from AI-generated summaries of guest reviews
+
+This solution empowers users with efficient decision-making tools, transforming the Airbnb experience by streamlining property selection and setting a new standard for personalized and efficient travel planning on Airbnb
+
 ### Tech Stack
+
 This project was built with JavaScript, React.js, Next.js, HTML, and Tailwind.css, then deployed on Vercel.
