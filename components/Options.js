@@ -55,11 +55,18 @@ function Options() {
                </button>
                <button className="flex-grow amenities-button">
                   <LocalParkingOutlinedIcon />
-                  Free parking on premises
+                  <span>
+                     <p className="hidden lg:inline">Free parking</p>
+                     <p className="inline lg:hidden">Parking</p>
+                     <p className="hidden xl:inline">
+                        {"  "}on premises
+                     </p>
+                  </span>
                </button>
                <button className="amenities-button">
                   <AcUnitOutlinedIcon />
-                  Air conditioning
+                  <p className="hidden lg:inline">Air conditioning</p>
+                  <p className="inline lg:hidden">AC</p>
                </button>
             </div>
          </section>
