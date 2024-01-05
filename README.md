@@ -1,36 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Airbnb Compare & Suggest
 
-## Getting Started
+### Project Details
+- [Live Build](https://airbnb-compare-suggest.vercel.app/)
+- [Slide Deck](https://docs.google.com/presentation/d/1a5u2axo72tE5sZVMumQnno3DuJodIQFavJFw7d_DulM/edit?usp=sharing)
+- [Figma High-Fidelity Prototype](https://www.figma.com/proto/8ZCEB0jFDlNvPdyBinYMUR/Airbnb-Compare-Interactive-Prototype?type=design&node-id=1-12&t=xL8wN7l9I018PXnS-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A12&show-proto-sidebar=1)
+  
+### Background
+While searching for rooms to book on Airbnb for my upcoming Europe trip, I found myself struggling to decide on the final property to book from my wishlist properties
+Airbnb currently offers the option to filter for properties on initial search; however, once properties have been shortlisted using the Wishlist feature, there is no way to easily compare and narrow down the properties
 
-First, run the development server:
+I found myself opening each of the 30+ wishlisted properties on a separate tab and manually going through each to find the most suitable one, carefully considering criteria such as distance from airport, distance to major tourist attractions, price, guest reviews, and more which proved to be a cumbersome process
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This inspired me to prototype the “Compare & Suggest” feature in an attempt to address this user problem
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Tech Stack
+This project was built with JavaScript, React.js, Next.js, HTML, and Tailwind.css, then deployed on Vercel.
